@@ -1,0 +1,13 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "files.associations": {
+        "functional": "cpp"
+    }
+}

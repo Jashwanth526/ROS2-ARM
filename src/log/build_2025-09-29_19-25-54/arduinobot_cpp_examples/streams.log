@@ -1,0 +1,32 @@
+[0.009s] Invoking command in '/home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples -- -j20 -l20
+[0.051s] [ 33%] Built target simple_subscriber
+[0.053s] [ 50%] [32mBuilding CXX object CMakeFiles/simple_parameter.dir/src/simple_parameter.cpp.o[0m
+[0.054s] [ 66%] [32mBuilding CXX object CMakeFiles/simple_publisher.dir/src/simple_publisher.cpp.o[0m
+[1.792s] [ 83%] [32m[1mLinking CXX executable simple_parameter[0m
+[1.879s] [ 83%] Built target simple_parameter
+[2.524s] [100%] [32m[1mLinking CXX executable simple_publisher[0m
+[2.627s] [100%] Built target simple_publisher
+[2.635s] Invoked command in '/home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples -- -j20 -l20
+[2.636s] Invoking command in '/home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples
+[2.645s] -- Install configuration: ""
+[2.646s] -- Installing: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/lib/arduinobot_cpp_examples/simple_publisher
+[2.648s] -- Set non-toolchain portion of runtime path of "/home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/lib/arduinobot_cpp_examples/simple_publisher" to ""
+[2.649s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/lib/arduinobot_cpp_examples/simple_subscriber
+[2.649s] -- Installing: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/lib/arduinobot_cpp_examples/simple_parameter
+[2.650s] -- Set non-toolchain portion of runtime path of "/home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/lib/arduinobot_cpp_examples/simple_parameter" to ""
+[2.650s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/ament_index/resource_index/package_run_dependencies/arduinobot_cpp_examples
+[2.650s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/ament_index/resource_index/parent_prefix_path/arduinobot_cpp_examples
+[2.650s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/environment/ament_prefix_path.sh
+[2.650s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/environment/ament_prefix_path.dsv
+[2.650s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/environment/path.sh
+[2.650s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/environment/path.dsv
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/local_setup.bash
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/local_setup.sh
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/local_setup.zsh
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/local_setup.dsv
+[2.651s] -- Installing: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/package.dsv
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/ament_index/resource_index/packages/arduinobot_cpp_examples
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/cmake/arduinobot_cpp_examplesConfig.cmake
+[2.651s] -- Up-to-date: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/cmake/arduinobot_cpp_examplesConfig-version.cmake
+[2.651s] -- Installing: /home/jashwanth/arduinobot_ws/src/install/arduinobot_cpp_examples/share/arduinobot_cpp_examples/package.xml
+[2.652s] Invoked command in '/home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/jashwanth/arduinobot_ws/src/build/arduinobot_cpp_examples

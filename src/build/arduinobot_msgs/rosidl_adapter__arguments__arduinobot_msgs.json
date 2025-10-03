@@ -1,0 +1,6 @@
+{
+  "package_name": "arduinobot_msgs",
+  "non_idl_tuples": [
+    "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:srv/AddTwoInts.srv"
+  ]
+}

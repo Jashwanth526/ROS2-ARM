@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "arduinobot_msgs__py",
+		"source" : "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/arduinobot_msgs__py"
+	}
+}

@@ -1,0 +1,45 @@
+[0.480s] Invoking command in '/home/jashwanth/arduinobot_ws/src/arduinobot_py_examples': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/arduinobot_py_examples build --build-base /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build install --record /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/install.log --single-version-externally-managed install_data
+[0.634s] running egg_info
+[0.634s] creating ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info
+[0.644s] writing ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/PKG-INFO
+[0.645s] writing dependency_links to ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/dependency_links.txt
+[0.645s] writing entry points to ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/entry_points.txt
+[0.645s] writing requirements to ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/requires.txt
+[0.645s] writing top-level names to ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/top_level.txt
+[0.645s] writing manifest file '../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/SOURCES.txt'
+[0.667s] reading manifest file '../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/SOURCES.txt'
+[0.667s] writing manifest file '../build/arduinobot_py_examples/arduinobot_py_examples.egg-info/SOURCES.txt'
+[0.667s] running build
+[0.667s] running build_py
+[0.667s] creating /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build
+[0.667s] creating /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib
+[0.668s] creating /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples
+[0.668s] copying arduinobot_py_examples/simple_parameter.py -> /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples
+[0.668s] copying arduinobot_py_examples/simple_publisher.py -> /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples
+[0.668s] copying arduinobot_py_examples/simple_subscriber.py -> /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples
+[0.668s] copying arduinobot_py_examples/__init__.py -> /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples
+[0.668s] running install
+[0.671s] running install_lib
+[0.682s] creating /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples
+[0.682s] copying /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples/simple_parameter.py -> /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples
+[0.682s] copying /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples/simple_publisher.py -> /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples
+[0.682s] copying /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples/simple_subscriber.py -> /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples
+[0.682s] copying /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build/lib/arduinobot_py_examples/__init__.py -> /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples
+[0.682s] byte-compiling /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples/simple_parameter.py to simple_parameter.cpython-312.pyc
+[0.683s] byte-compiling /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples/simple_publisher.py to simple_publisher.cpython-312.pyc
+[0.683s] byte-compiling /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples/simple_subscriber.py to simple_subscriber.cpython-312.pyc
+[0.683s] byte-compiling /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples/__init__.py to __init__.cpython-312.pyc
+[0.683s] running install_data
+[0.683s] creating /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/share/ament_index
+[0.683s] creating /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/share/ament_index/resource_index
+[0.683s] creating /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/share/ament_index/resource_index/packages
+[0.683s] copying resource/arduinobot_py_examples -> /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/share/ament_index/resource_index/packages
+[0.683s] copying package.xml -> /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/share/arduinobot_py_examples
+[0.683s] running install_egg_info
+[0.695s] Copying ../build/arduinobot_py_examples/arduinobot_py_examples.egg-info to /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages/arduinobot_py_examples-0.0.0-py3.12.egg-info
+[0.695s] running install_scripts
+[0.768s] Installing simple_parameter script to /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/arduinobot_py_examples
+[0.769s] Installing simple_publisher script to /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/arduinobot_py_examples
+[0.769s] Installing simple_subscriber script to /home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/arduinobot_py_examples
+[0.769s] writing list of installed files to '/home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/install.log'
+[0.786s] Invoked command in '/home/jashwanth/arduinobot_ws/src/arduinobot_py_examples' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jashwanth/arduinobot_ws/src/install/arduinobot_py_examples/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/arduinobot_py_examples build --build-base /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/build install --record /home/jashwanth/arduinobot_ws/src/build/arduinobot_py_examples/install.log --single-version-externally-managed install_data

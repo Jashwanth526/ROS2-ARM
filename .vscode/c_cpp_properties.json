@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/jazzy/include/**",
+        "/home/jashwanth/arduinobot_ws/src/arduinobot_controller/include/**",
+        "/home/jashwanth/arduinobot_ws/src/arduinobot_cpp_examples/include/**",
+        "/home/jashwanth/arduinobot_ws/src/arduinobot_description/include/**",
+        "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/include/**",
+        "/home/jashwanth/arduinobot_ws/src/arduinobot_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
