@@ -1,9 +1,0 @@
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/uninstall.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/arduinobot_controller_uninstall.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/test.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/edit_cache.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/rebuild_cache.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/list_install_components.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/install.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/install/local.dir
-/home/jashwanth/arduinobot_ws/src/build/arduinobot_controller/CMakeFiles/install/strip.dir

@@ -48,6 +48,6 @@
           </distortion>
         </camera>
     </sensor>   
-</gazebo>
+  </gazebo>
 
 </robot>
