@@ -2,10 +2,9 @@
 <package format="3">
   <name>arduinobot_controller</name>
   <version>0.0.0</version>
-  <description>The arduinobot_controller package</description>
-  <maintainer email="antonio.brandi@outlook.it">Antonio Brandi</maintainer>
-  <license>Apache 2.0</license>
-  <author email="antonio.brandi@outlook.it">Antonio Brandi</author>
+  <description>TODO: Package description</description>
+  <maintainer email="kjashwanthk@gmail.com">jashwanth</maintainer>
+  <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
