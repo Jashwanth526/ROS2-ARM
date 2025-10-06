@@ -310,8 +310,17 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install("TARGETS" "simple_publisher" "simple_subscriber" "simple_parameter" "simple_service_server" "simple_service_client" "DESTINATION" "lib/arduinobot_cpp_examples")
+# install("TARGETS" "simple_action_server_node" "DESTINATION" "lib/arduinobot_cpp_examples")
 include("/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install("TARGETS" "simple_action_client_node" "DESTINATION" "lib/arduinobot_cpp_examples")
+include("/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install("TARGETS" "simple_publisher" "simple_subscriber" "simple_parameter" "simple_service_server" "simple_service_client" "simple_moveit_interface" "DESTINATION" "lib/arduinobot_cpp_examples")
+include("/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install("TARGETS" "simple_action_server" "simple_action_client" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")
+include("/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_symlink_install_targets_3_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_cpp_examples" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_cpp_examples" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_cpp_examples" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
@@ -348,6 +357,9 @@ ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_
 
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/packages/arduinobot_cpp_examples" "DESTINATION" "share/ament_index/resource_index/packages")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_cpp_examples" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/packages/arduinobot_cpp_examples" "DESTINATION" "share/ament_index/resource_index/packages")
+
+# install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/rclcpp_components/arduinobot_cpp_examples" "DESTINATION" "share/ament_index/resource_index/rclcpp_components")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_cpp_examples" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/rclcpp_components/arduinobot_cpp_examples" "DESTINATION" "share/ament_index/resource_index/rclcpp_components")
 
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_core/arduinobot_cpp_examplesConfig.cmake" "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_core/arduinobot_cpp_examplesConfig-version.cmake" "DESTINATION" "share/arduinobot_cpp_examples/cmake")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_cpp_examples" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_core/arduinobot_cpp_examplesConfig.cmake" "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_core/arduinobot_cpp_examplesConfig-version.cmake" "DESTINATION" "share/arduinobot_cpp_examples/cmake")

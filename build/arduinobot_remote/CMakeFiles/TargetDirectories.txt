@@ -1,0 +1,13 @@
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/uninstall.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/arduinobot_remote_uninstall.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/task_server.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/task_server_node.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/ament_cmake_python_copy_arduinobot_remote.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/ament_cmake_python_build_arduinobot_remote_egg.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/test.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/edit_cache.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/rebuild_cache.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/list_install_components.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/install.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/install/local.dir
+/home/jashwanth/arduinobot_ws/build/arduinobot_remote/CMakeFiles/install/strip.dir

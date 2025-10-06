@@ -1,0 +1,74 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 28.1.12 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclpy: 7.1.5 (/opt/ros/jazzy/share/rclpy/cmake)
+-- Found arduinobot_msgs: 0.0.0 (/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/share/arduinobot_msgs/cmake)
+-- Found tf2: 0.36.14 (/opt/ros/jazzy/share/tf2/cmake)
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/jashwanth/arduinobot_ws/build/arduinobot_utils
+[ 50%] [32mBuilding CXX object CMakeFiles/angle_conversion.dir/src/angle_conversion.cpp.o[0m
+[ 50%] Built target ament_cmake_python_symlink_arduinobot_utils
+running egg_info
+creating arduinobot_utils.egg-info
+writing arduinobot_utils.egg-info/PKG-INFO
+writing dependency_links to arduinobot_utils.egg-info/dependency_links.txt
+writing top-level names to arduinobot_utils.egg-info/top_level.txt
+writing manifest file 'arduinobot_utils.egg-info/SOURCES.txt'
+reading manifest file 'arduinobot_utils.egg-info/SOURCES.txt'
+writing manifest file 'arduinobot_utils.egg-info/SOURCES.txt'
+[ 50%] Built target ament_cmake_python_build_arduinobot_utils_egg
+[100%] [32m[1mLinking CXX executable angle_conversion[0m
+[100%] Built target angle_conversion
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/environment/pythonpath.sh
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/environment/pythonpath.dsv
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils-0.0.0-py3.12.egg-info/PKG-INFO
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils-0.0.0-py3.12.egg-info/top_level.txt
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/__init__.py
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/angle_conversion.py
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/arduinobot_utils/angle_conversion
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/arduinobot_utils/angle_conversion.py
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/ament_index/resource_index/package_run_dependencies/arduinobot_utils
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/ament_index/resource_index/parent_prefix_path/arduinobot_utils
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/environment/ament_prefix_path.sh
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/environment/path.sh
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/environment/path.dsv
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/local_setup.bash
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/local_setup.sh
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/local_setup.zsh
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/local_setup.dsv
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/package.dsv
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/ament_index/resource_index/packages/arduinobot_utils
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/cmake/arduinobot_utilsConfig.cmake
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/cmake/arduinobot_utilsConfig-version.cmake
+-- Symlinking: /home/jashwanth/arduinobot_ws/install/arduinobot_utils/share/arduinobot_utils/package.xml
+Listing '/home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils'...
+Compiling '/home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/__init__.py'...
+Compiling '/home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/angle_conversion.py'...

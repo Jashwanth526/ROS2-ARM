@@ -68,6 +68,11 @@ all: CMakeFiles/simple_subscriber.dir/all
 all: CMakeFiles/simple_parameter.dir/all
 all: CMakeFiles/simple_service_server.dir/all
 all: CMakeFiles/simple_service_client.dir/all
+all: CMakeFiles/simple_action_server.dir/all
+all: CMakeFiles/simple_action_server_node.dir/all
+all: CMakeFiles/simple_action_client.dir/all
+all: CMakeFiles/simple_action_client_node.dir/all
+all: CMakeFiles/simple_moveit_interface.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -82,6 +87,11 @@ clean: CMakeFiles/simple_subscriber.dir/clean
 clean: CMakeFiles/simple_parameter.dir/clean
 clean: CMakeFiles/simple_service_server.dir/clean
 clean: CMakeFiles/simple_service_client.dir/clean
+clean: CMakeFiles/simple_action_server.dir/clean
+clean: CMakeFiles/simple_action_server_node.dir/clean
+clean: CMakeFiles/simple_action_client.dir/clean
+clean: CMakeFiles/simple_action_client_node.dir/clean
+clean: CMakeFiles/simple_moveit_interface.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -143,7 +153,7 @@ CMakeFiles/arduinobot_cpp_examples_uninstall.dir/clean:
 CMakeFiles/simple_publisher.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_publisher.dir/build.make CMakeFiles/simple_publisher.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_publisher.dir/build.make CMakeFiles/simple_publisher.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=3,4 "Built target simple_publisher"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=13,14 "Built target simple_publisher"
 .PHONY : CMakeFiles/simple_publisher.dir/all
 
 # Build rule for subdir invocation for target.
@@ -169,7 +179,7 @@ CMakeFiles/simple_publisher.dir/clean:
 CMakeFiles/simple_subscriber.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_subscriber.dir/build.make CMakeFiles/simple_subscriber.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_subscriber.dir/build.make CMakeFiles/simple_subscriber.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=9,10 "Built target simple_subscriber"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=19,20 "Built target simple_subscriber"
 .PHONY : CMakeFiles/simple_subscriber.dir/all
 
 # Build rule for subdir invocation for target.
@@ -195,7 +205,7 @@ CMakeFiles/simple_subscriber.dir/clean:
 CMakeFiles/simple_parameter.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_parameter.dir/build.make CMakeFiles/simple_parameter.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_parameter.dir/build.make CMakeFiles/simple_parameter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=1,2 "Built target simple_parameter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=11,12 "Built target simple_parameter"
 .PHONY : CMakeFiles/simple_parameter.dir/all
 
 # Build rule for subdir invocation for target.
@@ -221,7 +231,7 @@ CMakeFiles/simple_parameter.dir/clean:
 CMakeFiles/simple_service_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_service_server.dir/build.make CMakeFiles/simple_service_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_service_server.dir/build.make CMakeFiles/simple_service_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=7,8 "Built target simple_service_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=17,18 "Built target simple_service_server"
 .PHONY : CMakeFiles/simple_service_server.dir/all
 
 # Build rule for subdir invocation for target.
@@ -247,7 +257,7 @@ CMakeFiles/simple_service_server.dir/clean:
 CMakeFiles/simple_service_client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_service_client.dir/build.make CMakeFiles/simple_service_client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_service_client.dir/build.make CMakeFiles/simple_service_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=5,6 "Built target simple_service_client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=15,16 "Built target simple_service_client"
 .PHONY : CMakeFiles/simple_service_client.dir/all
 
 # Build rule for subdir invocation for target.
@@ -265,6 +275,136 @@ simple_service_client: CMakeFiles/simple_service_client.dir/rule
 CMakeFiles/simple_service_client.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_service_client.dir/build.make CMakeFiles/simple_service_client.dir/clean
 .PHONY : CMakeFiles/simple_service_client.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_action_server.dir
+
+# All Build rule for target.
+CMakeFiles/simple_action_server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_server.dir/build.make CMakeFiles/simple_action_server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_server.dir/build.make CMakeFiles/simple_action_server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=5,6 "Built target simple_action_server"
+.PHONY : CMakeFiles/simple_action_server.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_action_server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_action_server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 0
+.PHONY : CMakeFiles/simple_action_server.dir/rule
+
+# Convenience name for target.
+simple_action_server: CMakeFiles/simple_action_server.dir/rule
+.PHONY : simple_action_server
+
+# clean rule for target.
+CMakeFiles/simple_action_server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_server.dir/build.make CMakeFiles/simple_action_server.dir/clean
+.PHONY : CMakeFiles/simple_action_server.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_action_server_node.dir
+
+# All Build rule for target.
+CMakeFiles/simple_action_server_node.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_server_node.dir/build.make CMakeFiles/simple_action_server_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_server_node.dir/build.make CMakeFiles/simple_action_server_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=7,8 "Built target simple_action_server_node"
+.PHONY : CMakeFiles/simple_action_server_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_action_server_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_action_server_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 0
+.PHONY : CMakeFiles/simple_action_server_node.dir/rule
+
+# Convenience name for target.
+simple_action_server_node: CMakeFiles/simple_action_server_node.dir/rule
+.PHONY : simple_action_server_node
+
+# clean rule for target.
+CMakeFiles/simple_action_server_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_server_node.dir/build.make CMakeFiles/simple_action_server_node.dir/clean
+.PHONY : CMakeFiles/simple_action_server_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_action_client.dir
+
+# All Build rule for target.
+CMakeFiles/simple_action_client.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_client.dir/build.make CMakeFiles/simple_action_client.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_client.dir/build.make CMakeFiles/simple_action_client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=1,2 "Built target simple_action_client"
+.PHONY : CMakeFiles/simple_action_client.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_action_client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_action_client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 0
+.PHONY : CMakeFiles/simple_action_client.dir/rule
+
+# Convenience name for target.
+simple_action_client: CMakeFiles/simple_action_client.dir/rule
+.PHONY : simple_action_client
+
+# clean rule for target.
+CMakeFiles/simple_action_client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_client.dir/build.make CMakeFiles/simple_action_client.dir/clean
+.PHONY : CMakeFiles/simple_action_client.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_action_client_node.dir
+
+# All Build rule for target.
+CMakeFiles/simple_action_client_node.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_client_node.dir/build.make CMakeFiles/simple_action_client_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_client_node.dir/build.make CMakeFiles/simple_action_client_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=3,4 "Built target simple_action_client_node"
+.PHONY : CMakeFiles/simple_action_client_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_action_client_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_action_client_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 0
+.PHONY : CMakeFiles/simple_action_client_node.dir/rule
+
+# Convenience name for target.
+simple_action_client_node: CMakeFiles/simple_action_client_node.dir/rule
+.PHONY : simple_action_client_node
+
+# clean rule for target.
+CMakeFiles/simple_action_client_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_action_client_node.dir/build.make CMakeFiles/simple_action_client_node.dir/clean
+.PHONY : CMakeFiles/simple_action_client_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/simple_moveit_interface.dir
+
+# All Build rule for target.
+CMakeFiles/simple_moveit_interface.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_moveit_interface.dir/build.make CMakeFiles/simple_moveit_interface.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_moveit_interface.dir/build.make CMakeFiles/simple_moveit_interface.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles --progress-num=9,10 "Built target simple_moveit_interface"
+.PHONY : CMakeFiles/simple_moveit_interface.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/simple_moveit_interface.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/simple_moveit_interface.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/CMakeFiles 0
+.PHONY : CMakeFiles/simple_moveit_interface.dir/rule
+
+# Convenience name for target.
+simple_moveit_interface: CMakeFiles/simple_moveit_interface.dir/rule
+.PHONY : simple_moveit_interface
+
+# clean rule for target.
+CMakeFiles/simple_moveit_interface.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_moveit_interface.dir/build.make CMakeFiles/simple_moveit_interface.dir/clean
+.PHONY : CMakeFiles/simple_moveit_interface.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

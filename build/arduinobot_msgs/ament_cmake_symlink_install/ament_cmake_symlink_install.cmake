@@ -322,6 +322,12 @@ ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_type_description/arduinobot_msgs/srv/QuaternionToEuler.json" "DESTINATION" "share/arduinobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_type_description/arduinobot_msgs/srv/QuaternionToEuler.json" "DESTINATION" "share/arduinobot_msgs/srv")
 
+# install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_type_description/arduinobot_msgs/action/Fibonacci.json" "DESTINATION" "share/arduinobot_msgs/action")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_type_description/arduinobot_msgs/action/Fibonacci.json" "DESTINATION" "share/arduinobot_msgs/action")
+
+# install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_type_description/arduinobot_msgs/action/ArduinobotTask.json" "DESTINATION" "share/arduinobot_msgs/action")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_type_description/arduinobot_msgs/action/ArduinobotTask.json" "DESTINATION" "share/arduinobot_msgs/action")
+
 # install(DIRECTORY "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_c/arduinobot_msgs/" "DESTINATION" "include/arduinobot_msgs/arduinobot_msgs" "PATTERN" "*.h")
 ament_cmake_symlink_install_directory("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" DIRECTORY "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_generator_c/arduinobot_msgs/" "DESTINATION" "include/arduinobot_msgs/arduinobot_msgs" "PATTERN" "*.h")
 
@@ -376,6 +382,12 @@ ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_adapter/arduinobot_msgs/srv/QuaternionToEuler.idl" "DESTINATION" "share/arduinobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_adapter/arduinobot_msgs/srv/QuaternionToEuler.idl" "DESTINATION" "share/arduinobot_msgs/srv")
 
+# install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_adapter/arduinobot_msgs/action/Fibonacci.idl" "DESTINATION" "share/arduinobot_msgs/action")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_adapter/arduinobot_msgs/action/Fibonacci.idl" "DESTINATION" "share/arduinobot_msgs/action")
+
+# install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_adapter/arduinobot_msgs/action/ArduinobotTask.idl" "DESTINATION" "share/arduinobot_msgs/action")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/rosidl_adapter/arduinobot_msgs/action/ArduinobotTask.idl" "DESTINATION" "share/arduinobot_msgs/action")
+
 # install(FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/srv/AddTwoInts.srv" "DESTINATION" "share/arduinobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/srv/AddTwoInts.srv" "DESTINATION" "share/arduinobot_msgs/srv")
 
@@ -384,6 +396,12 @@ ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_
 
 # install(FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/srv/QuaternionToEuler.srv" "DESTINATION" "share/arduinobot_msgs/srv")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/srv/QuaternionToEuler.srv" "DESTINATION" "share/arduinobot_msgs/srv")
+
+# install(FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/action/Fibonacci.action" "DESTINATION" "share/arduinobot_msgs/action")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/action/Fibonacci.action" "DESTINATION" "share/arduinobot_msgs/action")
+
+# install(FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/action/ArduinobotTask.action" "DESTINATION" "share/arduinobot_msgs/action")
+ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/action/ArduinobotTask.action" "DESTINATION" "share/arduinobot_msgs/action")
 
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_msgs" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_msgs" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_msgs/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_msgs" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

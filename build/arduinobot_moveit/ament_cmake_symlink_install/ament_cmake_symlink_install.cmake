@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "config" "launch" "DESTINATION" "share/arduinobot_moveit")
-ament_cmake_symlink_install_directory("/home/jashwanth/arduinobot_ws/src/arduinobot_moveit" DIRECTORY "config" "launch" "DESTINATION" "share/arduinobot_moveit")
+# install(DIRECTORY "launch" "config" "DESTINATION" "share/arduinobot_moveit")
+ament_cmake_symlink_install_directory("/home/jashwanth/arduinobot_ws/src/arduinobot_moveit" DIRECTORY "launch" "config" "DESTINATION" "share/arduinobot_moveit")
 
 # install(FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_moveit/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_moveit" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/jashwanth/arduinobot_ws/src/arduinobot_moveit" FILES "/home/jashwanth/arduinobot_ws/build/arduinobot_moveit/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_moveit" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

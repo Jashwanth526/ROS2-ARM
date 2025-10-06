@@ -1,1 +1,1 @@
-ros2launch;rviz2;moveit_config_utils;arduinobot_description;moveit_ros_move_group;ament_lint_auto;ament_lint_common
+ros2launch;rviz2;moveit_configs_utils;moveit_ros_move_group;arduinobot_description;ament_lint_auto;ament_lint_common

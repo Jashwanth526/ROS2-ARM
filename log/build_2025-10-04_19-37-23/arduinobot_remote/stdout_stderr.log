@@ -1,0 +1,40 @@
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found arduinobot_msgs: 0.0.0 (/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/share/arduinobot_msgs/cmake)
+-- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rclpy: 7.1.5 (/opt/ros/jazzy/share/rclpy/cmake)
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/jashwanth/arduinobot_ws/build/arduinobot_remote
+Built target ament_cmake_python_copy_arduinobot_remote
+running egg_info
+creating arduinobot_remote.egg-info
+writing arduinobot_remote.egg-info/PKG-INFO
+writing dependency_links to arduinobot_remote.egg-info/dependency_links.txt
+writing top-level names to arduinobot_remote.egg-info/top_level.txt
+writing manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+reading manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+writing manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_arduinobot_remote_egg
+-- Install configuration: ""
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/share/arduinobot_remote/environment/pythonpath.sh
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/share/arduinobot_remote/environment/pythonpath.dsv
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/PKG-INFO
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/top_level.txt
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/__init__.py
+-- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/task_server.py
+Listing '/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote'...
+Compiling '/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/__init__.py'...
+Compiling '/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/task_server.py'...
+[31mCMake Error at cmake_install.cmake:70 (file):
+  file INSTALL cannot find
+  "/home/jashwanth/arduinobot_ws/src/arduinobot_remote/launch": No such file
+  or directory.
+
+[0m

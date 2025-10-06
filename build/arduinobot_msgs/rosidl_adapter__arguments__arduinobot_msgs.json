@@ -3,6 +3,8 @@
   "non_idl_tuples": [
     "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:srv/AddTwoInts.srv",
     "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:srv/EulerToQuaternion.srv",
-    "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:srv/QuaternionToEuler.srv"
+    "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:srv/QuaternionToEuler.srv",
+    "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:action/Fibonacci.action",
+    "/home/jashwanth/arduinobot_ws/src/arduinobot_msgs:action/ArduinobotTask.action"
   ]
 }

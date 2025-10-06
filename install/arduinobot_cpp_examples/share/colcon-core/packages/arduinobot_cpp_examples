@@ -1,1 +1,1 @@
-arduinobot_msgs:rcl_interfaces:rclcpp:std_msgs
+arduinobot_msgs:moveit_ros_planning_interface:rcl_interfaces:rclcpp:rclcpp_action:rclcpp_components:std_msgs

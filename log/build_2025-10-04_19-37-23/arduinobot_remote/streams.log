@@ -1,0 +1,44 @@
+[0.143s] Invoking command in '/home/jashwanth/arduinobot_ws/build/arduinobot_remote': AMENT_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:/opt/ros/jazzy/opt/gz_launch_vendor:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jashwanth/arduinobot_ws/build/arduinobot_remote -- -j20 -l20
+[0.165s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.374s] -- Found arduinobot_msgs: 0.0.0 (/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/share/arduinobot_msgs/cmake)
+[0.413s] -- Found rosidl_generator_c: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.424s] -- Found rosidl_generator_cpp: 4.6.6 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.436s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.451s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.511s] -- Found rclpy: 7.1.5 (/opt/ros/jazzy/share/rclpy/cmake)
+[0.659s] -- Configuring done (0.5s)
+[0.665s] -- Generating done (0.0s)
+[0.667s] -- Build files have been written to: /home/jashwanth/arduinobot_ws/build/arduinobot_remote
+[0.702s] Built target ament_cmake_python_copy_arduinobot_remote
+[0.836s] running egg_info
+[0.836s] creating arduinobot_remote.egg-info
+[0.847s] writing arduinobot_remote.egg-info/PKG-INFO
+[0.847s] writing dependency_links to arduinobot_remote.egg-info/dependency_links.txt
+[0.847s] writing top-level names to arduinobot_remote.egg-info/top_level.txt
+[0.847s] writing manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+[0.880s] reading manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+[0.881s] writing manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+[0.898s] Built target ament_cmake_python_build_arduinobot_remote_egg
+[0.908s] Invoked command in '/home/jashwanth/arduinobot_ws/build/arduinobot_remote' returned '0': AMENT_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:/opt/ros/jazzy/opt/gz_launch_vendor:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jashwanth/arduinobot_ws/build/arduinobot_remote -- -j20 -l20
+[0.909s] Invoking command in '/home/jashwanth/arduinobot_ws/build/arduinobot_remote': AMENT_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:/opt/ros/jazzy/opt/gz_launch_vendor:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jashwanth/arduinobot_ws/build/arduinobot_remote
+[0.917s] -- Install configuration: ""
+[0.917s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/share/arduinobot_remote/environment/pythonpath.sh
+[0.917s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/share/arduinobot_remote/environment/pythonpath.dsv
+[0.917s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info
+[0.917s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/PKG-INFO
+[0.917s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/dependency_links.txt
+[0.917s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/top_level.txt
+[0.918s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote-0.0.0-py3.12.egg-info/SOURCES.txt
+[0.918s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote
+[0.918s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/__init__.py
+[0.918s] -- Installing: /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/task_server.py
+[0.946s] Listing '/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote'...
+[0.946s] Compiling '/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/__init__.py'...
+[0.947s] Compiling '/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/task_server.py'...
+[0.950s] [31mCMake Error at cmake_install.cmake:70 (file):
+[0.950s]   file INSTALL cannot find
+[0.950s]   "/home/jashwanth/arduinobot_ws/src/arduinobot_remote/launch": No such file
+[0.950s]   or directory.
+[0.950s] 
+[0.950s] [0m
+[0.951s] Invoked command in '/home/jashwanth/arduinobot_ws/build/arduinobot_remote' returned '1': AMENT_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:/opt/ros/jazzy/opt/gz_launch_vendor:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jashwanth/arduinobot_ws/build/arduinobot_remote

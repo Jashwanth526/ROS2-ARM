@@ -4,9 +4,9 @@
 
 #include <string.h>
 
+#include "rosidl_typesupport_interface/macros.h"
 #include "arduinobot_msgs/srv/detail/add_two_ints__struct.h"
 #include "arduinobot_msgs/srv/detail/add_two_ints__type_support.h"
-#include "rosidl_typesupport_interface/macros.h"
 #include "arduinobot_msgs/srv/detail/add_two_ints__functions.h"
 
 #ifdef __cplusplus
