@@ -118,7 +118,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arduinobot_remote" TYPE PROGRAM FILES "/home/jashwanth/arduinobot_ws/src/arduinobot_remote/arduinobot_remote/task_server.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/arduinobot_remote" TYPE PROGRAM FILES
+    "/home/jashwanth/arduinobot_ws/src/arduinobot_remote/arduinobot_remote/task_server.py"
+    "/home/jashwanth/arduinobot_ws/src/arduinobot_remote/arduinobot_remote/alexa_interface.py"
+    )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

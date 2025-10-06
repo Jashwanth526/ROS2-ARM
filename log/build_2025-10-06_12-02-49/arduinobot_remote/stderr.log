@@ -1,0 +1,80 @@
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_core/serialize.py:191: SyntaxWarning: invalid escape sequence '\['
+  'list\[(.*)\]', obj_type)
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_core/serialize.py:212: SyntaxWarning: invalid escape sequence '\('
+  'dict\(([^,]*), (.*)\)', obj_type)
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/device.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/device.py:57: SyntaxWarning: invalid escape sequence '\&'
+  """An object providing information about the device used to send the request. The device object contains both deviceId and supportedInterfaces properties. The deviceId property uniquely identifies the device. The supportedInterfaces property lists each interface that the device supports. For example, if supportedInterfaces includes AudioPlayer {}, then you know that the device supports streaming audio using the AudioPlayer interface.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/alexa/presentation/apl/sequential_command.py:31: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/alexa/presentation/apl/sequential_command.py:84: SyntaxWarning: invalid escape sequence '\&'
+  """A sequential command executes a series of commands in order. The sequential command executes the command list in order, waiting for the previous command to finish before executing the next. The sequential command is finished when all of its child commands have finished. When the Sequential command is terminated early, the currently executing command is terminated and no further commands are executed.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/alexa/presentation/aplt/sequential_command.py:31: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/alexa/presentation/aplt/sequential_command.py:80: SyntaxWarning: invalid escape sequence '\&'
+  """A sequential command executes a series of commands in order. The sequential command executes the command list in order, waiting for the previous command to finish before executing the next. The sequential command is finished when all of its child commands have finished. When the Sequential command is terminated early, the currently executing command is terminated and no further commands are executed.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/alexa/presentation/html/transformer.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/alexa/presentation/html/transformer.py:57: SyntaxWarning: invalid escape sequence '\&'
+  """Properties for performing text to speech transformations. These are the same properties that [APL transformers](https://developer.amazon.com/docs/alexa-presentation-language/apl-data-source.html#transformer-properties-and-conversion-rules) use.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/amazonpay/model/request/authorize_attributes.py:31: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/amazonpay/model/request/authorize_attributes.py:72: SyntaxWarning: invalid escape sequence '\&'
+  """This is an object to set the attributes specified in the AuthorizeAttributes table. See the “AuthorizationDetails” section of the Amazon Pay API reference guide for details about this object.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/amazonpay/model/v1/authorize_attributes.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/amazonpay/model/v1/authorize_attributes.py:65: SyntaxWarning: invalid escape sequence '\&'
+  """This is an object to set the attributes specified in the AuthorizeAttributes table. See the “AuthorizationDetails” section of the Amazon Pay API reference guide for details about this object.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/system/system_state.py:34: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/interfaces/system/system_state.py:75: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/permissions.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/permissions.py:53: SyntaxWarning: invalid escape sequence '\&'
+  """Contains a consentToken allowing the skill access to information that the customer has consented to provide, such as address information. Note that the consentToken is deprecated. Use the apiAccessToken available in the context object to determine the user’s permissions.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/gadget_controller/light_animation.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/gadget_controller/light_animation.py:55: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/game_engine/input_event_action_type.py:29: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/game_engine/pattern.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/game_engine/pattern.py:61: SyntaxWarning: invalid escape sequence '\&'
+  """An object that provides all of the events that need to occur, in a specific order, for this recognizer to be true. Omitting any parameters in this object means \&quot;match anything\&quot;.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/game_engine/pattern_recognizer.py:32: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/game_engine/pattern_recognizer.py:69: SyntaxWarning: invalid escape sequence '\&'
+  """This recognizer is true when all of the specified events have occurred in the specified order.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/monetization/in_skill_product.py:34: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/monetization/in_skill_product.py:87: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/skill_messaging/send_skill_messaging_request.py:29: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/skill_messaging/send_skill_messaging_request.py:52: SyntaxWarning: invalid escape sequence '\&'
+  """The message that needs to be sent to the skill
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/task.py:29: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/task.py:56: SyntaxWarning: invalid escape sequence '\&'
+  """Custom task passed by skill developers when the operation type is \&quot;LAUNCH_TASK\&quot;
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/text_to_announce.py:29: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/text_to_announce.py:52: SyntaxWarning: invalid escape sequence '\&'
+  """When the operation type is \&quot;ANNOUNCE\&quot;, announces a certain text that the developer wants to be read out at the expiration of the timer.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/text_to_confirm.py:29: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/text_to_confirm.py:52: SyntaxWarning: invalid escape sequence '\&'
+  """When the operation type is \&quot;LAUNCH_TASK\&quot;, confirm with the customer at the expiration of the timer.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/timer_request.py:31: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/timer_request.py:62: SyntaxWarning: invalid escape sequence '\&'
+  """Input request for creating a timer.
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/timer_response.py:30: SyntaxWarning: invalid escape sequence '\&'
+  """
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/timer_response.py:77: SyntaxWarning: invalid escape sequence '\&'
+  """Timer object
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/lib/python3.12/site-packages/ask_sdk_model/services/timer_management/visibility.py:29: SyntaxWarning: invalid escape sequence '\&'
+  """
