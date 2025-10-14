@@ -9,6 +9,14 @@
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "Run world_markers_publisher",
+			"type": "shell",
+			"command": "ros2 run arduinobot_utils world_markers_publisher.py",
+			"args": [],
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }

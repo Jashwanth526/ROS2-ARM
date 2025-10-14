@@ -1,336 +1,148 @@
 #!/usr/bin/env python3
-from flask import Flask
-from ask_sdk_core.skill_builder import SkillBuilder
-from flask_ask_sdk.skill_adapter import SkillAdapter
-from ask_sdk_core.utils import is_request_type, is_intent_name
-from ask_sdk_core.handler_input import HandlerInput
-from ask_sdk_model import Response
-from ask_sdk_model.ui import SimpleCard
-from ask_sdk_core.dispatch_components import AbstractRequestHandler, AbstractExceptionHandler
-from arduinobot_msgs.action import ArduinobotTask
-import rclpy
-from rclpy.node import Node
+from flask import Flask, request, jsonify
+import json
 import threading
-from rclpy.action import ActionClient
+import time
 
-threading.Thread(target=lambda: rclpy.init()).start()
-action_client = ActionClient(Node('alexa_interface'), ArduinobotTask, "task_server")
+try:
+    import rclpy
+    from rclpy.node import Node
+    from rclpy.action import ActionClient
+    from arduinobot_msgs.action import ArduinobotTask
+except Exception as e:
+    raise SystemExit(
+        "Failed to import ROS 2 packages. Source your workspace first:\n"
+        "  source install/setup.bash\n"
+        f"Import error: {e}"
+    )
 
 app = Flask(__name__)
 
 
-class LaunchRequestHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_request_type("LaunchRequest")(handler_input)
+def init_ros():
+    rclpy.init()
 
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "Hi, how can we help?"
 
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Online", speech_text)).set_should_end_session(
-            False)
+ros_node = None
+action_client = None
+ros_initialized = False
 
+
+def initialize_ros_client():
+    global ros_node, action_client, ros_initialized
+    if not ros_initialized:
+        ros_node = Node('alexa_interface')
+        action_client = ActionClient(ros_node, ArduinobotTask, 'task_server')
+        ros_initialized = True
+        print("ROS2 client initialized successfully")
+
+
+def send_robot_task(task_number: int) -> bool:
+    global action_client, ros_node
+    if not ros_initialized:
+        initialize_ros_client()
+    if action_client and ros_node:
         goal = ArduinobotTask.Goal()
-        goal.task_number = 0
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class PickIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("PickIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "Ok, I'm moving"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Pick", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 1
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class SleepIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("SleepIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "Ok, see you later"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Sleep", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 2
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class WakeIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("WakeIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "Hi, I am ready"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Wake", speech_text)).set_should_end_session(
-            True)
-            
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 0
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class DetectObjectsIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("DetectObjectsIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "I'm scanning for objects now"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Detect Objects", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 3  # Scanning mode
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class PickObjectIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("PickObjectIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "I'm picking up the detected object"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Pick Object", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 4  # Pick detected object
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class PlaceObjectIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("PlaceObjectIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "I'm placing the object in the drop zone"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Place Object", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 5  # Place object
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class TestPositionIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("TestPositionIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "Moving to test scanning position"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Test Position", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 6  # Test position
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class ScanRedObjectsIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("ScanRedObjectsIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "I'm scanning for red objects now"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Scan Red Objects", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 7  # Scan for red objects
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class ScanBlueObjectsIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("ScanBlueObjectsIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "I'm scanning for blue objects now"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Scan Blue Objects", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 8  # Scan for blue objects
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class ScanGreenObjectsIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("ScanGreenObjectsIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "I'm scanning for green objects now"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Scan Green Objects", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 9  # Scan for green objects
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class PickAndPlaceIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("PickAndPlaceIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        # Extract color slot from the intent
-        slots = handler_input.request_envelope.request.intent.slots
-        color = "blue"  # Default to blue
-        
-        if "color" in slots and slots["color"].value:
-            color = slots["color"].value.lower()
-        
-        speech_text = f"I'm performing a pick and place operation for {color} objects"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Pick and Place", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        # Map colors to task numbers
-        color_task_map = {
-            "red": 7,
-            "blue": 8,
-            "green": 9
+        goal.task_number = task_number
+        if action_client.wait_for_server(timeout_sec=2.0):
+            action_client.send_goal_async(goal)
+            print(f"Sent task {task_number} to robot")
+            return True
+        print("Action server not available")
+    return False
+
+
+@app.route('/', methods=['POST'])
+def alexa_handler():
+    try:
+        alexa_request = request.get_json()
+        print(f"Received Alexa request: {json.dumps(alexa_request, indent=2)}")
+
+        request_type = alexa_request.get('request', {}).get('type', '')
+        intent_name = alexa_request.get('request', {}).get('intent', {}).get('name', '')
+
+        response_text = "Hello, Arduino Bot is ready!"
+        task_number = 0
+
+        if request_type == 'LaunchRequest':
+            response_text = "Hi, how can Arduino Bot help you?"
+            task_number = 0
+        elif intent_name == 'PickIntent':
+            response_text = "Ok, I'm moving the robot arm"
+            task_number = 1
+        elif intent_name == 'SleepIntent':
+            response_text = "Ok, Arduino Bot is going to sleep. See you later!"
+            task_number = 2
+        elif intent_name == 'WakeIntent':
+            response_text = "Hi, Arduino Bot is awake and ready!"
+            task_number = 0
+        elif intent_name == 'DetectObjectsIntent':
+            response_text = "Arduino Bot is scanning for objects now"
+            task_number = 3
+        elif intent_name == 'PickObjectIntent':
+            response_text = "Arduino Bot is picking up the detected object"
+            task_number = 4
+        elif intent_name == 'PlaceObjectIntent':
+            response_text = "Arduino Bot is placing the object in the drop zone"
+            task_number = 5
+        elif intent_name == 'TestPositionIntent':
+            response_text = "Moving Arduino Bot to test scanning position"
+            task_number = 6
+        elif intent_name == 'ScanRedObjectsIntent':
+            response_text = "Arduino Bot is scanning for red objects now"
+            task_number = 7
+        elif intent_name == 'ScanBlueObjectsIntent':
+            response_text = "Arduino Bot is scanning for blue objects now"
+            task_number = 8
+        elif intent_name == 'ScanGreenObjectsIntent':
+            response_text = "Arduino Bot is scanning for green objects now"
+            task_number = 9
+        elif intent_name == 'PickAndPlaceIntent':
+            slots = alexa_request.get('request', {}).get('intent', {}).get('slots', {})
+            color = slots.get('color', {}).get('value', 'blue').lower()
+            response_text = f"Arduino Bot is performing pick and place for {color} objects"
+            color_task_map = {'red': 7, 'blue': 8, 'green': 9}
+            task_number = color_task_map.get(color, 8)
+        elif intent_name == 'HomePositionIntent':
+            response_text = "Arduino Bot is moving to home position"
+            task_number = 0
+        else:
+            response_text = "I didn't understand that. Can you please try again?"
+
+        if task_number is not None:
+            success = send_robot_task(task_number)
+            if not success:
+                response_text += " However, I couldn't communicate with the robot right now."
+
+        alexa_response = {
+            "version": "1.0",
+            "response": {
+                "outputSpeech": {"type": "PlainText", "text": response_text},
+                "card": {"type": "Simple", "title": "Arduino Bot", "content": response_text},
+                "shouldEndSession": True,
+            },
         }
-        goal.task_number = color_task_map.get(color, 8)  # Default to blue (task 8)
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
-
-
-class HomePositionIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return is_intent_name("HomePositionIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        speech_text = "Moving to home position"
-
-        handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Home Position", speech_text)).set_should_end_session(
-            True)
-
-        goal = ArduinobotTask.Goal()
-        goal.task_number = 0  # Home position
-        action_client.send_goal_async(goal)
-
-        return handler_input.response_builder.response
+        print(f"Sending response: {response_text}")
+        return jsonify(alexa_response)
+    except Exception as e:
+        print(f"Error handling request: {e}")
+        return jsonify({
+            "version": "1.0",
+            "response": {"outputSpeech": {"type": "PlainText", "text": "Sorry, there was an error processing your request."}, "shouldEndSession": True},
+        })
 
 
-class AllExceptionHandler(AbstractExceptionHandler):
-
-    def can_handle(self, handler_input, exception):
-        # type: (HandlerInput, Exception) -> bool
-        return True
-
-    def handle(self, handler_input, exception):
-        # type: (HandlerInput, Exception) -> Response
-
-        speech = "Hmm, I don't know that. Can you please say it again?"
-        handler_input.response_builder.speak(speech).ask(speech)
-        return handler_input.response_builder.response
-
-
-skill_builder = SkillBuilder()
-skill_builder.add_request_handler(LaunchRequestHandler())
-skill_builder.add_request_handler(PickIntentHandler())
-skill_builder.add_request_handler(SleepIntentHandler())
-skill_builder.add_request_handler(WakeIntentHandler())
-skill_builder.add_request_handler(DetectObjectsIntentHandler())
-skill_builder.add_request_handler(PickObjectIntentHandler())
-skill_builder.add_request_handler(PlaceObjectIntentHandler())
-skill_builder.add_request_handler(TestPositionIntentHandler())
-skill_builder.add_request_handler(ScanRedObjectsIntentHandler())
-skill_builder.add_request_handler(ScanBlueObjectsIntentHandler())
-skill_builder.add_request_handler(ScanGreenObjectsIntentHandler())
-skill_builder.add_request_handler(PickAndPlaceIntentHandler())
-skill_builder.add_request_handler(HomePositionIntentHandler())
-skill_builder.add_exception_handler(AllExceptionHandler())
-
-
-skill_adapter = SkillAdapter(
-    skill=skill_builder.create(), 
-    skill_id="amzn1.ask.skill.2bd29ade-0677-4dd0-b98a-200741363d9e",
-    app=app)
-
-
-skill_adapter.register(app=app, route="/")
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "ok", "ros_initialized": ros_initialized})
 
 
 if __name__ == '__main__':
-    app.run()
+    print("Starting Alexa interface server (Flask-only mode)...")
+    ros_thread = threading.Thread(target=init_ros, daemon=True)
+    ros_thread.start()
+    time.sleep(2)
+    initialize_ros_client()
+    print("Server starting on port 5001...")
+    # Run without debug/reloader to avoid duplicate processes and terminal interference
+    app.run(host='0.0.0.0', port=5001, debug=False, use_reloader=False)

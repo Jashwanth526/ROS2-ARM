@@ -51,6 +51,16 @@ def generate_launch_description():
             {'use_sim_time': True}  # Important for simulation
         ]
     )
+
+    # World markers publisher (for RViz visualization)
+    world_markers = Node(
+        package='arduinobot_utils',
+        executable='world_markers_publisher.py',
+        name='world_markers_publisher',
+        output='screen',
+        parameters=[{'use_sim_time': True}],
+        respawn=True,
+    )
     
     return LaunchDescription([
         gazebo,
@@ -58,4 +68,5 @@ def generate_launch_description():
         moveit,
         remote_interface,
         object_detector,
+        world_markers,
     ])

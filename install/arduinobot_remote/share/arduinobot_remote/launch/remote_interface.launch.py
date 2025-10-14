@@ -20,8 +20,15 @@ def generate_launch_description():
         default_value="False",
     )
 
+    enable_alexa_arg = DeclareLaunchArgument(
+        "enable_alexa",
+        default_value="False",
+        description="Whether to launch the Flask-based Alexa interface from this launch file"
+    )
+
     use_python = LaunchConfiguration("use_python")
     is_sim = LaunchConfiguration("is_sim")
+    enable_alexa = LaunchConfiguration("enable_alexa")
 
     task_server_node = Node(
         package="arduinobot_remote",
@@ -53,18 +60,18 @@ def generate_launch_description():
     )
 
     alexa_interface_node = Node(
-    package="arduinobot_remote",
-    executable="alexa_interface.py",
-    parameters=[{"use_sim_time": is_sim}],
-    prefix=['xterm -e "source ', '/home/jashwanth/arduinobot_ws/src/arduinobot_remote/arduinobot_remote/venv/bin/activate', '; ros2 run arduinobot_remote alexa_interface.py"'],
-    output='screen',
-    shell=True,
-)
+        package="arduinobot_remote",
+        executable="alexa_interface.py",
+        parameters=[{"use_sim_time": is_sim}],
+        output='screen',
+        condition=IfCondition(enable_alexa)
+    )
 
     return LaunchDescription([
         use_python_arg,
+        enable_alexa_arg,
         is_sim_arg,
         task_server_node,
         task_server_node_py,
-        alexa_interface_node
+        alexa_interface_node,
     ])
