@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+from visualization_msgs.msg import Marker
+from geometry_msgs.msg import Point
+
+class WorldMarkersPublisher(Node):
+    def __init__(self):
+        super().__init__('world_markers_publisher')
+        self.publisher = self.create_publisher(Marker, 'world_objects', 10)
+        self.timer = self.create_timer(0.5, self.publish_markers)
+
+    def publish_markers(self):
+        # Table
+        table = Marker()
+        table.header.frame_id = 'world'
+        table.header.stamp = self.get_clock().now().to_msg()
+        table.ns = 'table'
+        table.id = 0
+        table.type = Marker.CUBE
+        table.action = Marker.ADD
+        table.pose.position.x = 1.3
+        table.pose.position.y = 0.7
+        table.pose.position.z = 0.35
+        table.pose.orientation.w = 1.0
+        table.scale.x = 1.2
+        table.scale.y = 0.8
+        table.scale.z = 0.7
+        table.color.r = 0.6
+        table.color.g = 0.4
+        table.color.b = 0.2
+        table.color.a = 1.0
+        self.publisher.publish(table)
+
+        # Red Cube
+        cube = Marker()
+        cube.header.frame_id = 'world'
+        cube.header.stamp = self.get_clock().now().to_msg()
+        cube.ns = 'red_cube'
+        cube.id = 1
+        cube.type = Marker.CUBE
+        cube.action = Marker.ADD
+        cube.pose.position.x = 0.85
+        cube.pose.position.y = 0.55
+        cube.pose.position.z = 0.79
+        cube.pose.orientation.w = 1.0
+        cube.scale.x = 0.20
+        cube.scale.y = 0.20
+        cube.scale.z = 0.20
+        cube.color.r = 1.0
+        cube.color.g = 0.0
+        cube.color.b = 0.0
+        cube.color.a = 1.0
+        self.publisher.publish(cube)
+
+        # Blue Cylinder
+        cylinder = Marker()
+        cylinder.header.frame_id = 'world'
+        cylinder.header.stamp = self.get_clock().now().to_msg()
+        cylinder.ns = 'blue_cylinder'
+        cylinder.id = 2
+        cylinder.type = Marker.CYLINDER
+        cylinder.action = Marker.ADD
+        cylinder.pose.position.x = 1.25
+        cylinder.pose.position.y = 0.85
+        cylinder.pose.position.z = 0.79
+        cylinder.pose.orientation.w = 1.0
+        cylinder.scale.x = 0.16  # diameter
+        cylinder.scale.y = 0.16  # diameter
+        cylinder.scale.z = 0.20  # height
+        cylinder.color.r = 0.0
+        cylinder.color.g = 0.0
+        cylinder.color.b = 1.0
+        cylinder.color.a = 1.0
+        self.publisher.publish(cylinder)
+
+        # Green Sphere
+        sphere = Marker()
+        sphere.header.frame_id = 'world'
+        sphere.header.stamp = self.get_clock().now().to_msg()
+        sphere.ns = 'green_sphere'
+        sphere.id = 3
+        sphere.type = Marker.SPHERE
+        sphere.action = Marker.ADD
+        sphere.pose.position.x = 1.65
+        sphere.pose.position.y = 1.0
+        sphere.pose.position.z = 0.79
+        sphere.pose.orientation.w = 1.0
+        sphere.scale.x = 0.16
+        sphere.scale.y = 0.16
+        sphere.scale.z = 0.16
+        sphere.color.r = 0.0
+        sphere.color.g = 1.0
+        sphere.color.b = 0.0
+        sphere.color.a = 1.0
+        self.publisher.publish(sphere)
+
+        # Drop Zone (yellow box)
+        drop_zone = Marker()
+        drop_zone.header.frame_id = 'world'
+        drop_zone.header.stamp = self.get_clock().now().to_msg()
+        drop_zone.ns = 'drop_zone'
+        drop_zone.id = 4
+        drop_zone.type = Marker.CUBE
+        drop_zone.action = Marker.ADD
+        drop_zone.pose.position.x = -1.5
+        drop_zone.pose.position.y = 1.2
+        drop_zone.pose.position.z = 0.05
+        drop_zone.pose.orientation.w = 1.0
+        drop_zone.scale.x = 0.3
+        drop_zone.scale.y = 0.3
+        drop_zone.scale.z = 0.1
+        drop_zone.color.r = 1.0
+        drop_zone.color.g = 1.0
+        drop_zone.color.b = 0.0
+        drop_zone.color.a = 1.0
+        self.publisher.publish(drop_zone)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = WorldMarkersPublisher()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()

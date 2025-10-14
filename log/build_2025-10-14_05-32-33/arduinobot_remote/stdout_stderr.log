@@ -1,0 +1,23 @@
+[ 50%] Built target task_server_node
+[ 75%] [32mBuilding CXX object CMakeFiles/task_server.dir/src/task_server.cpp.o[0m
+[ 75%] Built target ament_cmake_python_copy_arduinobot_remote
+running egg_info
+writing arduinobot_remote.egg-info/PKG-INFO
+writing dependency_links to arduinobot_remote.egg-info/dependency_links.txt
+writing top-level names to arduinobot_remote.egg-info/top_level.txt
+reading manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+writing manifest file 'arduinobot_remote.egg-info/SOURCES.txt'
+[ 75%] Built target ament_cmake_python_build_arduinobot_remote_egg
+[01m[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:[m[K In member function ‘[01m[Kvoid arduinobot_remote::TaskServer::[01;32m[KperformScanningSequence[m[K()[m[K’:
+[01m[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:557:29:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass moveit::core::MoveItErrorCode[m[K’ has no member named ‘[01m[Kwait_for[m[K’
+  557 |             if (move_result.[01;31m[Kwait_for[m[K(std::chrono::milliseconds(0)) == std::future_status::ready) {
+      |                             [01;31m[K^~~~~~~~[m[K
+[01m[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:558:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass moveit::core::MoveItErrorCode[m[K’ has no member named ‘[01m[Kget[m[K’
+  558 |               move_success = (move_result.[01;31m[Kget[m[K() == moveit::core::MoveItErrorCode::SUCCESS);
+      |                                           [01;31m[K^~~[m[K
+[01m[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:574:41:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass moveit::core::MoveItErrorCode[m[K’ has no member named ‘[01m[Kget[m[K’
+  574 |             move_success = (move_result.[01;31m[Kget[m[K() == moveit::core::MoveItErrorCode::SUCCESS);
+      |                                         [01;31m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/task_server.dir/build.make:76: CMakeFiles/task_server.dir/src/task_server.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:142: CMakeFiles/task_server.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

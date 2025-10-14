@@ -1,0 +1,185 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "arduino bot",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "PickIntent",
+          "samples": [
+            "move",
+            "pick",
+            "pick up",
+            "grab",
+            "reach",
+            "extend arm"
+          ]
+        },
+        {
+          "name": "SleepIntent",
+          "samples": [
+            "sleep",
+            "go to sleep",
+            "shut down",
+            "power down",
+            "rest",
+            "standby",
+            "see you later",
+            "goodbye"
+          ]
+        },
+        {
+          "name": "WakeIntent",
+          "samples": [
+            "wake up",
+            "hello",
+            "hi",
+            "turn on",
+            "power on",
+            "get ready",
+            "start up"
+          ]
+        },
+        {
+          "name": "DetectObjectsIntent",
+          "samples": [
+            "scan for objects",
+            "detect objects",
+            "look for objects",
+            "find objects",
+            "search for objects",
+            "scan the area",
+            "look around"
+          ]
+        },
+        {
+          "name": "PickObjectIntent",
+          "samples": [
+            "pick up the object",
+            "grab the object",
+            "pick the detected object",
+            "get the object",
+            "take the object"
+          ]
+        },
+        {
+          "name": "PlaceObjectIntent",
+          "samples": [
+            "place the object",
+            "put down the object",
+            "drop the object",
+            "place it down",
+            "put it in the drop zone",
+            "deliver the object"
+          ]
+        },
+        {
+          "name": "TestPositionIntent",
+          "samples": [
+            "test position",
+            "move to test position",
+            "go to scan position",
+            "prepare for scanning",
+            "test the scanner"
+          ]
+        },
+        {
+          "name": "ScanRedObjectsIntent",
+          "samples": [
+            "scan for red objects",
+            "find red objects",
+            "look for red things",
+            "detect red objects",
+            "search for red items"
+          ]
+        },
+        {
+          "name": "ScanBlueObjectsIntent",
+          "samples": [
+            "scan for blue objects",
+            "find blue objects", 
+            "look for blue things",
+            "detect blue objects",
+            "search for blue items"
+          ]
+        },
+        {
+          "name": "ScanGreenObjectsIntent",
+          "samples": [
+            "scan for green objects",
+            "find green objects",
+            "look for green things", 
+            "detect green objects",
+            "search for green items"
+          ]
+        },
+        {
+          "name": "PickAndPlaceIntent",
+          "samples": [
+            "pick and place {color} objects",
+            "do pick and place with {color}",
+            "perform pick and place for {color}",
+            "pick up {color} objects",
+            "find and pick {color} objects",
+            "scan and pick {color}",
+            "get the {color} object"
+          ],
+          "slots": [
+            {
+              "name": "color",
+              "type": "ColorType"
+            }
+          ]
+        },
+        {
+          "name": "HomePositionIntent",
+          "samples": [
+            "go home",
+            "move to home position",
+            "return home",
+            "go to home",
+            "reset position",
+            "default position"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "ColorType",
+          "values": [
+            {
+              "name": {
+                "value": "red"
+              }
+            },
+            {
+              "name": {
+                "value": "blue"
+              }
+            },
+            {
+              "name": {
+                "value": "green"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

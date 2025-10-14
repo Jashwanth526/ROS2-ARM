@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "arduinobot_cpp_examples")
 set(arduinobot_cpp_examples_VERSION "0.0.0")
-set(arduinobot_cpp_examples_MAINTAINER "Antonio Brandi <antonio.brandi@outlook.it>")
+set(arduinobot_cpp_examples_MAINTAINER "jashwanth <kjashwanthk@gmail.com>")
 set(arduinobot_cpp_examples_BUILD_DEPENDS "rclcpp" "std_msgs" "arduinobot_msgs" "rcl_interfaces" "rclcpp_action" "rclcpp_components" "moveit_ros_planning_interface")
 set(arduinobot_cpp_examples_BUILDTOOL_DEPENDS "ament_cmake")
 set(arduinobot_cpp_examples_BUILD_EXPORT_DEPENDS "rclcpp" "std_msgs" "arduinobot_msgs" "rcl_interfaces" "rclcpp_action" "rclcpp_components" "moveit_ros_planning_interface")

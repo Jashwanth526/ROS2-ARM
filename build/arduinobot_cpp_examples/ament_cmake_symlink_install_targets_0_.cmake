@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/simple_action_server_node" "TARGETS" "simple_action_server_node" "DESTINATION" "lib/arduinobot_cpp_examples")

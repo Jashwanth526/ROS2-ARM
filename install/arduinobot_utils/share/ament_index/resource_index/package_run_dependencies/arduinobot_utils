@@ -1,1 +1,1 @@
-/home/jashwanth/arduinobot_ws/build/arduinobot_utils/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_utils
+rclcpp;rclpy;arduinobot_msgs;tf2;visualization_msgs;geometry_msgs;tf_transformations;python3-transforms3d;ament_lint_auto;ament_lint_common

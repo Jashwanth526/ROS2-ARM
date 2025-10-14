@@ -1,0 +1,14 @@
+# Goal - specify what type of object detection/manipulation to perform
+string command  # "detect", "pick_object", "place_object"
+string target_color  # "red", "blue", "green", "any" - color of object to detect/pick
+geometry_msgs/Point target_position  # for place operations
+---
+# Result
+bool success
+string message
+geometry_msgs/Point object_position  # position of detected/picked object
+string detected_color  # color of detected object
+---
+# Feedback
+string status
+int32 percentage

@@ -4,9 +4,9 @@
 
 #include <string.h>
 
+#include "arduinobot_msgs/action/detail/arduinobot_task__type_support.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "arduinobot_msgs/action/detail/arduinobot_task__functions.h"
-#include "arduinobot_msgs/action/detail/arduinobot_task__type_support.h"
 #include "arduinobot_msgs/action/detail/arduinobot_task__struct.h"
 
 #ifdef __cplusplus

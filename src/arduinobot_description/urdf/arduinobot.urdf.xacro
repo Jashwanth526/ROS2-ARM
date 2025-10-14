@@ -220,9 +220,9 @@
     </joint>
 
     <joint name ="rgb_camera_joint" type="fixed">
-        <parent link="base_link"/>
+        <parent link="claw_support"/>
         <child link = "rgb_camera"/>
-        <origin xyz="0 0.45 0.2" rpy="0 -0.5 1.57"/>
+        <origin xyz="-0.1 0.325 0.3" rpy="0 0.4 1.57"/>
     </joint>
 
 

@@ -5,7 +5,7 @@ project(arduinobot_description)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch meshes urdf rviz
+  DIRECTORY launch meshes urdf rviz worlds
   DESTINATION share/${PROJECT_NAME}
 )
 

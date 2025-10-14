@@ -1,1 +1,8 @@
-/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/action/ArduinobotTask.action
+# Goal         
+int32 task_number
+---
+# Result
+bool success
+---
+# Feedback
+int32 percentage

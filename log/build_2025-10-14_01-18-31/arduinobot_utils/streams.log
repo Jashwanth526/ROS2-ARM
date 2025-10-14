@@ -1,0 +1,34 @@
+[0.495s] Invoking command in '/home/jashwanth/arduinobot_ws/src/arduinobot_utils': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jashwanth/arduinobot_ws/build/arduinobot_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arduinobot_utils build --build-base /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build install --record /home/jashwanth/arduinobot_ws/build/arduinobot_utils/install.log --single-version-externally-managed
+[0.673s] running egg_info
+[0.674s] creating ../../build/arduinobot_utils/arduinobot_utils.egg-info
+[0.687s] writing ../../build/arduinobot_utils/arduinobot_utils.egg-info/PKG-INFO
+[0.687s] writing dependency_links to ../../build/arduinobot_utils/arduinobot_utils.egg-info/dependency_links.txt
+[0.687s] writing entry points to ../../build/arduinobot_utils/arduinobot_utils.egg-info/entry_points.txt
+[0.687s] writing requirements to ../../build/arduinobot_utils/arduinobot_utils.egg-info/requires.txt
+[0.687s] writing top-level names to ../../build/arduinobot_utils/arduinobot_utils.egg-info/top_level.txt
+[0.687s] writing manifest file '../../build/arduinobot_utils/arduinobot_utils.egg-info/SOURCES.txt'
+[0.715s] reading manifest file '../../build/arduinobot_utils/arduinobot_utils.egg-info/SOURCES.txt'
+[0.715s] writing manifest file '../../build/arduinobot_utils/arduinobot_utils.egg-info/SOURCES.txt'
+[0.715s] running build
+[0.715s] running build_py
+[0.715s] creating /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build
+[0.715s] creating /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib
+[0.715s] creating /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils
+[0.716s] copying arduinobot_utils/world_markers_publisher.py -> /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils
+[0.716s] copying arduinobot_utils/__init__.py -> /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils
+[0.716s] copying arduinobot_utils/angle_conversion.py -> /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils
+[0.716s] running install
+[0.721s] running install_lib
+[0.733s] creating /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils
+[0.733s] copying /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils/world_markers_publisher.py -> /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils
+[0.733s] copying /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils/__init__.py -> /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils
+[0.733s] copying /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build/lib/arduinobot_utils/angle_conversion.py -> /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils
+[0.733s] byte-compiling /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/world_markers_publisher.py to world_markers_publisher.cpython-312.pyc
+[0.734s] byte-compiling /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/__init__.py to __init__.cpython-312.pyc
+[0.734s] byte-compiling /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils/angle_conversion.py to angle_conversion.cpython-312.pyc
+[0.735s] running install_egg_info
+[0.747s] Copying ../../build/arduinobot_utils/arduinobot_utils.egg-info to /home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages/arduinobot_utils-0.0.1-py3.12.egg-info
+[0.747s] running install_scripts
+[0.834s] Installing world_markers_publisher script to /home/jashwanth/arduinobot_ws/install/arduinobot_utils/bin
+[0.834s] writing list of installed files to '/home/jashwanth/arduinobot_ws/build/arduinobot_utils/install.log'
+[0.853s] Invoked command in '/home/jashwanth/arduinobot_ws/src/arduinobot_utils' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/jashwanth/arduinobot_ws/build/arduinobot_utils/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arduinobot_utils build --build-base /home/jashwanth/arduinobot_ws/build/arduinobot_utils/build install --record /home/jashwanth/arduinobot_ws/build/arduinobot_utils/install.log --single-version-externally-managed

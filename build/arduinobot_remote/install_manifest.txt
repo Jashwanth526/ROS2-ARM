@@ -2939,6 +2939,7 @@
 /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/venv/pyvenv.cfg
 /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/alexa_interface.py
 /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/__init__.py
+/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/simple_alexa_server.py
 /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages/arduinobot_remote/task_server.py
 /home/jashwanth/arduinobot_ws/install/arduinobot_remote/share/arduinobot_remote/launch/remote_interface.launch.py
 /home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/libtask_server.so

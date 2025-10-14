@@ -1,6 +1,7 @@
 setup.py
 arduinobot_remote/__init__.py
 arduinobot_remote/alexa_interface.py
+arduinobot_remote/simple_alexa_server.py
 arduinobot_remote/task_server.py
 arduinobot_remote.egg-info/PKG-INFO
 arduinobot_remote.egg-info/SOURCES.txt

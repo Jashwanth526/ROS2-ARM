@@ -1,0 +1,508 @@
+[0.000000] (-) TimerEvent: {}
+[0.000320] (-) JobUnselected: {'identifier': 'arduinobot_bringup'}
+[0.000392] (-) JobUnselected: {'identifier': 'arduinobot_controller'}
+[0.000405] (-) JobUnselected: {'identifier': 'arduinobot_cpp_examples'}
+[0.000415] (-) JobUnselected: {'identifier': 'arduinobot_description'}
+[0.000423] (-) JobUnselected: {'identifier': 'arduinobot_moveit'}
+[0.000430] (-) JobUnselected: {'identifier': 'arduinobot_msgs'}
+[0.000438] (-) JobUnselected: {'identifier': 'arduinobot_py_examples'}
+[0.000447] (-) JobUnselected: {'identifier': 'arduinobot_utils'}
+[0.000455] (-) JobUnselected: {'identifier': 'object_detection'}
+[0.000467] (arduinobot_remote) JobQueued: {'identifier': 'arduinobot_remote', 'dependencies': OrderedDict({'arduinobot_description': '/home/jashwanth/arduinobot_ws/install/arduinobot_description', 'arduinobot_msgs': '/home/jashwanth/arduinobot_ws/install/arduinobot_msgs', 'arduinobot_moveit': '/home/jashwanth/arduinobot_ws/install/arduinobot_moveit'})}
+[0.000684] (arduinobot_remote) JobStarted: {'identifier': 'arduinobot_remote'}
+[0.014009] (arduinobot_remote) JobProgress: {'identifier': 'arduinobot_remote', 'progress': 'cmake'}
+[0.014627] (arduinobot_remote) JobProgress: {'identifier': 'arduinobot_remote', 'progress': 'build'}
+[0.015313] (arduinobot_remote) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jashwanth/arduinobot_ws/build/arduinobot_remote', '--', '-j20', '-l20'], 'cwd': '/home/jashwanth/arduinobot_ws/build/arduinobot_remote', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'jashwanth', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_launch_vendor/share/gz:/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'GIO_MODULE_DIR': '/home/jashwanth/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'x11', 'GIT_ASKPASS': '/snap/code/209/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib:/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib:/home/jashwanth/arduinobot_ws/install/arduinobot_cpp_examples/lib:/opt/ros/jazzy/opt/gz_launch_vendor/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/jashwanth', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.104.3', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/209/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/jashwanth/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/209/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/209/usr/share/code/code', 'MANAGERPID': '2659', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '3115', 'BUNDLED_DEBUGPY_PATH': '/home/jashwanth/.vscode/extensions/ms-python.debugpy-2025.14.0-linux-x64/bundled/libs/debugpy', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '71169', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/jashwanth/arduinobot_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'jashwanth', 'JOURNAL_STREAM': '9:24533', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@x11.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'jashwanth', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/jashwanth/.local/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/jashwanth/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/jashwanth/.vscode/extensions/ms-python.debugpy-2025.14.0-linux-x64/bundled/scripts/noConfigScripts:/home/jashwanth/.config/Code/User/globalStorage/github.copilot-chat/debugCommand', 'SESSION_MANAGER': 'local/jashwanth:@/tmp/.ICE-unix/3051,unix/jashwanth:/tmp/.ICE-unix/3051', 'GTK_EXE_PREFIX': '/snap/code/209/usr', 'INVOCATION_ID': '3c8a9ddaa3f2471a9b1990c8d28bd806', 'XDG_MENU_PREFIX': 'gnome-', 'BAMF_DESKTOP_FILE_HINT': '/var/lib/snapd/desktop/applications/code_code.desktop', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':1', 'LOCPATH': '/snap/code/209/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/jashwanth/.vscode/extensions/ms-python.debugpy-2025.14.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-d9a1d8830bfd0ab3.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'PYTHONSTARTUP': '/home/jashwanth/.config/Code/User/workspaceStorage/64c8930441110a43daab634ccad19177/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/jashwanth/snap/code/209/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-2f26e99ae8.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/jashwanth/snap/code/209/.local/share/glib-2.0/schemas', 'AMENT_PREFIX_PATH': '/home/jashwanth/arduinobot_ws/install/object_detection:/home/jashwanth/arduinobot_ws/install/arduinobot_utils:/home/jashwanth/arduinobot_ws/install/arduinobot_bringup:/home/jashwanth/arduinobot_ws/install/arduinobot_remote:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples:/home/jashwanth/arduinobot_ws/install/arduinobot_cpp_examples:/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:/home/jashwanth/arduinobot_ws/install/arduinobot_moveit:/home/jashwanth/arduinobot_ws/install/arduinobot_controller:/home/jashwanth/arduinobot_ws/install/arduinobot_description:/opt/ros/jazzy', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/jashwanth/arduinobot_ws/build/arduinobot_remote', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/jashwanth/snap/code/209/.local/share:/home/jashwanth/snap/code/209:/snap/code/209/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jashwanth/arduinobot_ws/install/arduinobot_msgs/lib/python3.12/site-packages:/home/jashwanth/arduinobot_ws/install/object_detection/lib/python3.12/site-packages:/home/jashwanth/arduinobot_ws/install/arduinobot_utils/lib/python3.12/site-packages:/home/jashwanth/arduinobot_ws/install/arduinobot_remote/lib/python3.12/site-packages:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples/lib/python3.12/site-packages:/home/jashwanth/arduinobot_ws/install/arduinobot_controller/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/home/jashwanth/arduinobot_ws/install/arduinobot_moveit:/home/jashwanth/arduinobot_ws/install/arduinobot_msgs:/home/jashwanth/arduinobot_ws/install/arduinobot_description:/home/jashwanth/arduinobot_ws/install/arduinobot_utils:/home/jashwanth/arduinobot_ws/install/arduinobot_bringup:/home/jashwanth/arduinobot_ws/install/arduinobot_remote:/home/jashwanth/arduinobot_ws/install/arduinobot_cpp_examples:/home/jashwanth/arduinobot_ws/install/arduinobot_controller:/opt/ros/jazzy/opt/gz_launch_vendor:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/jashwanth/arduinobot_ws/install/object_detection:/home/jashwanth/arduinobot_ws/install/arduinobot_py_examples:/opt/ros/jazzy'}), 'shell': False}
+[0.087884] (arduinobot_remote) StdoutLine: {'line': b'[ 50%] Built target task_server_node\n'}
+[0.092918] (arduinobot_remote) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/task_server.dir/src/task_server.cpp.o\x1b[0m\n'}
+[0.099779] (-) TimerEvent: {}
+[0.200083] (-) TimerEvent: {}
+[0.300403] (-) TimerEvent: {}
+[0.400822] (-) TimerEvent: {}
+[0.501172] (-) TimerEvent: {}
+[0.601570] (-) TimerEvent: {}
+[0.701999] (-) TimerEvent: {}
+[0.802310] (-) TimerEvent: {}
+[0.902666] (-) TimerEvent: {}
+[1.002960] (-) TimerEvent: {}
+[1.008017] (arduinobot_remote) StdoutLine: {'line': b'[ 75%] Built target ament_cmake_python_copy_arduinobot_remote\n'}
+[1.103063] (-) TimerEvent: {}
+[1.203412] (-) TimerEvent: {}
+[1.216878] (arduinobot_remote) StdoutLine: {'line': b'running egg_info\n'}
+[1.234907] (arduinobot_remote) StdoutLine: {'line': b'writing arduinobot_remote.egg-info/PKG-INFO\n'}
+[1.235087] (arduinobot_remote) StdoutLine: {'line': b'writing dependency_links to arduinobot_remote.egg-info/dependency_links.txt\n'}
+[1.235181] (arduinobot_remote) StdoutLine: {'line': b'writing top-level names to arduinobot_remote.egg-info/top_level.txt\n'}
+[1.282638] (arduinobot_remote) StdoutLine: {'line': b"reading manifest file 'arduinobot_remote.egg-info/SOURCES.txt'\n"}
+[1.282945] (arduinobot_remote) StdoutLine: {'line': b"writing manifest file 'arduinobot_remote.egg-info/SOURCES.txt'\n"}
+[1.303505] (-) TimerEvent: {}
+[1.323198] (arduinobot_remote) StdoutLine: {'line': b'[ 75%] Built target ament_cmake_python_build_arduinobot_remote_egg\n'}
+[1.403621] (-) TimerEvent: {}
+[1.503969] (-) TimerEvent: {}
+[1.604282] (-) TimerEvent: {}
+[1.704514] (-) TimerEvent: {}
+[1.804832] (-) TimerEvent: {}
+[1.905142] (-) TimerEvent: {}
+[2.005502] (-) TimerEvent: {}
+[2.105890] (-) TimerEvent: {}
+[2.206302] (-) TimerEvent: {}
+[2.306607] (-) TimerEvent: {}
+[2.406915] (-) TimerEvent: {}
+[2.507224] (-) TimerEvent: {}
+[2.607500] (-) TimerEvent: {}
+[2.707815] (-) TimerEvent: {}
+[2.808048] (-) TimerEvent: {}
+[2.908348] (-) TimerEvent: {}
+[3.010612] (-) TimerEvent: {}
+[3.110939] (-) TimerEvent: {}
+[3.211200] (-) TimerEvent: {}
+[3.311504] (-) TimerEvent: {}
+[3.411873] (-) TimerEvent: {}
+[3.512240] (-) TimerEvent: {}
+[3.612478] (-) TimerEvent: {}
+[3.712965] (-) TimerEvent: {}
+[3.813212] (-) TimerEvent: {}
+[3.913475] (-) TimerEvent: {}
+[4.013804] (-) TimerEvent: {}
+[4.114124] (-) TimerEvent: {}
+[4.214461] (-) TimerEvent: {}
+[4.314870] (-) TimerEvent: {}
+[4.339487] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:254:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 after class definition\n'}
+[4.339728] (arduinobot_remote) StderrLine: {'line': b'  254 |     }\n'}
+[4.339775] (arduinobot_remote) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[4.339816] (arduinobot_remote) StderrLine: {'line': b'      |      \x1b[32m\x1b[K;\x1b[m\x1b[K\n'}
+[4.342639] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Karduinobot_remote::TaskServer::\x1b[01;32m\x1b[KTaskServer\x1b[m\x1b[K(const rclcpp::NodeOptions&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.342813] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:33:53:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KgoalCallback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Karduinobot_remote::TaskServer\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.342854] (arduinobot_remote) StderrLine: {'line': b'   33 |         this, "task_server", std::bind(&TaskServer::\x1b[01;31m\x1b[KgoalCallback\x1b[m\x1b[K, this, _1, _2),\n'}
+[4.342889] (arduinobot_remote) StderrLine: {'line': b'      |                                                     \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.342924] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:34:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KcancelCallback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Karduinobot_remote::TaskServer\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.342957] (arduinobot_remote) StderrLine: {'line': b'   34 |         std::bind(&TaskServer::\x1b[01;31m\x1b[KcancelCallback\x1b[m\x1b[K, this, _1),\n'}
+[4.342988] (arduinobot_remote) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.343020] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:35:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KacceptedCallback\x1b[m\x1b[K\xe2\x80\x99 is not a member of \xe2\x80\x98\x1b[01m\x1b[Karduinobot_remote::TaskServer\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.343054] (arduinobot_remote) StderrLine: {'line': b'   35 |         std::bind(&TaskServer::\x1b[01;31m\x1b[KacceptedCallback\x1b[m\x1b[K, this, _1));\n'}
+[4.343086] (arduinobot_remote) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.371688] (arduinobot_remote) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27\x1b[m\x1b[K,\n'}
+[4.371889] (arduinobot_remote) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171\x1b[m\x1b[K,\n'}
+[4.371932] (arduinobot_remote) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:1\x1b[m\x1b[K:\n'}
+[4.371966] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[01;32m\x1b[K performScanningSequence\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.372000] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:259:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.372034] (arduinobot_remote) StderrLine: {'line': b'  259 |     RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Starting 360-degree scanning sequence");\n'}
+[4.372067] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.372103] (arduinobot_remote) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:26\x1b[m\x1b[K:\n'}
+[4.372156] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.372209] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.372242] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.372274] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:259:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.372304] (arduinobot_remote) StderrLine: {'line': b'  259 |     \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Starting 360-degree scanning sequence");\n'}
+[4.372336] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.380645] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:262:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kobject_detected_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.380817] (arduinobot_remote) StderrLine: {'line': b'  262 |     \x1b[01;31m\x1b[Kobject_detected_\x1b[m\x1b[K = false;\n'}
+[4.380855] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.390709] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:263:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdetected_object_color_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.390919] (arduinobot_remote) StderrLine: {'line': b'  263 |     \x1b[01;31m\x1b[Kdetected_object_color_\x1b[m\x1b[K = "";\n'}
+[4.390963] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.399693] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:266:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.399963] (arduinobot_remote) StderrLine: {'line': b'  266 |     if(!\x1b[01;31m\x1b[Karm_move_group_\x1b[m\x1b[K){\n'}
+[4.400051] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.407612] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:267:90:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kshared_from_this\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.407945] (arduinobot_remote) StderrLine: {'line': b'  267 |       arm_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(\x1b[01;31m\x1b[Kshared_from_this\x1b[m\x1b[K(), "arm");\n'}
+[4.408044] (arduinobot_remote) StderrLine: {'line': b'      |                                                                                          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.414966] (-) TimerEvent: {}
+[4.417071] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:269:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.417272] (arduinobot_remote) StderrLine: {'line': b'  269 |     if(!\x1b[01;31m\x1b[Kgripper_move_group_\x1b[m\x1b[K){\n'}
+[4.417355] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.425377] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:270:94:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kshared_from_this\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.425606] (arduinobot_remote) StderrLine: {'line': b'  270 |       gripper_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(\x1b[01;31m\x1b[Kshared_from_this\x1b[m\x1b[K(), "gripper");\n'}
+[4.425690] (arduinobot_remote) StderrLine: {'line': b'      |                                                                                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.434232] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:275:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.434631] (arduinobot_remote) StderrLine: {'line': b'  275 |     \x1b[01;31m\x1b[Kgripper_move_group_\x1b[m\x1b[K->setStartState(*gripper_move_group_->getCurrentState());\n'}
+[4.434772] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.439248] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:303:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.439482] (arduinobot_remote) StderrLine: {'line': b'  303 |         RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Object detected! Stopping scan and initiating pick sequence");\n'}
+[4.439564] (arduinobot_remote) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.439640] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.439714] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.439785] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.439862] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:303:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.439932] (arduinobot_remote) StderrLine: {'line': b'  303 |         \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Object detected! Stopping scan and initiating pick sequence");\n'}
+[4.440001] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.446409] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:304:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KperformPickSequence\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KperformScanningSequence\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.446531] (arduinobot_remote) StderrLine: {'line': b'  304 |         \x1b[01;31m\x1b[KperformPickSequence\x1b[m\x1b[K();\n'}
+[4.446606] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.446648] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[32m\x1b[KperformScanningSequence\x1b[m\x1b[K\n'}
+[4.447782] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:308:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.447995] (arduinobot_remote) StderrLine: {'line': b'  308 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Scanning position %zu/%zu", i + 1, scan_positions.size());\n'}
+[4.448049] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.448084] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.448118] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.448162] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.448194] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:308:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.448225] (arduinobot_remote) StderrLine: {'line': b'  308 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Scanning position %zu/%zu", i + 1, scan_positions.size());\n'}
+[4.448260] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.454111] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:311:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.454273] (arduinobot_remote) StderrLine: {'line': b'  311 |       \x1b[01;31m\x1b[Karm_move_group_\x1b[m\x1b[K->setStartState(*arm_move_group_->getCurrentState());\n'}
+[4.454312] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.455485] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:316:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.455581] (arduinobot_remote) StderrLine: {'line': b'  316 |         RCLCPP_WARN(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Scan position %zu out of bounds, skipping", i + 1);\n'}
+[4.455616] (arduinobot_remote) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.455648] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.455695] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.455738] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.455780] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:316:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.455833] (arduinobot_remote) StderrLine: {'line': b'  316 |         \x1b[01;31m\x1b[KRCLCPP_WARN\x1b[m\x1b[K(get_logger(), "Scan position %zu out of bounds, skipping", i + 1);\n'}
+[4.455878] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.457122] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:331:23:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.457242] (arduinobot_remote) StderrLine: {'line': b'  331 |           RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Object detected at position %zu! Initiating pick", i + 1);\n'}
+[4.457276] (arduinobot_remote) StderrLine: {'line': b'      |                       \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.457309] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.457341] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.457371] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.457400] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:331:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.457430] (arduinobot_remote) StderrLine: {'line': b'  331 |           \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Object detected at position %zu! Initiating pick", i + 1);\n'}
+[4.457468] (arduinobot_remote) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.463584] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:332:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KperformPickSequence\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KperformScanningSequence\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.463825] (arduinobot_remote) StderrLine: {'line': b'  332 |           \x1b[01;31m\x1b[KperformPickSequence\x1b[m\x1b[K();\n'}
+[4.463880] (arduinobot_remote) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.463912] (arduinobot_remote) StderrLine: {'line': b'      |           \x1b[32m\x1b[KperformScanningSequence\x1b[m\x1b[K\n'}
+[4.465116] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:338:22:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.465209] (arduinobot_remote) StderrLine: {'line': b'  338 |         RCLCPP_ERROR(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Failed to plan to scan position %zu", i + 1);\n'}
+[4.465260] (arduinobot_remote) StderrLine: {'line': b'      |                      \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.465310] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.465356] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.465393] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.465424] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:338:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.465455] (arduinobot_remote) StderrLine: {'line': b'  338 |         \x1b[01;31m\x1b[KRCLCPP_ERROR\x1b[m\x1b[K(get_logger(), "Failed to plan to scan position %zu", i + 1);\n'}
+[4.465493] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.466633] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:342:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.466735] (arduinobot_remote) StderrLine: {'line': b'  342 |     RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "360-degree scan completed");\n'}
+[4.466770] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.466808] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.466841] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.466883] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.466914] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:342:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.466947] (arduinobot_remote) StderrLine: {'line': b'  342 |     \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "360-degree scan completed");\n'}
+[4.466979] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.469943] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Krclcpp_action::GoalResponse\x1b[01;32m\x1b[K goalCallback\x1b[m\x1b[K(const rclcpp_action::GoalUUID&, std::shared_ptr<const arduinobot_msgs::action::ArduinobotTask_Goal_<std::allocator<void> > >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.470064] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:349:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.470101] (arduinobot_remote) StderrLine: {'line': b'  349 |     RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Received goal request with id %d", goal->task_number);\n'}
+[4.470134] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.470165] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.470197] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.470227] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.470257] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:349:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.470286] (arduinobot_remote) StderrLine: {'line': b'  349 |     \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Received goal request with id %d", goal->task_number);\n'}
+[4.470315] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.472545] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Krclcpp_action::CancelResponse\x1b[01;32m\x1b[K cancelCallback\x1b[m\x1b[K(std::shared_ptr<rclcpp_action::ServerGoalHandle<arduinobot_msgs::action::ArduinobotTask> >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.472661] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:358:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.472698] (arduinobot_remote) StderrLine: {'line': b'  358 |     RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Received request to cancel goal");\n'}
+[4.472730] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.472760] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.472796] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.472825] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.472856] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:358:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.472906] (arduinobot_remote) StderrLine: {'line': b'  358 |     \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Received request to cancel goal");\n'}
+[4.472938] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.479146] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:359:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.479350] (arduinobot_remote) StderrLine: {'line': b'  359 |     if(\x1b[01;31m\x1b[Karm_move_group_\x1b[m\x1b[K){\n'}
+[4.479406] (arduinobot_remote) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.487107] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:362:8:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.487344] (arduinobot_remote) StderrLine: {'line': b'  362 |     if(\x1b[01;31m\x1b[Kgripper_move_group_\x1b[m\x1b[K){\n'}
+[4.487434] (arduinobot_remote) StderrLine: {'line': b'      |        \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.488393] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[01;32m\x1b[K acceptedCallback\x1b[m\x1b[K(std::shared_ptr<rclcpp_action::ServerGoalHandle<arduinobot_msgs::action::ArduinobotTask> >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.488511] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:372:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KTaskServer\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Karduinobot_remote::TaskServer\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.488590] (arduinobot_remote) StderrLine: {'line': b'  372 |     std::thread{ std::bind(&\x1b[01;31m\x1b[KTaskServer\x1b[m\x1b[K::execute, this, _1), goal_handle }.detach();\n'}
+[4.488660] (arduinobot_remote) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.488736] (arduinobot_remote) StderrLine: {'line': b'      |                             \x1b[32m\x1b[Karduinobot_remote::TaskServer\x1b[m\x1b[K\n'}
+[4.488814] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:19:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karduinobot_remote::TaskServer\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.488883] (arduinobot_remote) StderrLine: {'line': b'   19 | class \x1b[01;36m\x1b[KTaskServer\x1b[m\x1b[K : public rclcpp::Node\n'}
+[4.488953] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.491198] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:372:50:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[4.491437] (arduinobot_remote) StderrLine: {'line': b'  372 |     std::thread{ std::bind(&TaskServer::execute, \x1b[01;31m\x1b[Kthis\x1b[m\x1b[K, _1), goal_handle }.detach();\n'}
+[4.491511] (arduinobot_remote) StderrLine: {'line': b'      |                                                  \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[4.491580] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:372:73:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kstd::thread::thread(<brace-enclosed initializer list>)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.491667] (arduinobot_remote) StderrLine: {'line': b'  372 |     std::thread{ std::bind(&TaskServer::execute, this, _1), goal_handle \x1b[01;31m\x1b[K}\x1b[m\x1b[K.detach();\n'}
+[4.491736] (arduinobot_remote) StderrLine: {'line': b'      |                                                                         \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[4.491815] (arduinobot_remote) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/13/future:51\x1b[m\x1b[K,\n'}
+[4.491890] (arduinobot_remote) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:18\x1b[m\x1b[K,\n'}
+[4.491962] (arduinobot_remote) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:172\x1b[m\x1b[K:\n'}
+[4.492032] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/std_thread.h:154:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Callable, class ... _Args, class> std::thread::\x1b[01;32m\x1b[Kthread\x1b[m\x1b[K(_Callable&&, _Args&& ...)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.492104] (arduinobot_remote) StderrLine: {'line': b'  154 |       \x1b[01;36m\x1b[Kthread\x1b[m\x1b[K(_Callable&& __f, _Args&&... __args)\n'}
+[4.492178] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.492250] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/std_thread.h:154:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[4.492320] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/std_thread.h:178:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::thread::\x1b[01;32m\x1b[Kthread\x1b[m\x1b[K(std::thread&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.492395] (arduinobot_remote) StderrLine: {'line': b'  178 |     \x1b[01;36m\x1b[Kthread\x1b[m\x1b[K(thread&& __t) noexcept\n'}
+[4.492552] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.492621] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/std_thread.h:178:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 1 argument, 2 provided\n'}
+[4.492678] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/std_thread.h:132:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::thread::\x1b[01;32m\x1b[Kthread\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.492716] (arduinobot_remote) StderrLine: {'line': b'  132 |     \x1b[01;36m\x1b[Kthread\x1b[m\x1b[K() noexcept = default;\n'}
+[4.492749] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.492780] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/std_thread.h:132:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 0 arguments, 2 provided\n'}
+[4.493569] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid\x1b[01;32m\x1b[K execute\x1b[m\x1b[K(std::shared_ptr<rclcpp_action::ServerGoalHandle<arduinobot_msgs::action::ArduinobotTask> >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.493821] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:377:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.493943] (arduinobot_remote) StderrLine: {'line': b'  377 |     RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Executing goal");\n'}
+[4.494072] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.494149] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.494190] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.494226] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.494264] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:377:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.494296] (arduinobot_remote) StderrLine: {'line': b'  377 |     \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Executing goal");\n'}
+[4.494327] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.501676] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:381:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.501900] (arduinobot_remote) StderrLine: {'line': b'  381 |     if(!\x1b[01;31m\x1b[Karm_move_group_\x1b[m\x1b[K){\n'}
+[4.501944] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.508633] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:382:90:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kshared_from_this\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.508845] (arduinobot_remote) StderrLine: {'line': b'  382 |       arm_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(\x1b[01;31m\x1b[Kshared_from_this\x1b[m\x1b[K(), "arm");\n'}
+[4.508904] (arduinobot_remote) StderrLine: {'line': b'      |                                                                                          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.515076] (-) TimerEvent: {}
+[4.516380] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:384:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.516573] (arduinobot_remote) StderrLine: {'line': b'  384 |     if(!\x1b[01;31m\x1b[Kgripper_move_group_\x1b[m\x1b[K){\n'}
+[4.516648] (arduinobot_remote) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.524978] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:385:94:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kshared_from_this\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.525181] (arduinobot_remote) StderrLine: {'line': b'  385 |       gripper_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(\x1b[01;31m\x1b[Kshared_from_this\x1b[m\x1b[K(), "gripper");\n'}
+[4.525239] (arduinobot_remote) StderrLine: {'line': b'      |                                                                                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.538535] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:390:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.538765] (arduinobot_remote) StderrLine: {'line': b'  390 |       \x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K = {0.0, 0.0, 0.0};\n'}
+[4.538847] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.548480] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:391:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.548636] (arduinobot_remote) StderrLine: {'line': b'  391 |       \x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K = {-0.7, 0.7};\n'}
+[4.548676] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.557171] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:395:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.557404] (arduinobot_remote) StderrLine: {'line': b'  395 |       \x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K = {-1.14, -0.6, -0.07};\n'}
+[4.557517] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.565721] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:396:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.565973] (arduinobot_remote) StderrLine: {'line': b'  396 |       \x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K = {0.0, 0.0};\n'}
+[4.566053] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.573196] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:400:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.573423] (arduinobot_remote) StderrLine: {'line': b'  400 |       \x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K = {-1.57,0.0,-0.9};\n'}
+[4.573506] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.580255] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:401:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.580466] (arduinobot_remote) StderrLine: {'line': b'  401 |       \x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K = {0.0, 0.0};\n'}
+[4.580551] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.581654] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:406:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.581755] (arduinobot_remote) StderrLine: {'line': b'  406 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Entering scanning mode - performing 360-degree scan");\n'}
+[4.581803] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.581840] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.581890] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.581920] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.581953] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:406:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.581985] (arduinobot_remote) StderrLine: {'line': b'  406 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Entering scanning mode - performing 360-degree scan");\n'}
+[4.582026] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.583972] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:410:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.584071] (arduinobot_remote) StderrLine: {'line': b'  410 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Scanning completed");\n'}
+[4.584106] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.584137] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.584169] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.584200] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.584228] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:410:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.584259] (arduinobot_remote) StderrLine: {'line': b'  410 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Scanning completed");\n'}
+[4.584289] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.585288] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:416:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.585349] (arduinobot_remote) StderrLine: {'line': b'  416 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Picking detected object");\n'}
+[4.585385] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.585416] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.585447] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.585478] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.585513] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:416:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.585545] (arduinobot_remote) StderrLine: {'line': b'  416 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Picking detected object");\n'}
+[4.585575] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.591430] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:417:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.591608] (arduinobot_remote) StderrLine: {'line': b'  417 |       \x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K = {-0.8, -0.4, -0.05};  // Less aggressive, higher position\n'}
+[4.591648] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.599169] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:418:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.599373] (arduinobot_remote) StderrLine: {'line': b'  418 |       \x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K = {0.0, 0.0};\n'}
+[4.599416] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.600718] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:423:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.600772] (arduinobot_remote) StderrLine: {'line': b'  423 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Placing object in drop zone");\n'}
+[4.600812] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.600845] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.600880] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.600911] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.600941] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:423:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.600973] (arduinobot_remote) StderrLine: {'line': b'  423 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Placing object in drop zone");\n'}
+[4.601003] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.608798] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:424:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.608995] (arduinobot_remote) StderrLine: {'line': b'  424 |       \x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K = {-0.6, -0.3, -0.1};  // More conservative approach\n'}
+[4.609040] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.615211] (-) TimerEvent: {}
+[4.618820] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:425:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.618994] (arduinobot_remote) StderrLine: {'line': b'  425 |       \x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K = {-0.7, 0.7};\n'}
+[4.619059] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.620920] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:430:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.621059] (arduinobot_remote) StderrLine: {'line': b'  430 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Test scanning position");\n'}
+[4.621102] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.621136] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.621173] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.621218] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.621269] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:430:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.621313] (arduinobot_remote) StderrLine: {'line': b'  430 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Test scanning position");\n'}
+[4.621346] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.632352] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:431:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.632525] (arduinobot_remote) StderrLine: {'line': b'  431 |       \x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K = {0.0, 0.5, -1.0};  // Base straight, shoulder back, elbow down\n'}
+[4.632602] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.643146] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:432:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.643334] (arduinobot_remote) StderrLine: {'line': b'  432 |       \x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K = {-0.7, 0.7};\n'}
+[4.643401] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.645032] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:437:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.645232] (arduinobot_remote) StderrLine: {'line': b'  437 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Scanning for RED objects only");\n'}
+[4.645391] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.645455] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.645502] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.645548] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.645580] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:437:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.645615] (arduinobot_remote) StderrLine: {'line': b'  437 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Scanning for RED objects only");\n'}
+[4.645648] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.651662] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:438:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KsetTargetColor\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.651818] (arduinobot_remote) StderrLine: {'line': b'  438 |       \x1b[01;31m\x1b[KsetTargetColor\x1b[m\x1b[K("red");\n'}
+[4.651861] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.653272] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:442:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.653418] (arduinobot_remote) StderrLine: {'line': b'  442 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "RED object scanning completed");\n'}
+[4.653458] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.653493] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.653529] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.653563] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.653594] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:442:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.653630] (arduinobot_remote) StderrLine: {'line': b'  442 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "RED object scanning completed");\n'}
+[4.653674] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.655504] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:448:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.655595] (arduinobot_remote) StderrLine: {'line': b'  448 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Scanning for BLUE objects only");\n'}
+[4.655629] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.655661] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.655699] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.655730] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.655760] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:448:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.655796] (arduinobot_remote) StderrLine: {'line': b'  448 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Scanning for BLUE objects only");\n'}
+[4.655827] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.662981] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:449:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KsetTargetColor\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.663155] (arduinobot_remote) StderrLine: {'line': b'  449 |       \x1b[01;31m\x1b[KsetTargetColor\x1b[m\x1b[K("blue");\n'}
+[4.663196] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.664904] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:453:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.665035] (arduinobot_remote) StderrLine: {'line': b'  453 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "BLUE object scanning completed");\n'}
+[4.665076] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.665111] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.665146] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.665177] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.665207] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:453:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.665238] (arduinobot_remote) StderrLine: {'line': b'  453 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "BLUE object scanning completed");\n'}
+[4.665277] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.667082] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:459:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.667217] (arduinobot_remote) StderrLine: {'line': b'  459 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Scanning for GREEN objects only");\n'}
+[4.667255] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.667287] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.667322] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.667354] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.667385] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:459:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.667416] (arduinobot_remote) StderrLine: {'line': b'  459 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Scanning for GREEN objects only");\n'}
+[4.667449] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.674587] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:460:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KsetTargetColor\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.674819] (arduinobot_remote) StderrLine: {'line': b'  460 |       \x1b[01;31m\x1b[KsetTargetColor\x1b[m\x1b[K("green");\n'}
+[4.674868] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.676152] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:464:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.676285] (arduinobot_remote) StderrLine: {'line': b'  464 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "GREEN object scanning completed");\n'}
+[4.676328] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.676363] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.676396] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.676438] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.676468] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:464:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.676499] (arduinobot_remote) StderrLine: {'line': b'  464 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "GREEN object scanning completed");\n'}
+[4.676529] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.677716] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:469:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.677814] (arduinobot_remote) StderrLine: {'line': b'  469 |       RCLCPP_ERROR(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Invalid Task Number");\n'}
+[4.677863] (arduinobot_remote) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.677909] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.677956] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.678001] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.678047] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:469:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.678093] (arduinobot_remote) StderrLine: {'line': b'  469 |       \x1b[01;31m\x1b[KRCLCPP_ERROR\x1b[m\x1b[K(get_logger(), "Invalid Task Number");\n'}
+[4.678142] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.683588] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:473:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.683733] (arduinobot_remote) StderrLine: {'line': b'  473 |     \x1b[01;31m\x1b[Karm_move_group_\x1b[m\x1b[K->setStartState(*arm_move_group_->getCurrentState());\n'}
+[4.683786] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.693688] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:474:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_move_group_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.693956] (arduinobot_remote) StderrLine: {'line': b'  474 |     \x1b[01;31m\x1b[Kgripper_move_group_\x1b[m\x1b[K->setStartState(*gripper_move_group_->getCurrentState());\n'}
+[4.694100] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.701857] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:476:67:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Karm_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.702024] (arduinobot_remote) StderrLine: {'line': b'  476 |     bool arm_within_bounds = arm_move_group_->setJointValueTarget(\x1b[01;31m\x1b[Karm_joint_goal_\x1b[m\x1b[K);\n'}
+[4.702065] (arduinobot_remote) StderrLine: {'line': b'      |                                                                   \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.709333] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:477:75:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[4.709498] (arduinobot_remote) StderrLine: {'line': b'  477 |     bool gripper_within_bounds = gripper_move_group_->setJointValueTarget(\x1b[01;31m\x1b[Kgripper_joint_goal_\x1b[m\x1b[K);\n'}
+[4.709547] (arduinobot_remote) StderrLine: {'line': b'      |                                                                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.710795] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:480:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.710852] (arduinobot_remote) StderrLine: {'line': b'  480 |       RCLCPP_WARN(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(),\n'}
+[4.710888] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.710919] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.710951] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.710982] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.711021] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:480:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.711056] (arduinobot_remote) StderrLine: {'line': b'  480 |       \x1b[01;31m\x1b[KRCLCPP_WARN\x1b[m\x1b[K(get_logger(),\n'}
+[4.711085] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.712513] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:492:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.712628] (arduinobot_remote) StderrLine: {'line': b'  492 |       RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Planner SUCCEED, moving the arme and the gripper");\n'}
+[4.712662] (arduinobot_remote) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.712693] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.712726] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.712757] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.712790] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:492:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.712821] (arduinobot_remote) StderrLine: {'line': b'  492 |       \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Planner SUCCEED, moving the arme and the gripper");\n'}
+[4.712853] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.713612] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:498:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.713654] (arduinobot_remote) StderrLine: {'line': b'  498 |       RCLCPP_ERROR(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "One or more planners failed!");\n'}
+[4.713686] (arduinobot_remote) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.713718] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.713749] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.713785] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.713826] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:498:7:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.713857] (arduinobot_remote) StderrLine: {'line': b'  498 |       \x1b[01;31m\x1b[KRCLCPP_ERROR\x1b[m\x1b[K(get_logger(), "One or more planners failed!");\n'}
+[4.713886] (arduinobot_remote) StderrLine: {'line': b'      |       \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.714548] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:504:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kget_logger\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[4.714593] (arduinobot_remote) StderrLine: {'line': b'  504 |     RCLCPP_INFO(\x1b[01;31m\x1b[Kget_logger\x1b[m\x1b[K(), "Goal succeeded");\n'}
+[4.714623] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.714653] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logger.hpp:107:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krclcpp::get_logger\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[4.714683] (arduinobot_remote) StderrLine: {'line': b'  107 |   friend Logger \x1b[01;36m\x1b[Krclcpp\x1b[m\x1b[K::get_logger(const std::string & name);\n'}
+[4.714713] (arduinobot_remote) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.714743] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:504:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[4.714772] (arduinobot_remote) StderrLine: {'line': b'  504 |     \x1b[01;31m\x1b[KRCLCPP_INFO\x1b[m\x1b[K(get_logger(), "Goal succeeded");\n'}
+[4.714810] (arduinobot_remote) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.715184] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:\x1b[m\x1b[K At global scope:\n'}
+[4.715223] (-) TimerEvent: {}
+[4.715285] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:506:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected declaration before \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[4.715321] (arduinobot_remote) StderrLine: {'line': b'  506 | \x1b[01;31m\x1b[K}\x1b[m\x1b[K;\n'}
+[4.715352] (arduinobot_remote) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[4.715380] (arduinobot_remote) StderrLine: {'line': b'\x1b[01m\x1b[K/home/jashwanth/arduinobot_ws/src/arduinobot_remote/src/task_server.cpp:507:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected declaration before \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[4.715409] (arduinobot_remote) StderrLine: {'line': b'  507 | \x1b[01;31m\x1b[K}\x1b[m\x1b[K  // namespace arduinobot_remote\n'}
+[4.715437] (arduinobot_remote) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[4.815349] (-) TimerEvent: {}
+[4.915685] (-) TimerEvent: {}
+[5.016044] (-) TimerEvent: {}
+[5.116364] (-) TimerEvent: {}
+[5.216754] (-) TimerEvent: {}
+[5.317075] (-) TimerEvent: {}
+[5.417368] (-) TimerEvent: {}
+[5.517608] (-) TimerEvent: {}
+[5.617924] (-) TimerEvent: {}
+[5.718164] (-) TimerEvent: {}
+[5.818388] (-) TimerEvent: {}
+[5.918620] (-) TimerEvent: {}
+[6.018864] (-) TimerEvent: {}
+[6.119132] (-) TimerEvent: {}
+[6.219362] (-) TimerEvent: {}
+[6.319600] (-) TimerEvent: {}
+[6.419828] (-) TimerEvent: {}
+[6.520108] (-) TimerEvent: {}
+[6.620371] (-) TimerEvent: {}
+[6.720634] (-) TimerEvent: {}
+[6.820875] (-) TimerEvent: {}
+[6.921120] (-) TimerEvent: {}
+[7.021413] (-) TimerEvent: {}
+[7.121636] (-) TimerEvent: {}
+[7.221833] (-) TimerEvent: {}
+[7.322100] (-) TimerEvent: {}
+[7.422289] (-) TimerEvent: {}
+[7.522504] (-) TimerEvent: {}
+[7.622752] (-) TimerEvent: {}
+[7.722930] (-) TimerEvent: {}
+[7.823164] (-) TimerEvent: {}
+[7.884964] (arduinobot_remote) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/task_server.dir/build.make:76: CMakeFiles/task_server.dir/src/task_server.cpp.o] Error 1\n'}
+[7.885269] (arduinobot_remote) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:142: CMakeFiles/task_server.dir/all] Error 2\n'}
+[7.885448] (arduinobot_remote) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[7.887341] (arduinobot_remote) CommandEnded: {'returncode': 2}
+[7.895122] (arduinobot_remote) JobEnded: {'identifier': 'arduinobot_remote', 'rc': 2}
+[7.905657] (-) EventReactorShutdown: {}

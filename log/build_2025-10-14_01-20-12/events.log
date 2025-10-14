@@ -1,0 +1,14 @@
+[0.000000] (-) TimerEvent: {}
+[0.000264] (-) JobUnselected: {'identifier': 'arduinobot_bringup'}
+[0.000471] (-) JobUnselected: {'identifier': 'arduinobot_controller'}
+[0.000578] (-) JobUnselected: {'identifier': 'arduinobot_cpp_examples'}
+[0.000675] (-) JobUnselected: {'identifier': 'arduinobot_description'}
+[0.000745] (-) JobUnselected: {'identifier': 'arduinobot_moveit'}
+[0.000777] (-) JobUnselected: {'identifier': 'arduinobot_msgs'}
+[0.000793] (-) JobUnselected: {'identifier': 'arduinobot_py_examples'}
+[0.000980] (-) JobUnselected: {'identifier': 'arduinobot_remote'}
+[0.000996] (-) JobUnselected: {'identifier': 'object_detection'}
+[0.001020] (arduinobot_utils) JobQueued: {'identifier': 'arduinobot_utils', 'dependencies': OrderedDict({'arduinobot_msgs': '/home/jashwanth/arduinobot_ws/install/arduinobot_msgs'})}
+[0.001132] (arduinobot_utils) JobStarted: {'identifier': 'arduinobot_utils'}
+[0.007519] (arduinobot_utils) JobEnded: {'identifier': 'arduinobot_utils', 'rc': 1}
+[0.017850] (-) EventReactorShutdown: {}

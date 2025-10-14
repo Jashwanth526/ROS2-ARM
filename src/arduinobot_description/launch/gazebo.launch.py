@@ -46,11 +46,15 @@ def generate_launch_description():
                      "use_sim_time": True}]
     )
 
+    world_file_arg = DeclareLaunchArgument(name="world", default_value="empty.sdf",
+                                      description="Absolute path to world file"
+    )
+
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory("ros_gz_sim"), "launch"), "/gz_sim.launch.py"]),
                 launch_arguments=[
-                    ("gz_args", [" -v 4 -r empty.sdf "]
+                    ("gz_args", [" -v 4 -r ", os.path.join(arduinobot_description, "worlds", "pick_and_place.sdf")]
                     )
                 ]
              )
@@ -75,6 +79,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         model_arg,
+        world_file_arg,
         gazebo_resource_path,
         robot_state_publisher_node,
         gazebo,

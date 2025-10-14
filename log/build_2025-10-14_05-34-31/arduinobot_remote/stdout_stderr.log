@@ -1,0 +1,7 @@
+failed to create symbolic link '/home/jashwanth/arduinobot_ws/build/arduinobot_remote/ament_cmake_python/arduinobot_remote/arduinobot_remote' because existing path cannot be removed: Is a directory
+gmake[2]: *** [CMakeFiles/ament_cmake_python_symlink_arduinobot_remote.dir/build.make:70: CMakeFiles/ament_cmake_python_symlink_arduinobot_remote] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:194: CMakeFiles/ament_cmake_python_symlink_arduinobot_remote.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 50%] Built target task_server_node
+[100%] Built target task_server
+gmake: *** [Makefile:146: all] Error 2

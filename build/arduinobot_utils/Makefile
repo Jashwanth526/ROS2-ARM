@@ -211,17 +211,17 @@ angle_conversion/fast:
 .PHONY : angle_conversion/fast
 
 #=============================================================================
-# Target rules for targets named ament_cmake_python_symlink_arduinobot_utils
+# Target rules for targets named ament_cmake_python_copy_arduinobot_utils
 
 # Build rule for target.
-ament_cmake_python_symlink_arduinobot_utils: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_symlink_arduinobot_utils
-.PHONY : ament_cmake_python_symlink_arduinobot_utils
+ament_cmake_python_copy_arduinobot_utils: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_copy_arduinobot_utils
+.PHONY : ament_cmake_python_copy_arduinobot_utils
 
 # fast build rule for target.
-ament_cmake_python_symlink_arduinobot_utils/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_symlink_arduinobot_utils.dir/build.make CMakeFiles/ament_cmake_python_symlink_arduinobot_utils.dir/build
-.PHONY : ament_cmake_python_symlink_arduinobot_utils/fast
+ament_cmake_python_copy_arduinobot_utils/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_copy_arduinobot_utils.dir/build.make CMakeFiles/ament_cmake_python_copy_arduinobot_utils.dir/build
+.PHONY : ament_cmake_python_copy_arduinobot_utils/fast
 
 #=============================================================================
 # Target rules for targets named ament_cmake_python_build_arduinobot_utils_egg
@@ -274,7 +274,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... ament_cmake_python_build_arduinobot_utils_egg"
-	@echo "... ament_cmake_python_symlink_arduinobot_utils"
+	@echo "... ament_cmake_python_copy_arduinobot_utils"
 	@echo "... arduinobot_utils_uninstall"
 	@echo "... uninstall"
 	@echo "... angle_conversion"

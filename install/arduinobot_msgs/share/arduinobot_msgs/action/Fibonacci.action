@@ -1,1 +1,8 @@
-/home/jashwanth/arduinobot_ws/src/arduinobot_msgs/action/Fibonacci.action
+# Goal
+int32 order
+---
+# Result
+int32[] sequence
+---
+# Feedback
+int32[] partial_sequence

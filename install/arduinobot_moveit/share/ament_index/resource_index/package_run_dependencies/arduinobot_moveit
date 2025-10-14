@@ -1,1 +1,1 @@
-/home/jashwanth/arduinobot_ws/build/arduinobot_moveit/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_moveit
+ros2launch;rviz2;moveit_configs_utils;moveit_ros_move_group;arduinobot_description;ament_lint_auto;ament_lint_common

@@ -1,6 +1,7 @@
 import os
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
+from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 
@@ -40,9 +41,21 @@ def generate_launch_description():
             launch_arguments={"is_sim": "True"}.items()
         )
     
+    # Object detector node
+    object_detector = Node(
+        package='object_detection',
+        executable='object_detector',
+        name='object_detector_node',
+        output='screen',
+        parameters=[
+            {'use_sim_time': True}  # Important for simulation
+        ]
+    )
+    
     return LaunchDescription([
         gazebo,
         controller,
         moveit,
         remote_interface,
+        object_detector,
     ])

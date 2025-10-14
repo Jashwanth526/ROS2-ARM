@@ -31,6 +31,13 @@ def generate_launch_description():
         executable="joint_state_publisher_gui"
     )
 
+    world_markers_node = Node(
+        package="arduinobot_utils",
+        executable="world_markers_publisher.py",
+        name="world_markers_publisher",
+        output="screen"
+    )
+
     rviz_node = Node(
         package="rviz2",
         executable="rviz2",
@@ -43,5 +50,6 @@ def generate_launch_description():
         model_arg,
         joint_state_publisher_gui_node,
         robot_state_publisher_node,
+        world_markers_node,
         rviz_node
     ])

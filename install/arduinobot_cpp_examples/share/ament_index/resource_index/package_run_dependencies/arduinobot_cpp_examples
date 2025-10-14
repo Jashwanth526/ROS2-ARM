@@ -1,1 +1,1 @@
-/home/jashwanth/arduinobot_ws/build/arduinobot_cpp_examples/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arduinobot_cpp_examples
+rclcpp;std_msgs;arduinobot_msgs;rcl_interfaces;rclcpp_action;rclcpp_components;moveit_ros_planning_interface;ament_lint_auto;ament_lint_common
