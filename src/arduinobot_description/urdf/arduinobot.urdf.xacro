@@ -113,13 +113,13 @@
     <link name="gripper_right">
         <xacro:default_inertial mass="0.01"/>
         <visual>
-            <origin rpy="0 0 -${PI / 2}" xyz="-0.1 0.50 -0.1"/>
+            <origin rpy="0 0 -${PI / 2}" xyz="-0.1 0.75 -0.1"/>
             <geometry>
                 <mesh filename="package://arduinobot_description/meshes/right_finger.STL" scale="0.01 0.01 0.01"/>
             </geometry>
         </visual>
         <collision>
-            <origin rpy="0 0 -${PI / 2}" xyz="-0.1 0.50 -0.1"/>
+            <origin rpy="0 0 -${PI / 2}" xyz="-0.1 0.75 -0.1"/>
             <geometry>
                 <mesh filename="package://arduinobot_description/meshes/right_finger.STL" scale="0.01 0.01 0.01"/>
             </geometry>
@@ -129,13 +129,13 @@
     <link name="gripper_left">
         <xacro:default_inertial mass="0.01"/>
         <visual>
-            <origin rpy="0 0 -${PI / 2}" xyz="-0.04 0.50 -0.1"/>
+            <origin rpy="0 0 -${PI / 2}" xyz="-0.04 0.75 -0.1"/>
             <geometry>
                 <mesh filename="package://arduinobot_description/meshes/left_finger.STL" scale="0.01 0.01 0.01"/>
             </geometry>
         </visual>
         <collision>
-            <origin rpy="0 0 -${PI / 2}" xyz="-0.04 0.50 -0.1"/>
+            <origin rpy="0 0 -${PI / 2}" xyz="-0.04 0.75 -0.1"/>
             <geometry>
                 <mesh filename="package://arduinobot_description/meshes/left_finger.STL" scale="0.01 0.01 0.01"/>
             </geometry>
