@@ -1,39 +1,38 @@
 # Arduino Bot ROS2 Workspace
 
-A comprehensive ROS2 Jazzy workspace for controlling an Arduino-based robotic arm with advanced features including Alexa voice control, MoveIt motion planning, and computer vision capabilities.
+A ROS2 Jazzy workspace for controlling an Arduino-based robotic arm with Alexa voice control, MoveIt motion planning, and computer vision.
 
-## 🤖 Project Overview
+## Project Overview
 
 This workspace implements a complete robotic system with:
-- **Voice Control**: Alexa Skills Kit integration for natural language commands
-- **Motion Planning**: MoveIt2 integration for intelligent path planning
-- **Computer Vision**: Object detection and color-based pick-and-place operations
-- **Hardware Control**: Arduino-based joint controllers
-- **Simulation**: Gazebo and RViz visualization support
+- Voice Control via Alexa Skills Kit
+- Motion Planning with MoveIt2
+- Computer Vision for object detection
+- Arduino-based hardware control
+- Gazebo and RViz simulation
 
-## 📦 Packages
+## Packages
 
 ### Core Packages
 
 - **arduinobot_description** - Robot URDF/xacro models and meshes
 - **arduinobot_bringup** - Launch files for system startup
-- **arduinobot_controller** - Hardware controllers and slider control interface
+- **arduinobot_controller** - Hardware controllers and slider control
 - **arduinobot_moveit** - MoveIt2 configuration and motion planning
 
 ### Message Definitions
 
 - **arduinobot_msgs** - Custom ROS2 messages, services, and actions
-  - `ArduinobotTask.action` - Task-based robot control
-  - `AddTwoInts.srv` - Example service definition
-  - `FibonacciAction.action` - Example action definition
+  - ArduinobotTask.action - Task-based robot control
+  - AddTwoInts.srv - Example service definition
+  - FibonacciAction.action - Example action definition
 
 ### Remote Control
 
 - **arduinobot_remote** - Alexa voice control integration
-  - Voice command processing via Flask server
-  - Integration with Amazon Alexa Skills Kit
+  - Flask server for voice command processing
+  - Amazon Alexa Skills Kit integration
   - Task-based command mapping
-  - See [ALEXA_README.md](src/arduinobot_remote/ALEXA_README.md) for details
 
 ### Utilities
 
@@ -44,83 +43,66 @@ This workspace implements a complete robotic system with:
 ### Vision
 
 - **object_detection** - Computer vision pipeline
-  - Color-based object detection (red, blue, green)
+  - Color-based object detection
   - Pick-and-place coordination
 
 ### Examples
 
 - **arduinobot_cpp_examples** - C++ example nodes
-  - Publishers, subscribers, services, actions
-  - Parameter handling demonstrations
-  
 - **arduinobot_py_examples** - Python example nodes
-  - ROS2 Python API demonstrations
-  - Simple publisher/subscriber patterns
 
-## 🚀 Quick Start
+## Prerequisites
 
-### Prerequisites
+- OS: Ubuntu 22.04 (Jammy)
+- ROS2: Jazzy Jalisco
+- Python: 3.12+
 
-- **OS**: Ubuntu 22.04 (Jammy)
-- **ROS2**: Jazzy Jalisco
-- **Python**: 3.12+
-- **Dependencies**: 
-  ```bash
-  sudo apt install ros-jazzy-desktop python3-colcon-common-extensions
-  ```
+Install dependencies:
+```bash
+sudo apt install ros-jazzy-desktop python3-colcon-common-extensions
+```
 
-### Build Instructions
+## Build Instructions
 
 ```bash
-# Navigate to workspace
 cd ~/arduinobot_ws
-
-# Install dependencies
 rosdep install --from-paths src --ignore-src -r -y
-
-# Build workspace
 colcon build
-
-# Source the workspace
 source install/setup.bash
 ```
 
-### Running the Robot
+## Running the Robot
 
-#### 1. Launch the Robot in Simulation
-
+Launch the robot in simulation:
 ```bash
 ros2 launch arduinobot_bringup simulated_robot.launch.py
 ```
 
-#### 2. Launch with MoveIt
-
+Launch with MoveIt:
 ```bash
 ros2 launch arduinobot_moveit moveit.launch.py
 ```
 
-#### 3. Start Alexa Voice Control
-
+Start Alexa voice control:
 ```bash
-# Terminal 1: Start the task server
+# Terminal 1
 ros2 run arduinobot_remote task_server_node
 
-# Terminal 2: Start Alexa interface
+# Terminal 2
 python3 src/arduinobot_remote/arduinobot_remote/simple_alexa_server.py
 ```
 
-## 🎤 Voice Commands
+## Voice Commands
 
-Control your robot with Alexa! Examples:
+Example Alexa commands:
+- "Alexa, tell Arduino Bot to wake up"
+- "Alexa, tell Arduino Bot to scan for blue objects"
+- "Alexa, tell Arduino Bot to pick and place red objects"
+- "Alexa, tell Arduino Bot to go to sleep"
 
-- **"Alexa, tell Arduino Bot to wake up"** - Initialize robot
-- **"Alexa, tell Arduino Bot to scan for blue objects"** - Start object detection
-- **"Alexa, tell Arduino Bot to pick and place red objects"** - Complete pick-and-place task
-- **"Alexa, tell Arduino Bot to go to sleep"** - Power down robot
+See src/arduinobot_remote/ALEXA_README.md for full command list.
 
-Full command list in [arduinobot_remote/ALEXA_README.md](src/arduinobot_remote/ALEXA_README.md)
-
-## 📋 Task Number Reference
+## Task Reference
 
 | Task | Description | Alexa Trigger |
 |------|-------------|---------------|
@@ -135,81 +117,37 @@ Full command list in [arduinobot_remote/ALEXA_README.md](src/arduinobot_remote/A
 | 8 | Blue Object Task | "scan for blue objects" |
 | 9 | Green Object Task | "scan for green objects" |
 
-## 🛠️ Development
-
-### Project Structure
+## Project Structure
 
 ```
 arduinobot_ws/
 ├── src/
-│   ├── arduinobot_description/    # Robot models
-│   ├── arduinobot_bringup/        # Launch files
-│   ├── arduinobot_controller/     # Controllers
-│   ├── arduinobot_moveit/         # Motion planning
-│   ├── arduinobot_msgs/           # Message definitions
-│   ├── arduinobot_remote/         # Alexa integration
-│   ├── arduinobot_utils/          # Utilities
-│   ├── arduinobot_cpp_examples/   # C++ examples
-│   ├── arduinobot_py_examples/    # Python examples
-│   └── object_detection/          # Computer vision
-├── build/                          # Build artifacts (ignored)
-├── install/                        # Install space (ignored)
-└── log/                           # Log files (ignored)
+│   ├── arduinobot_description/
+│   ├── arduinobot_bringup/
+│   ├── arduinobot_controller/
+│   ├── arduinobot_moveit/
+│   ├── arduinobot_msgs/
+│   ├── arduinobot_remote/
+│   ├── arduinobot_utils/
+│   ├── arduinobot_cpp_examples/
+│   ├── arduinobot_py_examples/
+│   └── object_detection/
+├── build/
+├── install/
+└── log/
 ```
 
-### Building Individual Packages
+## Documentation
 
-```bash
-# Build specific package
-colcon build --packages-select arduinobot_remote
+- Alexa Integration: src/arduinobot_remote/ALEXA_README.md
+- ROS2 Jazzy: https://docs.ros.org/en/jazzy/
+- MoveIt2: https://moveit.picknik.ai/
 
-# Build with symlink install (for Python development)
-colcon build --symlink-install
+## Author
 
-# Clean build
-rm -rf build/ install/ log/
-colcon build
-```
+Jashwanth
 
-## 🔧 Configuration
-
-### Robot Parameters
-
-Robot configuration is defined in arduinobot_description:
-- Joint limits and dynamics
-- Link meshes and collision geometry
-- Sensor configurations
-
-### MoveIt Configuration
-
-Motion planning parameters in arduinobot_moveit:
-- Planning groups
-- Collision detection
-- Joint constraints
-
-## 📚 Additional Documentation
-
-- [Alexa Integration Guide](src/arduinobot_remote/ALEXA_README.md)
-- ROS2 Jazzy Documentation: https://docs.ros.org/en/jazzy/
-- MoveIt2 Documentation: https://moveit.picknik.ai/
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is developed for educational and research purposes.
-
-## 👤 Author
-
-**Jashwanth**
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - ROS2 Community
 - MoveIt2 Team
