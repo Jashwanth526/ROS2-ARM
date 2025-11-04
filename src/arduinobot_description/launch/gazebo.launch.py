@@ -68,13 +68,21 @@ def generate_launch_description():
     )
 
     gz_ros2_bridge = Node(
-        package="ros_gz_bridge",
-        executable="parameter_bridge",
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
         arguments=[
-            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
-            "/image_raw@sensor_msgs/msg/Image[gz.msgs.Image",
-            "/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
-        ]
+            "/rgbd_camera/image@sensor_msgs/msg/Image[gz.msgs.Image",
+            "/rgbd_camera/depth_image@sensor_msgs/msg/Image[gz.msgs.Image",
+            "/rgbd_camera/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked",
+            "/rgbd_camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
+            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock"
+        ],
+        remappings=[
+            ("/rgbd_camera/image", "/image_raw"),
+            ("/rgbd_camera/depth_image", "/depth_image"),
+            ("/rgbd_camera/camera_info", "/camera_info")
+        ],
+        output='screen'
     )
 
     return LaunchDescription([
