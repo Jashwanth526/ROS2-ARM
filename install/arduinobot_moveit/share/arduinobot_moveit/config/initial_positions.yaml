@@ -1,7 +1,1 @@
-# Default initial positions for arduinobot's ros2_control fake system
-
-initial_positions:
-  joint_1: 0
-  joint_2: 0
-  joint_3: 0
-  joint_4: 0
+/home/jashwanth/arduinobot_ws/src/arduinobot_moveit/config/initial_positions.yaml

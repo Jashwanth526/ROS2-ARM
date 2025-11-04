@@ -142,7 +142,7 @@
         </collision>
     </link>
 
-    <link name="rgb_camera">
+    <link name="depth_camera">
         <xacro:default_inertial mass="0.001"/>
         <visual>
             <origin rpy="-1.57 0 -1.57" xyz="-0.1 0.125 0.15"/>
@@ -219,10 +219,10 @@
         <mimic joint="joint_4" multiplier="-1"/>
     </joint>
 
-    <joint name ="rgb_camera_joint" type="fixed">
+    <joint name ="depth_camera_joint" type="fixed">
         <parent link="claw_support"/>
-        <child link = "rgb_camera"/>
-        <origin xyz="-0.1 0.325 0.3" rpy="0 0.4 1.57"/>
+        <child link = "depth_camera"/>
+        <origin xyz="-0.1 0.38 0.32" rpy="0 0.75 1.57"/>
     </joint>
 
 
