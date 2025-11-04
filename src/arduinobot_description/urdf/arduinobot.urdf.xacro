@@ -203,7 +203,7 @@
     <joint name ="joint_4" type="revolute">
         <parent link="claw_support"/>
         <child link = "gripper_right"/>
-        <origin xyz="-0.04 0.13 -0.1"/>
+        <origin xyz="-0.04 0.35 -0.1"/>
         <axis xyz="0 0 1"/>
         <limit lower="-${PI / 2}" upper="0.0" 
                effort="${effort}" velocity="${velocity}"/>
@@ -212,7 +212,7 @@
     <joint name ="joint_5" type="revolute">
         <parent link="claw_support"/>
         <child link = "gripper_left"/>
-        <origin xyz="-0.22 0.13 -0.1"/>
+        <origin xyz="-0.22 0.35 -0.1"/>
         <axis xyz="0 0 1"/>
         <limit lower="0.0" upper="${PI / 2}" 
                effort="${effort}" velocity="${velocity}"/>
