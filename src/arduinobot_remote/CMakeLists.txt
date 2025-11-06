@@ -10,6 +10,7 @@ find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_components REQUIRED)
+find_package(class_loader REQUIRED)
 find_package(arduinobot_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclpy REQUIRED)
@@ -26,10 +27,21 @@ ament_target_dependencies(task_server
   "rclcpp_action"
   "rclcpp_components"
   "moveit_ros_planning_interface")
+
+# Register component for use in composable containers (library only)
 rclcpp_components_register_node(task_server 
-  PLUGIN "arduinobot_remote::TaskServer" 
-  EXECUTABLE task_server_node
+  PLUGIN "arduinobot_remote::TaskServer"
+  EXECUTABLE task_server_standalone
 )
+
+# Create custom executable with MultiThreadedExecutor
+add_executable(task_server_node src/task_server_main.cpp)
+target_link_libraries(task_server_node task_server ${class_loader_LIBRARIES})
+ament_target_dependencies(task_server_node
+  "rclcpp"
+  "rclcpp_components"
+  "class_loader"
+  "arduinobot_msgs")
 
 ament_python_install_package(${PROJECT_NAME})
 
@@ -41,9 +53,12 @@ install(
 
 install(TARGETS 
   task_server
+  task_server_node
+  task_server_standalone
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(PROGRAMS

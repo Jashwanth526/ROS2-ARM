@@ -14,6 +14,9 @@
 #include <chrono>
 #include <thread>
 #include <algorithm>
+#include <atomic>
+#include <cmath>
+#include <numeric>
 
 
 using namespace std::placeholders;
@@ -32,6 +35,11 @@ public:
     this->declare_parameter<std::string>("target_color", "any");
     target_color_ = this->get_parameter("target_color").as_string();
     RCLCPP_INFO(get_logger(), "Target color set to: %s", target_color_.c_str());
+
+    // Declare bias for vertical centering (in pixels): positive pushes target slightly DOWN
+    this->declare_parameter<double>("center_bias_y_px", 10.0);
+    center_bias_y_px_ = this->get_parameter("center_bias_y_px").as_double();
+    RCLCPP_INFO(get_logger(), "Vertical centering bias set to: %.1f px (down is +)", center_bias_y_px_);
     
     action_server_ = rclcpp_action::create_server<arduinobot_msgs::action::ArduinobotTask>(
         this, "task_server", std::bind(&TaskServer::goalCallback, this, _1, _2),
@@ -39,19 +47,32 @@ public:
         std::bind(&TaskServer::acceptedCallback, this, _1));
     
     // Subscribe to object detection topics
+    // Use default QoS to match Python publisher (queue_size=10)
+    auto qos = rclcpp::QoS(10);
+    
+    // Create reentrant callback group to allow callbacks during action execution
+    auto callback_group = this->create_callback_group(rclcpp::CallbackGroupType::Reentrant);
+    auto sub_options = rclcpp::SubscriptionOptions();
+    sub_options.callback_group = callback_group;
+    
     detection_subscriber_ = this->create_subscription<std_msgs::msg::String>(
-        "detection_info", 10,
-        std::bind(&TaskServer::detectionCallback, this, std::placeholders::_1));
+        "detection_info", qos,
+        std::bind(&TaskServer::detectionCallback, this, std::placeholders::_1),
+        sub_options);
         
-    // Subscribe to 3D point data
+    // Subscribe to 3D point data  
     point_subscriber_ = this->create_subscription<geometry_msgs::msg::PointStamped>(
-        "detected_objects", 10,
-        std::bind(&TaskServer::pointCallback, this, std::placeholders::_1));
+        "detected_objects", qos,
+        std::bind(&TaskServer::pointCallback, this, std::placeholders::_1),
+        sub_options);
     
     // Initialize TF2 for coordinate transformations
     tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
   }
+private:
+  // Remember last commanded scan joint position to use as a stable base for centering
+  std::vector<double> last_scan_joints_;
 
 private:
   void initializeMoveGroupInterfaces()
@@ -60,10 +81,13 @@ private:
     if (!arm_move_group_) {
       try {
         RCLCPP_INFO(get_logger(), "Initializing MoveIt interfaces...");
-        arm_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), "arm");
-        arm_move_group_->setGoalJointTolerance(0.1);
-        arm_move_group_->setPlanningTime(10.0);
-        arm_move_group_->allowReplanning(true);
+  arm_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), "arm");
+  arm_move_group_->setGoalJointTolerance(0.1);
+  arm_move_group_->setPlanningTime(10.0);
+  arm_move_group_->allowReplanning(true);
+  // Slow down a bit for better tracking/settling during small centering steps
+  arm_move_group_->setMaxVelocityScalingFactor(0.25);
+  arm_move_group_->setMaxAccelerationScalingFactor(0.25);
         
         gripper_move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), "gripper");
         gripper_move_group_->setGoalJointTolerance(0.1);
@@ -89,12 +113,73 @@ private:
   std::vector<double> arm_joint_goal_, gripper_joint_goal_;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr detection_subscriber_;
   rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr point_subscriber_;
-  bool object_detected_;
+  std::atomic<bool> object_detected_;
   std::string detected_object_color_;
   double detected_object_x_, detected_object_y_, detected_object_z_;
   std::string target_color_;
   geometry_msgs::msg::Point detected_3d_point_;
   double detection_base_joint_; // Store base joint position when object was detected
+  double center_bias_y_px_ {10.0}; // Positive = target slightly below camera midline
+
+  // --- Helpers for safer planning/execution ---
+  static bool jointsClose(const std::vector<double>& a, const std::vector<double>& b, double tol)
+  {
+    if (a.size() != b.size() || a.empty()) return false;
+    for (size_t i = 0; i < a.size(); ++i) {
+      if (std::fabs(a[i] - b[i]) > tol) return false;
+    }
+    return true;
+  }
+
+  bool waitForJointStateClose(const std::vector<double>& target, double tol = 0.02, double timeout_sec = 2.0)
+  {
+    if (!arm_move_group_) return false;
+    const auto deadline = this->get_clock()->now() + rclcpp::Duration::from_seconds(timeout_sec);
+    while (this->get_clock()->now() < deadline) {
+      std::vector<double> current;
+      try {
+        current = arm_move_group_->getCurrentJointValues();
+      } catch (...) {
+        // If state monitor isn't ready yet, wait a bit and retry
+        rclcpp::sleep_for(std::chrono::milliseconds(50));
+        continue;
+      }
+      if (current.size() == target.size() && jointsClose(current, target, tol)) return true;
+      rclcpp::sleep_for(std::chrono::milliseconds(50));
+    }
+    return false;
+  }
+
+  bool planAndExecuteJointsSync(const std::vector<double>& target,
+                                double settle_tol = 0.02,
+                                double settle_timeout = 1.5)
+  {
+    if (!arm_move_group_) return false;
+    // Ensure MoveIt start state matches current robot state to avoid invalid-start errors
+    try {
+      arm_move_group_->setStartStateToCurrentState();
+    } catch (...) {
+      // Ignore if unavailable; we'll still try to plan
+    }
+    bool within_bounds = arm_move_group_->setJointValueTarget(target);
+    if (!within_bounds) {
+      RCLCPP_WARN(get_logger(), "Target joint values out of bounds; MoveIt will clamp.");
+    }
+    moveit::planning_interface::MoveGroupInterface::Plan plan;
+    auto code = arm_move_group_->plan(plan);
+    if (code != moveit::core::MoveItErrorCode::SUCCESS) {
+      // Retry once after a short wait with a fresh start state
+      rclcpp::sleep_for(std::chrono::milliseconds(80));
+      try { arm_move_group_->setStartStateToCurrentState(); } catch (...) {}
+      code = arm_move_group_->plan(plan);
+      if (code != moveit::core::MoveItErrorCode::SUCCESS) return false;
+    }
+    auto exe = arm_move_group_->execute(plan);
+    if (exe != moveit::core::MoveItErrorCode::SUCCESS) return false;
+    // Wait briefly for the controller/state monitor to converge close to the commanded target
+    (void)waitForJointStateClose(target, settle_tol, settle_timeout);
+    return true;
+  }
 
   void setTargetColor(const std::string& color)
   {
@@ -150,25 +235,21 @@ private:
         current_detected_color = "green";
       }
       
-      // Check if this is the target color (or if target is "any")
+      // DEBUG: Log ALL callbacks with color info
+      RCLCPP_INFO(get_logger(), "🔔 Callback: detected=%s, target=%s, msg=%s", 
+                  current_detected_color.c_str(), target_color_.c_str(), msg->data.c_str());
+      
+      // ONLY process messages for the target color - completely ignore others
       if (target_color_ != "any" && current_detected_color != target_color_) {
-        RCLCPP_DEBUG(get_logger(), "Detected %s object, but looking for %s - ignoring", 
-                     current_detected_color.c_str(), target_color_.c_str());
+        // Silently ignore non-target colors - don't even log to reduce noise
         return;
       }
       
-      // If we already detected a target object, ignore subsequent detections
-      if (object_detected_) {
-        RCLCPP_DEBUG(get_logger(), "Ignoring additional %s detection - already targeting first detected object", current_detected_color.c_str());
-        return;
-      }
+      // If we get here, it's the TARGET color! Log it prominently
+      RCLCPP_INFO(get_logger(), "🔔💙 BLUE OBJECT DETECTED! Message: %s", msg->data.c_str());
       
-      // Now we can mark as detected since it's the right color
-      object_detected_ = true;
-      
-      detected_object_color_ = current_detected_color;
-      
-      // Extract coordinates from message like "at (x, y)"
+      // Extract coordinates from message FIRST (before checking if already detected)
+      // This ensures we always have the latest coordinates for centering
       size_t start_pos = detection_msg.find("at (");
       if (start_pos != std::string::npos) {
         start_pos += 4; // Move past "at ("
@@ -180,42 +261,28 @@ private:
             double raw_x = std::stod(detection_msg.substr(start_pos, comma_pos - start_pos));
             double raw_y = std::stod(detection_msg.substr(comma_pos + 2, end_pos - comma_pos - 2));
             
-            // Validate pixel coordinates are within camera bounds (640x480)
-            if (raw_x >= 0 && raw_x <= 640 && raw_y >= 0 && raw_y <= 480) {
-              detected_object_x_ = raw_x;
-              detected_object_y_ = raw_y;
-            } else {
-              RCLCPP_WARN(get_logger(), "Invalid pixel coordinates: (%.0f, %.0f) - outside camera bounds (640x480)", raw_x, raw_y);
-              // Check if coordinates are from higher resolution camera (2304x1296 -> 640x480)
-              if (raw_x > 640 || raw_y > 480) {
-                // Scale from actual camera resolution to coordinate system resolution
-                // Camera publishes 2304x1296, but coordinate system expects 640x480
-                const double CAMERA_WIDTH = 2304.0;
-                const double CAMERA_HEIGHT = 1296.0;
-                const double COORD_WIDTH = 640.0;
-                const double COORD_HEIGHT = 480.0;
-                
-                detected_object_x_ = (raw_x / CAMERA_WIDTH) * COORD_WIDTH;
-                detected_object_y_ = (raw_y / CAMERA_HEIGHT) * COORD_HEIGHT;
-                
-                // Ensure bounds after scaling
-                detected_object_x_ = std::min(std::max(detected_object_x_, 0.0), COORD_WIDTH);
-                detected_object_y_ = std::min(std::max(detected_object_y_, 0.0), COORD_HEIGHT);
-                
-                RCLCPP_INFO(get_logger(), "Scaled from camera resolution: (%.0f, %.0f) -> (%.0f, %.0f)", 
-                           raw_x, raw_y, detected_object_x_, detected_object_y_);
-              } else {
-                // Use center as fallback for other invalid cases
-                detected_object_x_ = 320.0;
-                detected_object_y_ = 240.0;
-                RCLCPP_WARN(get_logger(), "Using center fallback position");
-              }
-            }
+            // Always update coordinates for centering (even if already detected)
+            detected_object_x_ = raw_x;
+            detected_object_y_ = raw_y;
+            
+            RCLCPP_INFO(get_logger(), "📍 Updated object position: (%.0f, %.0f)", 
+                        detected_object_x_, detected_object_y_);
           } catch (const std::exception& e) {
-            RCLCPP_WARN(get_logger(), "Failed to parse coordinates from detection message");
+            RCLCPP_WARN(get_logger(), "Failed to parse coordinates: %s", e.what());
           }
         }
       }
+      
+      // If we already detected a target object, just update coords but don't re-trigger
+      if (object_detected_) {
+        return;
+      }
+      
+      // First detection - mark as detected
+      object_detected_ = true;
+      RCLCPP_INFO(get_logger(), "🎯 TARGET COLOR MATCHED! Setting object_detected_=true for %s", current_detected_color.c_str());
+      
+      detected_object_color_ = current_detected_color;
       
       RCLCPP_INFO(get_logger(), "Object detected during scan: %s at pixel (%.0f, %.0f)", 
                   detected_object_color_.c_str(), detected_object_x_, detected_object_y_);
@@ -517,6 +584,143 @@ private:
     }
   }
 
+  bool centerObjectInCamera()
+  {
+    RCLCPP_INFO(get_logger(), "🚀 centerObjectInCamera() CALLED!");
+    RCLCPP_INFO(get_logger(), "🎯 Centering target object in camera frame...");
+    
+      // Wait a moment to get fresh coordinates and for any previous motion to settle
+      RCLCPP_INFO(get_logger(), "Waiting 500ms for fresh coordinates/settling...");
+      rclcpp::sleep_for(std::chrono::milliseconds(500));
+      // If we have a known commanded pose (from scan), wait until close to it to avoid start-state mismatch
+      if (!last_scan_joints_.empty()) {
+        (void)waitForJointStateClose(last_scan_joints_, 0.03, 1.0);
+      }
+    
+    // Camera resolution (640x480)
+    const double CAMERA_CENTER_X = 320.0;
+  const double CAMERA_CENTER_Y = 240.0;
+  // Refresh bias in case it was adjusted at runtime
+  (void)this->get_parameter("center_bias_y_px", center_bias_y_px_);
+  const double TARGET_CENTER_Y = CAMERA_CENTER_Y + center_bias_y_px_;
+    
+    // Current detected object position
+    double object_x = detected_object_x_;
+    double object_y = detected_object_y_;
+    
+    RCLCPP_INFO(get_logger(), "Object detected at pixel: (%.0f, %.0f)", object_x, object_y);
+    RCLCPP_INFO(get_logger(), "Camera center at pixel: (%.0f, %.0f)", CAMERA_CENTER_X, CAMERA_CENTER_Y);
+    
+  // Calculate error from center (pixels)
+  double error_x = object_x - CAMERA_CENTER_X; // +ve means object is to the right
+  double error_y = object_y - TARGET_CENTER_Y; // +ve means object is below desired (biased) center
+    
+  RCLCPP_INFO(get_logger(), "Pixel error: X=%.0f, Y=%.0f (target Y=%.0f, bias=%.0f)", error_x, error_y, TARGET_CENTER_Y, center_bias_y_px_);
+    
+    // If object is already centered (within 20 pixel tolerance), skip adjustment
+    if (std::abs(error_x) < 20.0 && std::abs(error_y) < 20.0) {
+      RCLCPP_INFO(get_logger(), "✅ Object already centered (within tolerance)");
+      return true;
+    }
+    
+    // Proportional mapping pixel error -> joint deltas
+    // Signs:
+    //  - If object is to the RIGHT (error_x > 0), rotate BASE to the RIGHT (positive)
+    //  - If object is ABOVE center (error_y < 0), raise shoulder (decrease angle) -> negative delta
+    const double K_BASE = 0.0020;         // rad per pixel (tuned small)
+    const double K_SHOULDER = 0.0015;     // rad per pixel (smaller vertical sensitivity)
+    const double MAX_BASE_STEP = 0.25;    // rad per iteration clamp
+    const double MAX_SHOULDER_STEP = 0.15;// rad per iteration clamp
+    const double TOL_PX = 15.0;           // pixels
+
+    // We'll iterate a few small steps to converge instead of one huge jump
+  // Start with negative sign since we observed positive base increased rightward error
+    double base_gain_sign = -1.0; // auto-adjust sign if needed based on feedback
+    double shoulder_gain_sign = 1.0; // allow flipping if needed
+    double prev_err_x = error_x;
+    double prev_err_y = error_y;
+    for (int iter = 0; iter < 8; ++iter) {
+      double base_adjustment = K_BASE * error_x;               // invert previous sign; +error moves +base
+      double shoulder_adjustment = -K_SHOULDER * error_y;      // - because +error_y (below) should move shoulder down (increase), we want up for below -> decrease
+
+      // Apply current gain sign
+      base_adjustment *= base_gain_sign;
+
+      // Clamp
+      base_adjustment = std::max(-MAX_BASE_STEP, std::min(MAX_BASE_STEP, base_adjustment));
+      shoulder_adjustment = std::max(-MAX_SHOULDER_STEP, std::min(MAX_SHOULDER_STEP, shoulder_adjustment));
+
+      RCLCPP_INFO(get_logger(), "[center %d] error(px): X=%.1f Y=%.1f  adj(rad): base=%.3f shoulder=%.3f",
+                  iter+1, error_x, error_y, base_adjustment, shoulder_adjustment);
+    
+      // Use the last commanded scan position as a stable base to avoid blocking on state monitor
+      std::vector<double> base_joints;
+      if (last_scan_joints_.size() >= 3) {
+        base_joints = last_scan_joints_;
+        RCLCPP_INFO(get_logger(), "[center %d] base joints: [%.3f, %.3f, %.3f]",
+                    iter+1, base_joints[0], base_joints[1], base_joints[2]);
+      } else {
+        base_joints = arm_move_group_->getCurrentJointValues();
+        if (base_joints.size() < 3) {
+          RCLCPP_ERROR(get_logger(), "Failed to get current joint values and no last scan joints available");
+          return false;
+        }
+        RCLCPP_INFO(get_logger(), "[center %d] current joints base: [%.3f, %.3f, %.3f]",
+                    iter+1, base_joints[0], base_joints[1], base_joints[2]);
+      }
+    
+    // Apply adjustments
+      std::vector<double> centered_joints = base_joints;
+      centered_joints[0] += base_adjustment;      // Base joint (horizontal)
+      centered_joints[1] += shoulder_adjustment;  // Shoulder joint (vertical)
+    
+    // Clamp to joint limits
+    centered_joints[0] = std::max(-1.57, std::min(1.57, centered_joints[0]));
+    centered_joints[1] = std::max(-1.57, std::min(1.57, centered_joints[1]));
+    
+  RCLCPP_INFO(get_logger(), "[center %d] move target: Base=%.3f, Shoulder=%.3f, Elbow=%.3f",
+      iter+1, centered_joints[0], centered_joints[1], centered_joints[2]);
+    
+      // Plan and execute synchronously with start-state reset to avoid invalid-start errors
+      bool moved = planAndExecuteJointsSync(centered_joints, 0.02, 1.2);
+      if (!moved) {
+        RCLCPP_WARN(get_logger(), "[center %d] plan/execute failed (likely start-state mismatch)", iter+1);
+        break; // exit loop and report not fully converged
+      }
+      // Remember target for next iteration base
+      last_scan_joints_ = centered_joints;
+      RCLCPP_INFO(get_logger(), "[center %d] step executed", iter+1);
+      
+      // Wait a moment for new detection with centered view
+      rclcpp::sleep_for(std::chrono::milliseconds(250));
+
+      // Update error for next iteration using latest detection values
+      double new_x = detected_object_x_;
+      double new_y = detected_object_y_;
+      error_x = new_x - CAMERA_CENTER_X;
+      error_y = new_y - CAMERA_CENTER_Y;
+      RCLCPP_INFO(get_logger(), "[center %d] new pixel pos: (%.0f, %.0f) new error: X=%.1f Y=%.1f",
+                  iter+1, new_x, new_y, error_x, error_y);
+      // If horizontal error did not improve, flip base direction for next iteration
+      if (std::abs(error_x) >= std::abs(prev_err_x) - 5.0) {
+        base_gain_sign *= -1.0;
+        RCLCPP_WARN(get_logger(), "[center %d] horizontal error not improving (%.1f -> %.1f), flipping base direction", iter+1, prev_err_x, error_x);
+      }
+      // If vertical error not improving, flip shoulder direction too
+      if (std::abs(error_y) >= std::abs(prev_err_y) - 5.0) {
+        shoulder_gain_sign *= -1.0;
+      }
+      prev_err_x = error_x;
+      prev_err_y = error_y;
+      if (std::abs(error_x) < TOL_PX && std::abs(error_y) < TOL_PX) {
+        RCLCPP_INFO(get_logger(), "✅ Object centered within tolerance after %d step(s)", iter+1);
+        return true;
+      }
+    }
+    RCLCPP_INFO(get_logger(), "ℹ️ Centering iterations finished (max steps reached or plan failed)");
+    return false;
+  }
+
   void performScanningSequence()
   {
     RCLCPP_INFO(get_logger(), "Starting 360-degree scanning sequence");
@@ -543,48 +747,84 @@ private:
     // Define scanning positions: arm bending backward, gripper pointing down
     // Joint order: [base_joint, shoulder_joint, elbow_joint]
     // Base rotates, shoulder bent backward, elbow points gripper down
+    // INCREASED ANGLES: 19 positions from -90° to +90° (every ~10 degrees)
     std::vector<std::vector<double>> scan_positions = {
-      {0.0, 0.5, -1.0},      // 0° - arm bent backward, gripper down
-      {0.5, 0.5, -1.0},      // 30° 
-      {1.0, 0.5, -1.0},      // 60°
-      {1.57, 0.5, -1.0},     // 90° - π/2 radians  
-      {-1.57, 0.5, -1.0},    // 270° - -π/2 radians
-      {-1.0, 0.5, -1.0},     // 240°
-      {-0.5, 0.5, -1.0},     // 210°
-      {0.0, 0.5, -1.0}       // 360° - back to start
+      {-1.57, 0.65, -1.0},    // -90° (higher scan)
+      {-1.40, 0.65, -1.0},    // -80°
+      {-1.22, 0.65, -1.0},    // -70°
+      {-1.05, 0.65, -1.0},    // -60°
+      {-0.87, 0.65, -1.0},    // -50°
+      {-0.70, 0.65, -1.0},    // -40°
+      {-0.52, 0.65, -1.0},    // -30°
+      {-0.35, 0.65, -1.0},    // -20°
+      {-0.17, 0.65, -1.0},    // -10°
+      {0.0, 0.65, -1.0},      // 0° center
+      {0.17, 0.65, -1.0},     // 10°
+      {0.35, 0.65, -1.0},     // 20°
+      {0.52, 0.65, -1.0},     // 30° 
+      {0.70, 0.65, -1.0},     // 40°
+      {0.87, 0.65, -1.0},     // 50°
+      {1.05, 0.65, -1.0},     // 60°
+      {1.22, 0.65, -1.0},     // 70°
+      {1.40, 0.65, -1.0},     // 80°
+      {1.57, 0.65, -1.0}      // 90°
     };
 
-    for (size_t i = 0; i < scan_positions.size(); ++i)
+    // REVERSED: Scan from position 19 (right, +90°) to position 1 (left, -90°)
+    for (int i = scan_positions.size() - 1; i >= 0; --i)
     {
-      // Check if object was already detected before each movement
-      if (object_detected_)
+      size_t position_num = scan_positions.size() - i; // For display: 1, 2, 3...
+      RCLCPP_INFO(get_logger(), "🔍 Loop iteration %zu: object_detected_=%s, detected_color='%s', target='%s'", 
+                  position_num, object_detected_ ? "TRUE" : "FALSE", 
+                  detected_object_color_.c_str(), target_color_.c_str());
+      
+      // Check if TARGET COLOR object was detected before each movement
+      if (object_detected_ && detected_object_color_ == target_color_)
       {
-        // Use the previous scanning position as detection base
-        detection_base_joint_ = (i > 0) ? scan_positions[i-1][0] : 0.0;
-        RCLCPP_INFO(get_logger(), "Object detected! Using base joint %.3f for pick sequence", detection_base_joint_);
-        performPickSequence();
-        return;
+        // Use the next scanning position as detection base (since going backwards)
+        detection_base_joint_ = (i < (int)scan_positions.size() - 1) ? scan_positions[i+1][0] : scan_positions[i][0];
+        RCLCPP_INFO(get_logger(), "🎯 TARGET %s object FOUND at base joint %.3f! STOPPING SCAN.", 
+                    target_color_.c_str(), detection_base_joint_);
+        RCLCPP_INFO(get_logger(), "Scan stopped - target object detected with full confidence");
+        return;  // STOP scanning - don't pick, just return
+      }
+      else if (object_detected_ && detected_object_color_ != target_color_)
+      {
+        // Wrong color detected - reset flag and continue scanning
+        RCLCPP_INFO(get_logger(), "Detected %s object (looking for %s) - continuing scan", 
+                    detected_object_color_.c_str(), target_color_.c_str());
+        object_detected_ = false;
       }
       
       // Process any pending ROS callbacks before moving
       // Temporarily removed rclcpp::spin_some to debug executor conflict
       
-      // Check again after processing callbacks
-      if (object_detected_) {
-        detection_base_joint_ = (i > 0) ? scan_positions[i-1][0] : 0.0;
-        RCLCPP_INFO(get_logger(), "Object detected after callback processing! Starting pick sequence");
-        performPickSequence();
-        return;
+      // Check again after processing callbacks - TARGET COLOR ONLY
+      if (object_detected_ && detected_object_color_ == target_color_) {
+        detection_base_joint_ = (i < (int)scan_positions.size() - 1) ? scan_positions[i+1][0] : scan_positions[i][0];
+        RCLCPP_INFO(get_logger(), "🎯 TARGET %s object FOUND at base joint %.3f! STOPPING SCAN.", 
+                    target_color_.c_str(), detection_base_joint_);
+        RCLCPP_INFO(get_logger(), "Scan stopped - target object detected with full confidence");
+        return;  // STOP scanning - don't pick, just return
+      }
+      else if (object_detected_ && detected_object_color_ != target_color_)
+      {
+        // Wrong color - reset and continue
+        RCLCPP_INFO(get_logger(), "Wrong color %s detected - continuing scan for %s", 
+                    detected_object_color_.c_str(), target_color_.c_str());
+        object_detected_ = false;
       }
       
-      RCLCPP_INFO(get_logger(), "Scanning position %zu/%zu", i + 1, scan_positions.size());
+      RCLCPP_INFO(get_logger(), "Scanning position %zu/%zu", position_num, scan_positions.size());
       
       // Move to scan position (avoid setStartState to prevent crashes)
-      bool within_bounds = arm_move_group_->setJointValueTarget(scan_positions[i]);
+  // Remember the target we're about to command (for centering reference)
+  last_scan_joints_ = scan_positions[i];
+  bool within_bounds = arm_move_group_->setJointValueTarget(scan_positions[i]);
       
       if (!within_bounds)
       {
-        RCLCPP_WARN(get_logger(), "Scan position %zu out of bounds, skipping", i + 1);
+        RCLCPP_WARN(get_logger(), "Scan position %zu out of bounds, skipping", position_num);
         continue;
       }
 
@@ -595,39 +835,64 @@ private:
         auto result = arm_move_group_->move();
         
         if (result != moveit::core::MoveItErrorCode::SUCCESS) {
-          RCLCPP_WARN(get_logger(), "Failed to move to scan position %zu", i + 1);
+          RCLCPP_WARN(get_logger(), "Failed to move to scan position %zu", position_num);
         }
         
-        // Check if object was detected during movement
-        if (object_detected_) {
+        // Check if TARGET COLOR object was detected during movement
+        if (object_detected_ && detected_object_color_ == target_color_) {
           detection_base_joint_ = scan_positions[i][0];
-          RCLCPP_INFO(get_logger(), "Object detected at scan position %zu! Initiating pick sequence", i + 1);
-          performPickSequence();
-          return;
+          RCLCPP_INFO(get_logger(), "🎯 TARGET %s object FOUND at scan position %zu! Centering object...", 
+                      target_color_.c_str(), position_num);
+          
+          // Center the object in camera frame
+          bool centered_ok = centerObjectInCamera();
+          RCLCPP_INFO(get_logger(), centered_ok ?
+                      "Scan completed - target object detected and centered" :
+                      "Scan stopped - target detected but centering did not fully converge");
+          return;  // STOP scanning after centering
+        }
+        else if (object_detected_ && detected_object_color_ != target_color_)
+        {
+          RCLCPP_INFO(get_logger(), "Wrong color %s at position %zu - continuing scan for %s", 
+                      detected_object_color_.c_str(), position_num, target_color_.c_str());
+          object_detected_ = false;
         }
         
         // Pause at each position with frequent detection checks
-        RCLCPP_INFO(get_logger(), "Pausing at position %zu for object detection...", i + 1);
+        RCLCPP_INFO(get_logger(), "Pausing at position %zu for object detection...", position_num);
         
         // Check frequently during pause period (check every 100ms for 2 seconds)
-        for (int check = 0; check < 20 && !object_detected_; ++check) {
+        // Only stop for TARGET COLOR
+        for (int check = 0; check < 20 && !(object_detected_ && detected_object_color_ == target_color_); ++check) {
           rclcpp::sleep_for(std::chrono::milliseconds(100));
           
-          // Allow ROS callbacks to process
-          // Temporarily removed rclcpp::spin_some to debug executor conflict
+          // Callbacks will be processed by the multithreaded executor via reentrant callback group
+          // No need for spin_some() which causes executor conflicts
           
-          if (object_detected_) {
+          if (object_detected_ && detected_object_color_ == target_color_) {
             detection_base_joint_ = scan_positions[i][0];
-            RCLCPP_INFO(get_logger(), "Object detected during pause at position %zu! Initiating pick sequence", i + 1);
-            performPickSequence();
-            return;
+            RCLCPP_INFO(get_logger(), "🎯 TARGET %s object FOUND during pause at position %zu! Centering object...", 
+                        target_color_.c_str(), position_num);
+            
+            // Center the object in camera frame
+            bool centered_ok = centerObjectInCamera();
+            RCLCPP_INFO(get_logger(), centered_ok ?
+                        "Scan completed - target object detected and centered" :
+                        "Scan stopped - target detected but centering did not fully converge");
+            return;  // STOP scanning after centering
+          }
+          else if (object_detected_ && detected_object_color_ != target_color_)
+          {
+            RCLCPP_INFO(get_logger(), "Wrong color %s detected during pause - continuing scan for %s", 
+                        detected_object_color_.c_str(), target_color_.c_str());
+            object_detected_ = false;
           }
         }
 
       }
       else
       {
-        RCLCPP_ERROR(get_logger(), "Failed to plan to scan position %zu", i + 1);
+        RCLCPP_ERROR(get_logger(), "Failed to plan to scan position %zu", position_num);
       }
     }
 
