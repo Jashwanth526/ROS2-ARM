@@ -12,7 +12,7 @@ class WorldMarkersPublisher(Node):
         self.timer = self.create_timer(0.5, self.publish_markers)
 
     def publish_markers(self):
-        # Table
+        # Table (reduced height to match Gazebo top at 0.35m)
         table = Marker()
         table.header.frame_id = 'world'
         table.header.stamp = self.get_clock().now().to_msg()
@@ -22,11 +22,11 @@ class WorldMarkersPublisher(Node):
         table.action = Marker.ADD
         table.pose.position.x = 1.3
         table.pose.position.y = 0.7
-        table.pose.position.z = 0.35
+        table.pose.position.z = 0.175  # half the visualized height so top aligns at 0.35
         table.pose.orientation.w = 1.0
         table.scale.x = 1.2
         table.scale.y = 0.8
-        table.scale.z = 0.7
+        table.scale.z = 0.35  # reduced from 0.7
         table.color.r = 0.6
         table.color.g = 0.4
         table.color.b = 0.2
@@ -43,7 +43,7 @@ class WorldMarkersPublisher(Node):
         cube.action = Marker.ADD
         cube.pose.position.x = 0.85
         cube.pose.position.y = 0.55
-        cube.pose.position.z = 0.79
+        cube.pose.position.z = 0.45  # table_top (0.35) + cube_half_height (0.10)
         cube.pose.orientation.w = 1.0
         cube.scale.x = 0.20
         cube.scale.y = 0.20
@@ -64,7 +64,7 @@ class WorldMarkersPublisher(Node):
         cylinder.action = Marker.ADD
         cylinder.pose.position.x = 1.25
         cylinder.pose.position.y = 0.85
-        cylinder.pose.position.z = 0.79
+        cylinder.pose.position.z = 0.45  # table_top (0.35) + cylinder_half_height (0.10)
         cylinder.pose.orientation.w = 1.0
         cylinder.scale.x = 0.16  # diameter
         cylinder.scale.y = 0.16  # diameter
@@ -85,11 +85,11 @@ class WorldMarkersPublisher(Node):
         sphere.action = Marker.ADD
         sphere.pose.position.x = 1.65
         sphere.pose.position.y = 1.0
-        sphere.pose.position.z = 0.79
+        sphere.pose.position.z = 0.47  # table_top (0.35) + sphere_radius (0.12)
         sphere.pose.orientation.w = 1.0
-        sphere.scale.x = 0.16
-        sphere.scale.y = 0.16
-        sphere.scale.z = 0.16
+        sphere.scale.x = 0.24  # diameter (radius 0.12 * 2)
+        sphere.scale.y = 0.24
+        sphere.scale.z = 0.24
         sphere.color.r = 0.0
         sphere.color.g = 1.0
         sphere.color.b = 0.0

@@ -6,7 +6,8 @@ setup(
     name=package_name,
     version='0.0.1',
     packages=[package_name],
-    py_modules=[],
+    # Install the top-level world_markers_publisher.py as a module
+    py_modules=['world_markers_publisher'],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='jashwanth',
@@ -16,7 +17,12 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'world_markers_publisher = arduinobot_utils.world_markers_publisher:main',
+            # Use the top-level module for markers (deleted duplicate inside package)
+            'world_markers_publisher = world_markers_publisher:main',
+            # Backward-compatible alias to match existing VS Code task name
+            'world_markers_publisher.py = world_markers_publisher:main',
+            # Keep other utilities inside the package
+            'ee_markers_publisher = arduinobot_utils.ee_markers_publisher:main',
         ],
     },
 )

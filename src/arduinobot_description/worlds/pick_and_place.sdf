@@ -145,24 +145,24 @@
       <pose>1.65 1.0 0.79 0 0 0</pose>
       <link name="link">
         <inertial>
-          <mass>0.1</mass>
+          <mass>0.08</mass>
           <inertia>
-            <ixx>0.0005</ixx>
-            <iyy>0.0005</iyy>
-            <izz>0.0005</izz>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
           </inertia>
         </inertial>
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>0.08</radius>
+              <radius>0.12</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-                <radius>0.08</radius>
+                <radius>0.12</radius>
             </sphere>
           </geometry>
           <material>

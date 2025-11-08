@@ -1,0 +1,21 @@
+# ROS 2 colcon workspace ignores
+build/
+install/
+log/
+.colcon/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# VS Code
+.vscode/*
+!.vscode/tasks.json
+
+# Misc
+*.swp
+*.swo
+.DS_Store

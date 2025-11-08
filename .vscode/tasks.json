@@ -4,7 +4,7 @@
 		{
 			"label": "Run world_markers_publisher",
 			"type": "shell",
-			"command": "ros2 run arduinobot_utils world_markers_publisher.py",
+			"command": "ros2 run arduinobot_utils world_markers_publisher",
 			"args": [],
 			"isBackground": false,
 			"problemMatcher": [],
@@ -13,9 +13,30 @@
 		{
 			"label": "Run world_markers_publisher",
 			"type": "shell",
-			"command": "ros2 run arduinobot_utils world_markers_publisher.py",
+			"command": "ros2 run arduinobot_utils world_markers_publisher",
 			"args": [],
 			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "Build arduinobot_remote",
+			"type": "shell",
+			"command": "cd /home/jashwanth/arduinobot_ws && colcon build --packages-select arduinobot_remote && source install/setup.bash && echo '=== Hard-freeze mode available (post_confirm_updates=false) ==='",
+			"isBackground": false,
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build arduinobot_remote (apply reachability change)",
+			"type": "shell",
+			"command": "cd /home/jashwanth/arduinobot_ws && colcon build --packages-select arduinobot_remote && source install/setup.bash && echo '=== Reachability check now warning-only; MoveIt will attempt plan ==='",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [
+				"$gcc"
+			],
 			"group": "build"
 		}
 	]

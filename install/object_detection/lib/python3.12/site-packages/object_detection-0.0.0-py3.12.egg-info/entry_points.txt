@@ -1,5 +1,0 @@
-[console_scripts]
-enhanced_task_server = object_detection.enhanced_task_server:main
-manipulation_client = object_detection.manipulation_client:main
-object_detector = object_detection.object_detector:main
-simple_task_server = object_detection.simple_task_server:main
