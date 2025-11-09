@@ -21,3 +21,10 @@ moveit_simple_controller_manager:
     default: true
     joints:
       - joint_4
+
+# Trajectory execution parameters (loaded into move_group)
+trajectory_execution:
+  # Slightly relax start tolerance to avoid benign aborts from tiny state drift
+  allowed_start_tolerance: 0.015
+  # Keep monitoring of execution durations enabled (default true in many configs)
+  execution_duration_monitoring: true

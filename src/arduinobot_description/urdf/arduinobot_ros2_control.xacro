@@ -22,34 +22,34 @@
 
         <joint name="joint_1">
             <command_interface name="position">
-            <param name="min">-${PI / 2}</param>
-            <param name="max">${PI / 2}</param>
+                <param name="min">-${PI / 2}</param>
+                <param name="max">${PI / 2}</param>
             </command_interface>
-            <state_interface name="position"/>
+            <state_interface name="position" />
         </joint>
 
         <joint name="joint_2">
             <command_interface name="position">
-            <param name="min">-${PI / 2}</param>
-            <param name="max">${PI / 2}</param>
+                <param name="min">-${PI / 2}</param>
+                <param name="max">${PI / 2}</param>
             </command_interface>
-            <state_interface name="position"/>
+            <state_interface name="position" />
         </joint>
 
         <joint name="joint_3">
             <command_interface name="position">
-            <param name="min">-${PI / 2}</param>
-            <param name="max">${PI / 2}</param>
+                <param name="min">-${PI / 2}</param>
+                <param name="max">${PI / 2}</param>
             </command_interface>
-            <state_interface name="position"/>
+            <state_interface name="position" />
         </joint>
 
         <joint name="joint_4">
             <command_interface name="position">
-            <param name="min">-${PI / 2}</param>
-            <param name="max">0.0</param>
+                <param name="min">-${PI / 2}</param>
+                <param name="max">0.0</param>
             </command_interface>
-            <state_interface name="position"/>
+            <state_interface name="position" />
         </joint>
 
         <joint name="joint_5">

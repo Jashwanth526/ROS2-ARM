@@ -1,0 +1,15 @@
+digraph G {
+"base_link" -> "base_plate"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 20.0\nOldest transform: 17.4\n"];
+"world" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_plate" -> "forward_drive_arm"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 20.0\nOldest transform: 17.4\n"];
+"forward_drive_arm" -> "horizontal_arm"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 20.0\nOldest transform: 17.4\n"];
+"claw_support" -> "gripper_right"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 20.0\nOldest transform: 17.4\n"];
+"horizontal_arm" -> "claw_support"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"claw_support" -> "gripper_left"[label=" Broadcaster: default_authority\nAverage rate: 10.385\nBuffer length: 2.6\nMost recent transform: 20.0\nOldest transform: 17.4\n"];
+"claw_support" -> "depth_camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"depth_camera" -> "depth_camera_optical"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1762586513.3614032"[ shape=plaintext ] ;
+}->"world";
+}

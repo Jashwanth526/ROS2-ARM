@@ -20,10 +20,8 @@ class SimpleTaskServer(Node):
     def __init__(self):
         super().__init__('simple_task_server')
         
-        # Create callback group for action server
         self.callback_group = ReentrantCallbackGroup()
         
-        # Action server for tasks
         self.task_server = ActionServer(
             self,
             ArduinobotTask,
@@ -32,7 +30,6 @@ class SimpleTaskServer(Node):
             callback_group=self.callback_group
         )
         
-        # Action clients to control arm and gripper
         self.arm_client = ActionClient(
             self, 
             FollowJointTrajectory, 
@@ -45,10 +42,8 @@ class SimpleTaskServer(Node):
             '/gripper_controller/follow_joint_trajectory'
         )
         
-        # Check if controllers are available
         self.check_controllers()
         
-        # Subscribers for object detection (placeholder)
         self.detection_subscriber = self.create_subscription(
             PointStamped,
             '/detected_objects',
@@ -56,10 +51,8 @@ class SimpleTaskServer(Node):
             10
         )
         
-        # Store latest detections
         self.latest_detections = {}
         
-        # Predefined joint positions
         self.home_position = [0.0, 0.0, 0.0]
         self.pick_position = [-1.14, -0.6, -0.07]
         self.sleep_position = [-1.57, 0.0, -0.9]

@@ -3,7 +3,6 @@
 import rclpy
 from rclpy.node import Node
 from visualization_msgs.msg import Marker
-from geometry_msgs.msg import Point
 
 class WorldMarkersPublisher(Node):
     def __init__(self):
@@ -12,7 +11,6 @@ class WorldMarkersPublisher(Node):
         self.timer = self.create_timer(0.5, self.publish_markers)
 
     def publish_markers(self):
-        # Table (reduced height to match Gazebo top at 0.35m)
         table = Marker()
         table.header.frame_id = 'world'
         table.header.stamp = self.get_clock().now().to_msg()
@@ -22,18 +20,17 @@ class WorldMarkersPublisher(Node):
         table.action = Marker.ADD
         table.pose.position.x = 1.3
         table.pose.position.y = 0.7
-        table.pose.position.z = 0.175  # half the visualized height so top aligns at 0.35
+        table.pose.position.z = 0.175
         table.pose.orientation.w = 1.0
         table.scale.x = 1.2
         table.scale.y = 0.8
-        table.scale.z = 0.35  # reduced from 0.7
+        table.scale.z = 0.35
         table.color.r = 0.6
         table.color.g = 0.4
         table.color.b = 0.2
         table.color.a = 1.0
         self.publisher.publish(table)
 
-        # Red Cube
         cube = Marker()
         cube.header.frame_id = 'world'
         cube.header.stamp = self.get_clock().now().to_msg()
@@ -43,7 +40,7 @@ class WorldMarkersPublisher(Node):
         cube.action = Marker.ADD
         cube.pose.position.x = 0.85
         cube.pose.position.y = 0.55
-        cube.pose.position.z = 0.45  # table_top (0.35) + cube_half_height (0.10)
+        cube.pose.position.z = 0.45
         cube.pose.orientation.w = 1.0
         cube.scale.x = 0.20
         cube.scale.y = 0.20
@@ -54,7 +51,6 @@ class WorldMarkersPublisher(Node):
         cube.color.a = 1.0
         self.publisher.publish(cube)
 
-        # Blue Cylinder
         cylinder = Marker()
         cylinder.header.frame_id = 'world'
         cylinder.header.stamp = self.get_clock().now().to_msg()
@@ -64,18 +60,17 @@ class WorldMarkersPublisher(Node):
         cylinder.action = Marker.ADD
         cylinder.pose.position.x = 1.25
         cylinder.pose.position.y = 0.85
-        cylinder.pose.position.z = 0.45  # table_top (0.35) + cylinder_half_height (0.10)
+        cylinder.pose.position.z = 0.45
         cylinder.pose.orientation.w = 1.0
-        cylinder.scale.x = 0.16  # diameter
-        cylinder.scale.y = 0.16  # diameter
-        cylinder.scale.z = 0.20  # height
+        cylinder.scale.x = 0.16
+        cylinder.scale.y = 0.16
+        cylinder.scale.z = 0.20
         cylinder.color.r = 0.0
         cylinder.color.g = 0.0
         cylinder.color.b = 1.0
         cylinder.color.a = 1.0
         self.publisher.publish(cylinder)
 
-        # Green Sphere
         sphere = Marker()
         sphere.header.frame_id = 'world'
         sphere.header.stamp = self.get_clock().now().to_msg()
@@ -85,9 +80,9 @@ class WorldMarkersPublisher(Node):
         sphere.action = Marker.ADD
         sphere.pose.position.x = 1.65
         sphere.pose.position.y = 1.0
-        sphere.pose.position.z = 0.47  # table_top (0.35) + sphere_radius (0.12)
+        sphere.pose.position.z = 0.47
         sphere.pose.orientation.w = 1.0
-        sphere.scale.x = 0.24  # diameter (radius 0.12 * 2)
+        sphere.scale.x = 0.24
         sphere.scale.y = 0.24
         sphere.scale.z = 0.24
         sphere.color.r = 0.0
@@ -96,7 +91,6 @@ class WorldMarkersPublisher(Node):
         sphere.color.a = 1.0
         self.publisher.publish(sphere)
 
-        # Drop Zone (yellow box)
         drop_zone = Marker()
         drop_zone.header.frame_id = 'world'
         drop_zone.header.stamp = self.get_clock().now().to_msg()

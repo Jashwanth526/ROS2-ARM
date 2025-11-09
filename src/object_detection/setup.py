@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
 package_name = 'object_detection'
 
@@ -10,13 +12,14 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='jashwanth',
     maintainer_email='kjashwanthk@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Object detection and manipulation for ArduinoBot',
+    license='Apache-2.0',
     extras_require={
         'test': [
             'pytest',
@@ -25,9 +28,6 @@ setup(
     entry_points={
         'console_scripts': [
             'object_detector = object_detection.object_detector:main',
-            'enhanced_task_server = object_detection.enhanced_task_server:main',
-            'simple_task_server = object_detection.simple_task_server:main',
-            'manipulation_client = object_detection.manipulation_client:main',
         ],
     },
 )

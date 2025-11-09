@@ -144,5 +144,5 @@ if __name__ == '__main__':
     time.sleep(2)
     initialize_ros_client()
     print("Server starting on port 5001...")
-    # Run without debug/reloader to avoid duplicate processes and terminal interference
+    
     app.run(host='0.0.0.0', port=5001, debug=False, use_reloader=False)

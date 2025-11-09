@@ -63,10 +63,10 @@ def generate_launch_description():
 
     world_markers_node = Node(
         package="arduinobot_utils",
-        executable="world_markers_publisher.py",
+        executable="world_markers_publisher",
         name="world_markers_publisher",
         output="screen",
-        respawn=True,
+        respawn=True
     )
 
     rviz_node = Node(

@@ -14,55 +14,43 @@ find_package(class_loader REQUIRED)
 find_package(arduinobot_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
 
-add_library(task_server SHARED src/task_server.cpp)
-target_include_directories(task_server PRIVATE
+add_library(task_server_simple SHARED src/task_server_simple.cpp)
+target_include_directories(task_server_simple PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_definitions(task_server
-  PRIVATE "TASK_SERVER_CPP_BUILDING_DLL")
-ament_target_dependencies(task_server
+target_compile_definitions(task_server_simple PRIVATE "TASK_SERVER_SIMPLE_CPP_BUILDING_DLL")
+ament_target_dependencies(task_server_simple
   "arduinobot_msgs"
   "rclcpp"
   "rclcpp_action"
   "rclcpp_components"
-  "moveit_ros_planning_interface")
-
-# Register component for use in composable containers (library only)
-rclcpp_components_register_node(task_server 
-  PLUGIN "arduinobot_remote::TaskServer"
-  EXECUTABLE task_server_standalone
+  "moveit_ros_planning_interface"
+  "tf2_ros"
+  "tf2_geometry_msgs"
 )
 
-# Create custom executable with MultiThreadedExecutor
-add_executable(task_server_node src/task_server_main.cpp)
-target_link_libraries(task_server_node task_server ${class_loader_LIBRARIES})
-ament_target_dependencies(task_server_node
-  "rclcpp"
-  "rclcpp_components"
-  "class_loader"
-  "arduinobot_msgs")
+rclcpp_components_register_node(task_server_simple
+  PLUGIN "arduinobot_remote::TaskServerSimple"
+  EXECUTABLE task_server_simple_node
+)
 
 ament_python_install_package(${PROJECT_NAME})
 
-install(
-  DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
-
-install(TARGETS 
-  task_server
-  task_server_node
-  task_server_standalone
+install(TARGETS
+  task_server_simple
+  task_server_simple_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
-  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(PROGRAMS
-  ${PROJECT_NAME}/task_server.py
   ${PROJECT_NAME}/alexa_interface.py
   DESTINATION lib/${PROJECT_NAME}
 )

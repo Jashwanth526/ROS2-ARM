@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>object_detection</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="kjashwanthk@gmail.com">jashwanth</maintainer>
-  <license>TODO: License declaration</license>
+  <version>1.0.0</version>
+  <description>Computer vision-based object detection and manipulation package using OpenCV HSV filtering for ArduinoBot pick-and-place tasks</description>
+  <maintainer email="kjashwanth6@gmail.com">JASHWANTH K</maintainer>
+  <license>Apache-2.0</license>
 
   <depend>rclpy</depend>
   <depend>sensor_msgs</depend>

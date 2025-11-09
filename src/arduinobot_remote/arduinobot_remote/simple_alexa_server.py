@@ -64,20 +64,20 @@ def send_robot_task(task_number):
 def alexa_handler():
     """Handle Alexa requests"""
     try:
-        # Parse the incoming JSON request
+
         alexa_request = request.get_json()
         
         print(f"Received Alexa request: {json.dumps(alexa_request, indent=2)}")
         
-        # Extract the request type and intent
+
         request_type = alexa_request.get('request', {}).get('type', '')
         intent_name = alexa_request.get('request', {}).get('intent', {}).get('name', '')
         
-        # Default response
+
         response_text = "Hello, Arduino Bot is ready!"
         task_number = 0  # Default task
         
-        # Handle different intents
+
         if request_type == 'LaunchRequest':
             response_text = "Hi, how can Arduino Bot help you?"
             task_number = 0
@@ -123,7 +123,7 @@ def alexa_handler():
             task_number = 9
             
         elif intent_name == 'PickAndPlaceIntent':
-            # Extract color from slots
+ 
             slots = alexa_request.get('request', {}).get('intent', {}).get('slots', {})
             color = 'blue'  # default
             
@@ -132,7 +132,7 @@ def alexa_handler():
             
             response_text = f"Arduino Bot is performing pick and place for {color} objects"
             
-            # Map colors to task numbers
+ 
             color_task_map = {
                 'red': 7,
                 'blue': 8,
@@ -147,13 +147,12 @@ def alexa_handler():
         else:
             response_text = "I didn't understand that. Can you please try again?"
         
-        # Send task to robot
+
         if task_number is not None:
             success = send_robot_task(task_number)
             if not success:
                 response_text += " However, I couldn't communicate with the robot right now."
         
-        # Create Alexa response
         alexa_response = {
             "version": "1.0",
             "response": {

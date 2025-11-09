@@ -19,6 +19,24 @@ def generate_launch_description():
         "use_python",
         default_value="False",
     )
+    
+    use_simple_arg = DeclareLaunchArgument(
+        "use_simple",
+        default_value="True",
+        description="Use simple task server (recommended for object detection)"
+    )
+
+    grasp_z_offset_arg = DeclareLaunchArgument(
+        "grasp_z_offset",
+        default_value="0.005",
+        description="TCP height above object for grasp (m). Lower to go further down."
+    )
+
+    pregrasp_z_offset_arg = DeclareLaunchArgument(
+        "pregrasp_z_offset",
+        default_value="0.12",
+        description="Hover height above object before grasp (m)."
+    )
 
     enable_alexa_arg = DeclareLaunchArgument(
         "enable_alexa",
@@ -27,13 +45,29 @@ def generate_launch_description():
     )
 
     use_python = LaunchConfiguration("use_python")
+    use_simple = LaunchConfiguration("use_simple")
     is_sim = LaunchConfiguration("is_sim")
     enable_alexa = LaunchConfiguration("enable_alexa")
+    grasp_z_offset = LaunchConfiguration("grasp_z_offset")
+    pregrasp_z_offset = LaunchConfiguration("pregrasp_z_offset")
 
+    task_server_simple = Node(
+        package="arduinobot_remote",
+        executable="task_server_simple_node",
+        condition=IfCondition(use_simple),
+        parameters=[
+            {"use_sim_time": is_sim},
+            {"grasp_z_offset": grasp_z_offset},
+            {"pregrasp_z_offset": pregrasp_z_offset},
+        ],
+        output='screen'
+    )
+
+    # Original complex task server
     task_server_node = Node(
         package="arduinobot_remote",
         executable="task_server_node",
-        condition=UnlessCondition(use_python),
+        condition=UnlessCondition(use_simple),
         parameters=[{"use_sim_time": is_sim}]
     )
 
@@ -69,8 +103,12 @@ def generate_launch_description():
 
     return LaunchDescription([
         use_python_arg,
+        use_simple_arg,
+        grasp_z_offset_arg,
+        pregrasp_z_offset_arg,
         enable_alexa_arg,
         is_sim_arg,
+        task_server_simple,
         task_server_node,
         task_server_node_py,
         alexa_interface_node,

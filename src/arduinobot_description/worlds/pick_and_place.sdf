@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <sdf version="1.7">
   <world name="pick_and_place_world">
 
@@ -85,14 +85,14 @@
         <collision name="collision">
           <geometry>
             <box>
-                <size>0.20 0.20 0.20</size>
+              <size>0.20 0.20 0.20</size>
             </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <box>
-                <size>0.20 0.20 0.20</size>
+              <size>0.20 0.20 0.20</size>
             </box>
           </geometry>
           <material>
@@ -127,8 +127,8 @@
         <visual name="visual">
           <geometry>
             <cylinder>
-                <radius>0.08</radius>
-                <length>0.20</length>
+              <radius>0.08</radius>
+              <length>0.20</length>
             </cylinder>
           </geometry>
           <material>
@@ -162,7 +162,7 @@
         <visual name="visual">
           <geometry>
             <sphere>
-                <radius>0.12</radius>
+              <radius>0.12</radius>
             </sphere>
           </geometry>
           <material>
