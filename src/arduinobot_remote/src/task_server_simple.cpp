@@ -22,6 +22,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <tf2/LinearMath/Quaternion.h>
 
 using namespace std::placeholders;
 
@@ -890,9 +891,8 @@ namespace arduinobot_remote
 
       rclcpp::sleep_for(std::chrono::milliseconds(200));
 
-      std::vector<double> carry_joints = {base_angle, -0.3, -0.2};
-      RCLCPP_INFO(get_logger(), "Moving to carry position");
-      moveToJointPosition(carry_joints);
+      RCLCPP_INFO(get_logger(), "Moving to home position after pick");
+      moveToJointPosition({0.0, 0.0, 0.0});
 
       rclcpp::sleep_for(std::chrono::milliseconds(200));
 
@@ -909,11 +909,19 @@ namespace arduinobot_remote
     {
       RCLCPP_INFO(get_logger(), "Performing place sequence...");
 
-      std::vector<double> drop_joints = {-1.2, 0.0, -0.2};
-      moveToJointPosition(drop_joints);
-
+      // Joint values from RViz: joint1=46deg, joint2=-56deg, joint3=31deg
+      // Converted to radians
+      RCLCPP_INFO(get_logger(), "Moving directly to drop zone position");
+      std::vector<double> drop_position = {0.8029, -0.9774, 0.5411};  // RViz joint values
+      moveToJointPosition(drop_position);
+      rclcpp::sleep_for(std::chrono::milliseconds(500));
+      
+      RCLCPP_INFO(get_logger(), "Opening gripper to release object");
       moveGripper({-0.7, 0.7});
       rclcpp::sleep_for(std::chrono::seconds(1));
+      
+      RCLCPP_INFO(get_logger(), "Returning to home position");
+      moveToJointPosition({0.0, 0.0, 0.0});
 
       RCLCPP_INFO(get_logger(), "Place sequence complete");
     }
@@ -984,46 +992,19 @@ namespace arduinobot_remote
       case 7:
         target_color_ = "red";
         object_detected_.store(false);
-        if (performScan())
-        {
-          RCLCPP_INFO(get_logger(), "Red object detected, stabilizing before pick...");
-          rclcpp::sleep_for(std::chrono::seconds(1));
-          performPick();
-        }
-        else
-        {
-          RCLCPP_WARN(get_logger(), "No red object found during scan");
-        }
+        (void)performScan();
         break;
 
       case 8:
         target_color_ = "blue";
         object_detected_.store(false);
-        if (performScan())
-        {
-          RCLCPP_INFO(get_logger(), "Blue object detected, stabilizing before pick...");
-          rclcpp::sleep_for(std::chrono::seconds(1));
-          performPick();
-        }
-        else
-        {
-          RCLCPP_WARN(get_logger(), "No blue object found during scan");
-        }
+        (void)performScan();
         break;
 
       case 9:
         target_color_ = "green";
         object_detected_.store(false);
-        if (performScan())
-        {
-          RCLCPP_INFO(get_logger(), "Green object detected, stabilizing before pick...");
-          rclcpp::sleep_for(std::chrono::seconds(1));
-          performPick();
-        }
-        else
-        {
-          RCLCPP_WARN(get_logger(), "No green object found during scan");
-        }
+        (void)performScan();
         break;
 
       default:

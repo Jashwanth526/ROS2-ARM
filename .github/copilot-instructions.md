@@ -85,6 +85,29 @@ void execute(...) {
 
 **Avoid** calling `setStartStateToCurrentState()` repeatedly - causes crashes. Use it sparingly or rely on MoveIt's internal state tracking.
 
+### State Stabilization Pattern
+Before planning/executing, wait for joint states to stabilize to avoid "Invalid start state" errors:
+
+```cpp
+bool waitForStateStable(double timeout_sec = 1.5, double max_delta = 0.002, int consecutive = 3) {
+    // Poll joint states repeatedly, ensure max_delta between readings stays below threshold
+    // for 'consecutive' checks before returning true
+}
+
+// Use before planning
+waitForStateStable(1.5, 0.002, 4);
+arm_move_group_->setStartStateToCurrentState();  // Now safe to set
+```
+
+Also validate start state deviation after planning, before execution:
+
+```cpp
+bool startStateDeviationOkay(const Plan &plan, double tolerance) {
+    // Compare plan's first waypoint against current joint values
+    // If max deviation > tolerance, reject and replan
+}
+```
+
 ### Object Detection Callback Pattern
 Detection callbacks run in **reentrant callback group** to allow concurrent execution during action server operations:
 
@@ -123,38 +146,105 @@ object_detected_ = true; // Mark detected
   - Auto-adjust gain signs if error doesn't improve
   - Max iterations: ~8 steps with 250ms settle between steps
 
+### Coordinate Transformation Best Practices
+**CRITICAL**: Known issue with depth camera TF transformations producing incorrect Y-coordinates (see `COORDINATE_FIX_NOTES.md`).
+
+**Recommended approach**: Object detector should publish points **already in `base_link` frame** (not camera frame):
+```python
+# In object_detector.py - transform BEFORE publishing
+point_msg.header.frame_id = "base_link"  # NOT "camera_link_optical"
+# Or use base_link/<color> for color-coded coordinates
+point_msg.header.frame_id = f"base_link/{color}"
+```
+
+Task server then receives coordinates directly usable for planning:
+```cpp
+// In pointCallback - expect base_link frame
+if (msg->header.frame_id == "base_link" || msg->header.frame_id.rfind("base_link/", 0) == 0) {
+    // Use coordinates directly, no TF transform needed
+    object_x_ = msg->point.x;
+    object_y_ = msg->point.y;
+}
+```
+
+**Alternative**: Use point cloud topic `/rgbd_camera/points` which provides world-frame coordinates bypassing TF issues.
+
 ### Python vs C++ Task Servers
 Two implementations available - selected via `use_python` launch arg:
 - **C++** (`task_server_node`): Default, uses `MoveGroupInterface`, component node with `RCLCPP_COMPONENTS_REGISTER_NODE`.
 - **Python** (`task_server.py`): Uses `MoveItPy` interface, simpler but less performant.
+
+### ROS2 Parameter Declaration Pattern
+Parameters must be declared in constructor before retrieval:
+```cpp
+// Constructor - declare with defaults
+this->declare_parameter<std::string>("target_color", "any");
+this->declare_parameter<double>("grasp_z_offset", 0.005);
+
+// Then retrieve
+target_color_ = this->get_parameter("target_color").as_string();
+grasp_z_offset_ = this->get_parameter("grasp_z_offset").as_double();
+```
+
+Common tunable parameters in task servers:
+- `target_color`: "any", "red", "blue", "green" - filter detections
+- `post_confirm_updates`: `false` (default) freezes coordinates after confirmation, `true` allows live updates
+- `scan_min`, `scan_max`, `scan_steps`: Define sweep range for object scanning
+- `grasp_z_offset`, `pregrasp_z_offset`: Fine-tune pick heights above detected objects
+
+### Component Node Registration
+C++ action servers use component architecture for efficient loading:
+```cpp
+// At end of file - makes node loadable as component
+RCLCPP_COMPONENTS_REGISTER_NODE(arduinobot_remote::TaskServerSimple)
+```
+
+This enables both standalone execution and composition into multi-node processes.
 
 ## Debugging & Troubleshooting
 
 ### Common Issues
 1. **"Planning failed" / "Invalid start state"**: 
    - Don't call `setStartStateToCurrentState()` in loops
-   - Wait for controllers to stabilize before planning (use `waitForJointStateClose()`)
+   - Wait for controllers to stabilize before planning (use `waitForStateStable()`)
+   - Check start state deviation after planning with `startStateDeviationOkay(plan, 0.01)`
+   - Verify tolerance settings (`setGoalPositionTolerance`, `setGoalOrientationTolerance`)
    
 2. **Object not detected during scan**:
    - Check camera topic: `ros2 topic hz /image_raw`
-   - Verify `target_color_` matches detection logic
+   - Verify `target_color_` parameter matches detection logic
    - Ensure objects in Gazebo world file (`pick_and_place.sdf`)
+   - Confirm detection variance thresholds: `var_thresh_xy_` (0.02), `var_thresh_z_` (0.03)
 
 3. **Executor conflicts / deadlocks**:
    - Never call `rclcpp::spin_some()` when using MultiThreadedExecutor with reentrant callbacks
    - Use reentrant callback groups for subscriptions that need to run during action execution
+   - Check for blocking operations in callbacks (use async patterns)
 
 4. **Controllers not spawning**:
-   - Check sequential delays in `controller.launch.py`
-   - Verify `use_sim_time:=True` parameter set correctly
+   - Check sequential delays in `controller.launch.py` (2s for controller manager, 1s between spawners)
+   - Verify `use_sim_time:=True` parameter set correctly across all nodes
    - Ensure Gazebo fully loaded before controller manager starts
+   - Use `ros2 control list_controllers` to verify active controllers
+
+5. **Coordinate transformation errors**:
+   - Known TF2 issue with `depth_camera` → `base_link` transformations (Y-axis especially)
+   - Prefer object detector publishing directly in `base_link` frame
+   - Alternative: Subscribe to `/rgbd_camera/points` for pre-transformed coordinates
+   - Validate frame IDs in callbacks: check for `base_link` or `base_link/<color>` patterns
+
+6. **Continuous gripper squeeze issues**:
+   - Use separate thread for `continuousGripperSqueeze()` with atomic flag control
+   - Set `continuous_grip_.store(true)` before detaching thread
+   - Always call `continuous_grip_.store(false)` to stop, then sleep briefly for cleanup
+   - Example: Needed for spherical objects that slip without constant pressure
 
 ### Useful Commands
 ```bash
 # Check active controllers
 ros2 control list_controllers
 
-# View TF tree
+# View TF tree (generates frames_*.gv and frames_*.pdf)
 ros2 run tf2_tools view_frames
 
 # Monitor action server
@@ -163,9 +253,25 @@ ros2 action info /task_server
 
 # Debug camera
 ros2 topic echo /image_raw --no-arr  # Don't print image data
+ros2 topic hz /image_raw              # Check publishing rate
 
 # Check MoveIt planning
 ros2 service list | grep moveit
+
+# Monitor point cloud data
+ros2 topic echo /rgbd_camera/points --field x,y,z --no-arr
+
+# Build single package (faster iteration)
+cd ~/arduinobot_ws
+colcon build --packages-select arduinobot_remote
+source install/setup.bash
+
+# Check for compiler errors without full build
+colcon build --packages-select arduinobot_remote --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+# Monitor detection coordinates
+ros2 topic echo /detected_objects
+ros2 topic echo /detection_info
 ```
 
 ## Testing Patterns
@@ -190,7 +296,11 @@ ros2 service list | grep moveit
 - **Camera frame**: `camera_link_optical` on gripper, points downward
 - **Resolution**: 2304x1296 @ 30 FPS (bridged from Gazebo)
 - **Detection method**: HSV color space thresholding (configurable ranges in `object_detector.py`)
-- **Coordinate transform**: Camera frame → `base_link` using `tf2_ros::Buffer`
+- **Coordinate sources**: 
+  - `/image_raw` + `/depth_image` → 3D via pinhole model (needs TF transform)
+  - `/rgbd_camera/points` → Direct world coordinates (recommended)
+- **Depth camera intrinsics** (approx values in `object_detector.py`):
+  - `fx=1200.0, fy=1200.0, cx=1152.0, cy=648.0`
 
 ## Alexa Voice Control
 Setup requires:

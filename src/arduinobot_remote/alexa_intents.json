@@ -129,6 +129,21 @@
           ]
         },
         {
+          "name": "CheckDetectionIntent",
+          "samples": [
+            "check detection",
+            "check status",
+            "did you find anything",
+            "was anything detected",
+            "check if object found",
+            "did you see anything",
+            "what did you find",
+            "any objects found",
+            "status report",
+            "detection status"
+          ]
+        },
+        {
           "name": "PickAndPlaceIntent",
           "samples": [
             "pick and place {color} objects",
