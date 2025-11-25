@@ -91,25 +91,68 @@ class WorldMarkersPublisher(Node):
         sphere.color.a = 1.0
         self.publisher.publish(sphere)
 
-        drop_zone = Marker()
-        drop_zone.header.frame_id = 'world'
-        drop_zone.header.stamp = self.get_clock().now().to_msg()
-        drop_zone.ns = 'drop_zone'
-        drop_zone.id = 4
-        drop_zone.type = Marker.CUBE
-        drop_zone.action = Marker.ADD
-        drop_zone.pose.position.x = -1.5
-        drop_zone.pose.position.y = 1.2
-        drop_zone.pose.position.z = 0.05
-        drop_zone.pose.orientation.w = 1.0
-        drop_zone.scale.x = 0.3
-        drop_zone.scale.y = 0.3
-        drop_zone.scale.z = 0.1
-        drop_zone.color.r = 1.0
-        drop_zone.color.g = 1.0
-        drop_zone.color.b = 0.0
-        drop_zone.color.a = 1.0
-        self.publisher.publish(drop_zone)
+        # Red drop zone
+        red_drop_zone = Marker()
+        red_drop_zone.header.frame_id = 'world'
+        red_drop_zone.header.stamp = self.get_clock().now().to_msg()
+        red_drop_zone.ns = 'red_drop_zone'
+        red_drop_zone.id = 4
+        red_drop_zone.type = Marker.CUBE
+        red_drop_zone.action = Marker.ADD
+        red_drop_zone.pose.position.x = -1.5
+        red_drop_zone.pose.position.y = 1.2
+        red_drop_zone.pose.position.z = 0.05
+        red_drop_zone.pose.orientation.w = 1.0
+        red_drop_zone.scale.x = 0.3
+        red_drop_zone.scale.y = 0.3
+        red_drop_zone.scale.z = 0.1
+        red_drop_zone.color.r = 1.0
+        red_drop_zone.color.g = 0.0
+        red_drop_zone.color.b = 0.0
+        red_drop_zone.color.a = 0.7
+        self.publisher.publish(red_drop_zone)
+
+        # Blue drop zone
+        blue_drop_zone = Marker()
+        blue_drop_zone.header.frame_id = 'world'
+        blue_drop_zone.header.stamp = self.get_clock().now().to_msg()
+        blue_drop_zone.ns = 'blue_drop_zone'
+        blue_drop_zone.id = 5
+        blue_drop_zone.type = Marker.CUBE
+        blue_drop_zone.action = Marker.ADD
+        blue_drop_zone.pose.position.x = -1.5
+        blue_drop_zone.pose.position.y = 0.6
+        blue_drop_zone.pose.position.z = 0.05
+        blue_drop_zone.pose.orientation.w = 1.0
+        blue_drop_zone.scale.x = 0.3
+        blue_drop_zone.scale.y = 0.3
+        blue_drop_zone.scale.z = 0.1
+        blue_drop_zone.color.r = 0.0
+        blue_drop_zone.color.g = 0.0
+        blue_drop_zone.color.b = 1.0
+        blue_drop_zone.color.a = 0.7
+        self.publisher.publish(blue_drop_zone)
+
+        # Green drop zone
+        green_drop_zone = Marker()
+        green_drop_zone.header.frame_id = 'world'
+        green_drop_zone.header.stamp = self.get_clock().now().to_msg()
+        green_drop_zone.ns = 'green_drop_zone'
+        green_drop_zone.id = 6
+        green_drop_zone.type = Marker.CUBE
+        green_drop_zone.action = Marker.ADD
+        green_drop_zone.pose.position.x = -1.5
+        green_drop_zone.pose.position.y = 0.0
+        green_drop_zone.pose.position.z = 0.05
+        green_drop_zone.pose.orientation.w = 1.0
+        green_drop_zone.scale.x = 0.3
+        green_drop_zone.scale.y = 0.3
+        green_drop_zone.scale.z = 0.1
+        green_drop_zone.color.r = 0.0
+        green_drop_zone.color.g = 1.0
+        green_drop_zone.color.b = 0.0
+        green_drop_zone.color.a = 0.7
+        self.publisher.publish(green_drop_zone)
 
 def main(args=None):
     rclpy.init(args=args)

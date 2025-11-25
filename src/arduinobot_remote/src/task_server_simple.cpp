@@ -38,8 +38,8 @@ namespace arduinobot_remote
 
       this->declare_parameter<std::string>("target_color", "any");
       this->declare_parameter<bool>("post_confirm_updates", false);
-      this->declare_parameter<double>("scan_min", -1.2);
-      this->declare_parameter<double>("scan_max", 1.2);
+        this->declare_parameter<double>("scan_min", -1.2);
+        this->declare_parameter<double>("scan_max", 0.0);
       this->declare_parameter<int>("scan_steps", 13);
       this->declare_parameter<int>("scan_dwell_cycles", 10);
       this->declare_parameter<double>("scan_dwell_interval", 0.4);
@@ -95,8 +95,8 @@ namespace arduinobot_remote
     std::string target_color_ = "any";
     std::string detected_color_ = "";
     bool post_confirm_updates_ = false;
-    double scan_min_ = -1.2;
-    double scan_max_ = 1.2;
+    double scan_min_ = -1.5708;
+    double scan_max_ = 0.0;
     int scan_steps_ = 13;
     int scan_dwell_cycles_ = 10;
     double scan_dwell_interval_ = 0.4;
@@ -907,18 +907,66 @@ namespace arduinobot_remote
 
     void performPlace()
     {
-      RCLCPP_INFO(get_logger(), "Performing place sequence...");
+      RCLCPP_INFO(get_logger(), "Performing place sequence for %s object...", detected_color_.c_str());
 
-      // Joint values from RViz: joint1=46deg, joint2=-56deg, joint3=31deg
-      // Converted to radians
-      RCLCPP_INFO(get_logger(), "Moving directly to drop zone position");
-      std::vector<double> drop_position = {0.8029, -0.9774, 0.5411};  // RViz joint values
+      // Color-specific drop zone positions
+      std::vector<double> drop_position;
+      std::vector<double> lift_position;
+      
+      if (detected_color_ == "red")
+      {
+        RCLCPP_INFO(get_logger(), "Moving to RED drop zone");
+        // Red: joint1=47deg, joint2=-63deg, joint3=37deg
+        drop_position = {0.8203, -1.0996, 0.6458};
+        lift_position = {0.8203, -0.7854, 0.3491};  // Lift before returning
+      }
+      else if (detected_color_ == "blue")
+      {
+        RCLCPP_INFO(get_logger(), "Moving to BLUE drop zone");
+        // Blue: joint1=63deg, joint2=-45deg, joint3=11deg
+        drop_position = {1.0996, -0.7854, 0.1920};
+        lift_position = {1.0996, -0.5236, 0.0};  // Lift before returning
+      }
+      else if (detected_color_ == "green")
+      {
+        RCLCPP_INFO(get_logger(), "Moving to GREEN drop zone");
+        // Green: joint1=84deg, joint2=-35deg, joint3=-2deg
+        drop_position = {1.4661, -0.6109, -0.0349};
+        lift_position = {1.4661, -0.3491, -0.1745};  // Lift before returning
+      }
+      else
+      {
+        RCLCPP_WARN(get_logger(), "Unknown color '%s', using default red drop zone", detected_color_.c_str());
+        drop_position = {0.8203, -1.0996, 0.6458};
+        lift_position = {0.8203, -0.7854, 0.3491};
+      }
+      
       moveToJointPosition(drop_position);
-      rclcpp::sleep_for(std::chrono::milliseconds(500));
+      rclcpp::sleep_for(std::chrono::milliseconds(800));
+      
+      // For green sphere, wait longer before opening to let it settle
+      if (detected_color_ == "green")
+      {
+        RCLCPP_INFO(get_logger(), "Waiting for sphere to settle");
+        rclcpp::sleep_for(std::chrono::milliseconds(500));
+      }
       
       RCLCPP_INFO(get_logger(), "Opening gripper to release object");
       moveGripper({-0.7, 0.7});
-      rclcpp::sleep_for(std::chrono::seconds(1));
+      rclcpp::sleep_for(std::chrono::milliseconds(800));
+      
+      // Lift up to avoid collision with placed objects
+      RCLCPP_INFO(get_logger(), "Lifting arm to avoid collision");
+      moveToJointPosition(lift_position);
+      rclcpp::sleep_for(std::chrono::milliseconds(500));
+      
+      // For red, add intermediate position to help transition to home
+      if (detected_color_ == "red")
+      {
+        RCLCPP_INFO(get_logger(), "Moving through intermediate position");
+        moveToJointPosition({0.5, -0.5, 0.2});
+        rclcpp::sleep_for(std::chrono::milliseconds(400));
+      }
       
       RCLCPP_INFO(get_logger(), "Returning to home position");
       moveToJointPosition({0.0, 0.0, 0.0});
