@@ -108,7 +108,10 @@ class ObjectDetectionNode(Node):
                 (np.array([160, 100, 100]), np.array([180, 255, 255]))
             ],
             'blue': [(np.array([90, 100, 100]), np.array([130, 255, 255]))],
-            'green': [(np.array([40, 50, 50]), np.array([80, 255, 255]))]
+            'green': [(np.array([40, 50, 50]), np.array([80, 255, 255]))],
+            'yellow': [(np.array([26, 120, 120]), np.array([35, 255, 255]))],
+            'purple': [(np.array([130, 50, 50]), np.array([160, 255, 255]))],
+            'brown': [(np.array([5, 50, 20]), np.array([25, 255, 200]))]
         }
         
         for color_name, ranges in color_ranges.items():

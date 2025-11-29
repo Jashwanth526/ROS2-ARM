@@ -129,6 +129,36 @@
           ]
         },
         {
+          "name": "ScanYellowObjectsIntent",
+          "samples": [
+            "scan for yellow objects",
+            "find yellow objects",
+            "look for yellow things",
+            "detect yellow objects",
+            "search for yellow items"
+          ]
+        },
+        {
+          "name": "ScanPurpleObjectsIntent",
+          "samples": [
+            "scan for purple objects",
+            "find purple objects",
+            "look for purple things",
+            "detect purple objects",
+            "search for purple items"
+          ]
+        },
+        {
+          "name": "ScanBrownObjectsIntent",
+          "samples": [
+            "scan for brown objects",
+            "find brown objects",
+            "look for brown things",
+            "detect brown objects",
+            "search for brown items"
+          ]
+        },
+        {
           "name": "CheckDetectionIntent",
           "samples": [
             "check detection",
@@ -190,6 +220,21 @@
             {
               "name": {
                 "value": "green"
+              }
+            },
+            {
+              "name": {
+                "value": "yellow"
+              }
+            },
+            {
+              "name": {
+                "value": "purple"
+              }
+            },
+            {
+              "name": {
+                "value": "brown"
               }
             }
           ]

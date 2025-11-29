@@ -38,8 +38,8 @@ namespace arduinobot_remote
 
       this->declare_parameter<std::string>("target_color", "any");
       this->declare_parameter<bool>("post_confirm_updates", false);
-        this->declare_parameter<double>("scan_min", -1.2);
-        this->declare_parameter<double>("scan_max", 0.0);
+      this->declare_parameter<double>("scan_min", -1.2);
+      this->declare_parameter<double>("scan_max", 0.0);
       this->declare_parameter<int>("scan_steps", 13);
       this->declare_parameter<int>("scan_dwell_cycles", 10);
       this->declare_parameter<double>("scan_dwell_interval", 0.4);
@@ -277,6 +277,12 @@ namespace arduinobot_remote
         current_color = "blue";
       else if (data.find("green") != std::string::npos)
         current_color = "green";
+      else if (data.find("yellow") != std::string::npos)
+        current_color = "yellow";
+      else if (data.find("purple") != std::string::npos)
+        current_color = "purple";
+      else if (data.find("brown") != std::string::npos)
+        current_color = "brown";
 
       if (!current_color.empty() && (target_color_ == "any" || current_color == target_color_))
       {
@@ -644,7 +650,7 @@ namespace arduinobot_remote
       target_samples_.clear();
       pick_in_progress_.store(false);
 
-      moveGripper({-0.7, 0.7});
+      moveGripper({-0.6807, 0.6807});
 
       std::vector<std::vector<double>> scan_positions;
       int steps = std::max(3, scan_steps_);
@@ -733,7 +739,7 @@ namespace arduinobot_remote
       }
 
       RCLCPP_INFO(get_logger(), "Opening gripper");
-      moveGripper({-0.7, 0.7});
+      moveGripper({-0.6807, 0.6807});
 
       const std::string planning_frame = arm_move_group_->getPlanningFrame();
       const std::string ee_link = "tcp_link";
@@ -912,27 +918,48 @@ namespace arduinobot_remote
       // Color-specific drop zone positions
       std::vector<double> drop_position;
       std::vector<double> lift_position;
-      
+
       if (detected_color_ == "red")
       {
         RCLCPP_INFO(get_logger(), "Moving to RED drop zone");
-        // Red: joint1=47deg, joint2=-63deg, joint3=37deg
-        drop_position = {0.8203, -1.0996, 0.6458};
-        lift_position = {0.8203, -0.7854, 0.3491};  // Lift before returning
+        // Red: joint1=48deg, joint2=-45deg, joint3=23deg
+        drop_position = {0.8378, -0.7854, 0.4014};
+        lift_position = {0.8378, -0.7854, 0.3491}; // Lift before returning
       }
       else if (detected_color_ == "blue")
       {
         RCLCPP_INFO(get_logger(), "Moving to BLUE drop zone");
-        // Blue: joint1=63deg, joint2=-45deg, joint3=11deg
-        drop_position = {1.0996, -0.7854, 0.1920};
-        lift_position = {1.0996, -0.5236, 0.0};  // Lift before returning
+        // Blue: joint1=63deg, joint2=-41deg, joint3=12deg
+        drop_position = {1.0996, -0.7156, 0.2094};
+        lift_position = {1.0996, -0.5236, 0.0}; // Lift before returning
       }
       else if (detected_color_ == "green")
       {
         RCLCPP_INFO(get_logger(), "Moving to GREEN drop zone");
-        // Green: joint1=84deg, joint2=-35deg, joint3=-2deg
-        drop_position = {1.4661, -0.6109, -0.0349};
-        lift_position = {1.4661, -0.3491, -0.1745};  // Lift before returning
+        // Green: joint1=86deg, joint2=-31deg, joint3=-7deg
+        drop_position = {1.5010, -0.5411, -0.1222};
+        lift_position = {1.5010, -0.1745, -0.3491}; // Lift before returning
+      }
+      else if (detected_color_ == "yellow")
+      {
+        RCLCPP_INFO(get_logger(), "Moving to YELLOW drop zone");
+        // Yellow: joint1=34deg, joint2=-40deg, joint3=7deg
+        drop_position = {0.5934, -0.6981, 0.1222};
+        lift_position = {0.5934, -0.5236, 0.0873}; // Lift before returning
+      }
+      else if (detected_color_ == "purple")
+      {
+        RCLCPP_INFO(get_logger(), "Moving to PURPLE drop zone");
+        // Purple: joint1=53deg, joint2=-11deg, joint3=-25deg
+        drop_position = {0.9250, -0.1920, -0.4363};
+        lift_position = {0.9250, -0.1745, -0.3491}; // Lift before returning
+      }
+      else if (detected_color_ == "brown")
+      {
+        RCLCPP_INFO(get_logger(), "Moving to BROWN drop zone");
+        // Brown: joint1=83deg, joint2=-3deg, joint3=-36deg
+        drop_position = {1.4486, -0.0524, -0.6283};
+        lift_position = {1.4486, 0.0873, -0.5236}; // Lift before returning
       }
       else
       {
@@ -940,26 +967,26 @@ namespace arduinobot_remote
         drop_position = {0.8203, -1.0996, 0.6458};
         lift_position = {0.8203, -0.7854, 0.3491};
       }
-      
+
       moveToJointPosition(drop_position);
       rclcpp::sleep_for(std::chrono::milliseconds(800));
-      
+
       // For green sphere, wait longer before opening to let it settle
       if (detected_color_ == "green")
       {
         RCLCPP_INFO(get_logger(), "Waiting for sphere to settle");
         rclcpp::sleep_for(std::chrono::milliseconds(500));
       }
-      
+
       RCLCPP_INFO(get_logger(), "Opening gripper to release object");
-      moveGripper({-0.7, 0.7});
+      moveGripper({-0.6807, 0.6807});
       rclcpp::sleep_for(std::chrono::milliseconds(800));
-      
+
       // Lift up to avoid collision with placed objects
       RCLCPP_INFO(get_logger(), "Lifting arm to avoid collision");
       moveToJointPosition(lift_position);
       rclcpp::sleep_for(std::chrono::milliseconds(500));
-      
+
       // For red, add intermediate position to help transition to home
       if (detected_color_ == "red")
       {
@@ -967,7 +994,7 @@ namespace arduinobot_remote
         moveToJointPosition({0.5, -0.5, 0.2});
         rclcpp::sleep_for(std::chrono::milliseconds(400));
       }
-      
+
       RCLCPP_INFO(get_logger(), "Returning to home position");
       moveToJointPosition({0.0, 0.0, 0.0});
 
@@ -1014,7 +1041,7 @@ namespace arduinobot_remote
       {
       case 0:
         moveToJointPosition({0.0, 0.0, 0.0});
-        moveGripper({-0.7, 0.7});
+        moveGripper({-0.6807, 0.6807});
         break;
 
       case 1:
@@ -1051,6 +1078,24 @@ namespace arduinobot_remote
 
       case 9:
         target_color_ = "green";
+        object_detected_.store(false);
+        (void)performScan();
+        break;
+
+      case 10:
+        target_color_ = "yellow";
+        object_detected_.store(false);
+        (void)performScan();
+        break;
+
+      case 11:
+        target_color_ = "purple";
+        object_detected_.store(false);
+        (void)performScan();
+        break;
+
+      case 12:
+        target_color_ = "brown";
         object_detected_.store(false);
         (void)performScan();
         break;

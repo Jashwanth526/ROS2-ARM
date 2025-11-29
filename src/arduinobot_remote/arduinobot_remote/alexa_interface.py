@@ -44,6 +44,12 @@ def detection_callback(msg):
         detected_color = "blue"
     elif "green" in msg_lower:
         detected_color = "green"
+    elif "yellow" in msg_lower:
+        detected_color = "yellow"
+    elif "purple" in msg_lower:
+        detected_color = "purple"
+    elif "brown" in msg_lower:
+        detected_color = "brown"
     
     # Only mark as detected if it matches our target color (or target is "any")
     if "detected" in msg_lower or "found" in msg_lower:
@@ -107,7 +113,7 @@ def alexa_handler():
         intent_name = alexa_request.get('request', {}).get('intent', {}).get('name', '')
 
         response_text = "Hello, Arduino Bot is ready!"
-        task_number = 0
+        task_number = None
 
         if request_type == 'LaunchRequest':
             response_text = "Hi, how can Arduino Bot help you?"
@@ -150,6 +156,21 @@ def alexa_handler():
             task_number = 9
             object_detected = False  # Reset detection flag
             target_scan_color = "green"  # Set target color
+        elif intent_name == 'ScanYellowObjectsIntent':
+            response_text = "Scanning workspace for yellow objects. This will take about 20 seconds."
+            task_number = 10
+            object_detected = False
+            target_scan_color = "yellow"
+        elif intent_name == 'ScanPurpleObjectsIntent':
+            response_text = "Scanning workspace for purple objects. This will take about 20 seconds."
+            task_number = 11
+            object_detected = False
+            target_scan_color = "purple"
+        elif intent_name == 'ScanBrownObjectsIntent':
+            response_text = "Scanning workspace for brown objects. This will take about 20 seconds."
+            task_number = 12
+            object_detected = False
+            target_scan_color = "brown"
         elif intent_name == 'CheckDetectionIntent':
             # New intent to check if object was detected
             if object_detected and last_detection_message:
@@ -162,6 +183,12 @@ def alexa_handler():
                     detected_color = "blue"
                 elif "green" in msg_lower:
                     detected_color = "green"
+                elif "yellow" in msg_lower:
+                    detected_color = "yellow"
+                elif "purple" in msg_lower:
+                    detected_color = "purple"
+                elif "brown" in msg_lower:
+                    detected_color = "brown"
                 
                 if detected_color:
                     response_text = f"Yes! I found a {detected_color} object. You can ask me to pick it now!"
@@ -177,16 +204,16 @@ def alexa_handler():
             slots = alexa_request.get('request', {}).get('intent', {}).get('slots', {})
             color = slots.get('color', {}).get('value', 'blue').lower()
             response_text = f"Arduino Bot is performing pick and place for {color} objects"
-            color_task_map = {'red': 7, 'blue': 8, 'green': 9}
+            color_task_map = {'red': 7, 'blue': 8, 'green': 9, 'yellow': 10, 'purple': 11, 'brown': 12}
             task_number = color_task_map.get(color, 8)
         elif intent_name == 'ScanAndPickIntent':
             # New combined intent: scan then pick
             slots = alexa_request.get('request', {}).get('intent', {}).get('slots', {})
             color = slots.get('color', {}).get('value', 'any').lower()
             
-            if color in ['red', 'blue', 'green']:
+            if color in ['red', 'blue', 'green', 'yellow', 'purple', 'brown']:
                 response_text = f"Scanning for {color} objects. If I find one, I'll pick it up!"
-                color_task_map = {'red': 7, 'blue': 8, 'green': 9}
+                color_task_map = {'red': 7, 'blue': 8, 'green': 9, 'yellow': 10, 'purple': 11, 'brown': 12}
                 scan_task = color_task_map.get(color)
                 # Send scan task
                 send_robot_task(scan_task)

@@ -23,7 +23,11 @@ def generate_launch_description():
     gazebo_resource_path = SetEnvironmentVariable(
         name="GZ_SIM_RESOURCE_PATH",
         value=[
-            str(Path(arduinobot_description).parent.resolve())
+            str(Path(arduinobot_description).parent.resolve()),
+            ":",
+            os.path.join(arduinobot_description, "meshes", "objects"),
+            ":",
+            os.path.expanduser("~/arduinobot_ws/gazebo_models_worlds_collection-master (2)/models")
             ]
         )
     

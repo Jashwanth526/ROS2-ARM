@@ -154,6 +154,69 @@ class WorldMarkersPublisher(Node):
         green_drop_zone.color.a = 0.7
         self.publisher.publish(green_drop_zone)
 
+        # Yellow drop zone
+        yellow_drop_zone = Marker()
+        yellow_drop_zone.header.frame_id = 'world'
+        yellow_drop_zone.header.stamp = self.get_clock().now().to_msg()
+        yellow_drop_zone.ns = 'yellow_drop_zone'
+        yellow_drop_zone.id = 7
+        yellow_drop_zone.type = Marker.CUBE
+        yellow_drop_zone.action = Marker.ADD
+        yellow_drop_zone.pose.position.x = -1.0
+        yellow_drop_zone.pose.position.y = 1.2
+        yellow_drop_zone.pose.position.z = 0.05
+        yellow_drop_zone.pose.orientation.w = 1.0
+        yellow_drop_zone.scale.x = 0.3
+        yellow_drop_zone.scale.y = 0.3
+        yellow_drop_zone.scale.z = 0.1
+        yellow_drop_zone.color.r = 1.0
+        yellow_drop_zone.color.g = 1.0
+        yellow_drop_zone.color.b = 0.0
+        yellow_drop_zone.color.a = 0.7
+        self.publisher.publish(yellow_drop_zone)
+
+        # Purple drop zone
+        purple_drop_zone = Marker()
+        purple_drop_zone.header.frame_id = 'world'
+        purple_drop_zone.header.stamp = self.get_clock().now().to_msg()
+        purple_drop_zone.ns = 'purple_drop_zone'
+        purple_drop_zone.id = 8
+        purple_drop_zone.type = Marker.CUBE
+        purple_drop_zone.action = Marker.ADD
+        purple_drop_zone.pose.position.x = -1.0
+        purple_drop_zone.pose.position.y = 0.6
+        purple_drop_zone.pose.position.z = 0.05
+        purple_drop_zone.pose.orientation.w = 1.0
+        purple_drop_zone.scale.x = 0.3
+        purple_drop_zone.scale.y = 0.3
+        purple_drop_zone.scale.z = 0.1
+        purple_drop_zone.color.r = 0.5
+        purple_drop_zone.color.g = 0.0
+        purple_drop_zone.color.b = 0.5
+        purple_drop_zone.color.a = 0.7
+        self.publisher.publish(purple_drop_zone)
+
+        # Brown drop zone
+        brown_drop_zone = Marker()
+        brown_drop_zone.header.frame_id = 'world'
+        brown_drop_zone.header.stamp = self.get_clock().now().to_msg()
+        brown_drop_zone.ns = 'brown_drop_zone'
+        brown_drop_zone.id = 9
+        brown_drop_zone.type = Marker.CUBE
+        brown_drop_zone.action = Marker.ADD
+        brown_drop_zone.pose.position.x = -1.0
+        brown_drop_zone.pose.position.y = 0.0
+        brown_drop_zone.pose.position.z = 0.05
+        brown_drop_zone.pose.orientation.w = 1.0
+        brown_drop_zone.scale.x = 0.3
+        brown_drop_zone.scale.y = 0.3
+        brown_drop_zone.scale.z = 0.1
+        brown_drop_zone.color.r = 0.6
+        brown_drop_zone.color.g = 0.3
+        brown_drop_zone.color.b = 0.0
+        brown_drop_zone.color.a = 0.7
+        self.publisher.publish(brown_drop_zone)
+
 def main(args=None):
     rclpy.init(args=args)
     node = WorldMarkersPublisher()

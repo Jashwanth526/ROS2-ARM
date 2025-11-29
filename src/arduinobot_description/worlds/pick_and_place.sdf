@@ -63,16 +63,17 @@
             </box>
           </geometry>
           <material>
-            <ambient>0.6 0.4 0.2 1</ambient>
-            <diffuse>0.6 0.4 0.2 1</diffuse>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.6 0.6 0.6 1</diffuse>
+            <specular>0.3 0.3 0.3 1</specular>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Red cube to pick up -->
-    <model name="red_cube">
-      <pose>0.85 0.55 0.79 0 0 0</pose>
+    <!-- Red car object -->
+    <model name="red_object">
+      <pose>1.30 0.95 0.48 0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>0.1</mass>
@@ -85,67 +86,249 @@
         <collision name="collision">
           <geometry>
             <box>
-              <size>0.20 0.20 0.20</size>
+              <size>0.32 0.11 0.075</size>
             </box>
           </geometry>
         </collision>
-        <visual name="visual">
+        <!-- Car body -->
+        <visual name="body">
+          <pose>0 0 0.035 0 0 0</pose>
           <geometry>
             <box>
-              <size>0.20 0.20 0.20</size>
+              <size>0.32 0.11 0.075</size>
             </box>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
             <diffuse>1 0 0 1</diffuse>
-            <specular>1 0 0 1</specular>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <!-- Car cabin -->
+        <visual name="cabin">
+          <pose>-0.03 0 0.09 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.12 0.10 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0 0 1</ambient>
+            <diffuse>0.8 0 0 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <!-- Front wheels -->
+        <visual name="wheel_fl">
+          <pose>0.12 0.06 0 1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.035</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="wheel_fr">
+          <pose>0.12 -0.06 0 1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.035</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <!-- Rear wheels -->
+        <visual name="wheel_rl">
+          <pose>-0.12 0.06 0 1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.035</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="wheel_rr">
+          <pose>-0.12 -0.06 0 1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.035</radius>
+              <length>0.015</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Blue cylinder to pick up -->
-    <model name="blue_cylinder">
-      <pose>1.25 0.85 0.79 0 0 0</pose>
+    <!-- Blue vase object -->
+    <model name="blue_object">
+      <pose>0.90 0.45 0.46 0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>0.1</mass>
           <inertia>
-            <ixx>0.0008</ixx>
-            <iyy>0.0008</iyy>
+            <ixx>0.0005</ixx>
+            <iyy>0.0005</iyy>
             <izz>0.0005</izz>
           </inertia>
         </inertial>
         <collision name="collision">
           <geometry>
             <cylinder>
-              <radius>0.08</radius>
-              <length>0.20</length>
+              <radius>0.074</radius>
+              <length>0.18</length>
             </cylinder>
           </geometry>
         </collision>
-        <visual name="visual">
+        <visual name="base">
+          <pose>0 0 -0.045 0 0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.08</radius>
-              <length>0.20</length>
+              <radius>0.074</radius>
+              <length>0.09</length>
             </cylinder>
           </geometry>
           <material>
             <ambient>0 0 1 1</ambient>
             <diffuse>0 0 1 1</diffuse>
-            <specular>0 0 1 1</specular>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name="top">
+          <pose>0 0 0.045 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.088</radius>
+              <length>0.09</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.2 0.2 1 1</ambient>
+            <diffuse>0.2 0.2 1 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
           </material>
         </visual>
       </link>
     </model>
 
-    <!-- Green sphere to pick up -->
-    <model name="green_sphere">
-      <pose>1.65 1.0 0.79 0 0 0</pose>
+    <!-- Green book object -->
+    <model name="green_object">
+      <pose>0.90 0.95 0.425 0 0 0</pose>
       <link name="link">
         <inertial>
-          <mass>0.08</mass>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0005</ixx>
+            <iyy>0.0005</iyy>
+            <izz>0.0005</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.25 0.12 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="cover">
+          <geometry>
+            <box>
+              <size>0.25 0.12 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name="spine">
+          <pose>0 -0.061 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.25 0.002 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.5 0 1</ambient>
+            <diffuse>0 0.5 0 1</diffuse>
+            <specular>0.3 0.3 0.3 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Yellow mug object -->
+    <model name="yellow_object">
+      <pose>1.30 0.45 0.4065 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0005</ixx>
+            <iyy>0.0005</iyy>
+            <izz>0.0005</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.068</radius>
+              <length>0.113</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="cup_body">
+          <geometry>
+            <cylinder>
+              <radius>0.068</radius>
+              <length>0.113</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name="handle">
+          <pose>0.078 0 0 0 1.57 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.012</radius>
+              <length>0.075</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Brown ball object -->
+    <model name="brown_object">
+      <pose>1.70 0.95 0.45 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
           <inertia>
             <ixx>0.0001</ixx>
             <iyy>0.0001</iyy>
@@ -155,20 +338,85 @@
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>0.12</radius>
+              <radius>0.10</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-              <radius>0.12</radius>
+              <radius>0.10</radius>
             </sphere>
           </geometry>
           <material>
-            <ambient>0 1 0 1</ambient>
-            <diffuse>0 1 0 1</diffuse>
-            <specular>0 1 0 1</specular>
+            <ambient>0.6 0.3 0 1</ambient>
+            <diffuse>0.6 0.3 0 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Purple bottle object -->
+    <model name="purple_object">
+      <pose>1.70 0.45 0.51 0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.0005</ixx>
+            <iyy>0.0005</iyy>
+            <izz>0.0005</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.075</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="bottle_body">
+          <pose>0 0 -0.03 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.082</radius>
+              <length>0.21</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0 0.7 1</ambient>
+            <diffuse>0.7 0 0.7 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name="bottle_neck">
+          <pose>0 0 0.105 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.045</radius>
+              <length>0.06</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.5 0 0.5 1</ambient>
+            <diffuse>0.5 0 0.5 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name="bottle_cap">
+          <pose>0 0 0.150 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.050</radius>
+              <length>0.030</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.3 0 0.3 1</ambient>
+            <diffuse>0.3 0 0.3 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
           </material>
         </visual>
       </link>
@@ -553,6 +801,390 @@
           <material>
             <ambient>0 1 0 0.5</ambient>
             <diffuse>0 1 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Yellow drop zone -->
+    <model name="yellow_drop_zone">
+      <pose>-1.0 1.2 0.05 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 0.7</ambient>
+            <diffuse>1 1 0 0.7</diffuse>
+            <specular>0.5 0.5 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Yellow drop zone walls -->
+    <model name="yellow_wall_front">
+      <pose>-0.85 1.2 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 0.5</ambient>
+            <diffuse>1 1 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="yellow_wall_back">
+      <pose>-1.15 1.2 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 0.5</ambient>
+            <diffuse>1 1 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="yellow_wall_left">
+      <pose>-1.0 1.05 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 0.5</ambient>
+            <diffuse>1 1 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="yellow_wall_right">
+      <pose>-1.0 1.35 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 0.5</ambient>
+            <diffuse>1 1 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Purple drop zone -->
+    <model name="purple_drop_zone">
+      <pose>-1.0 0.6 0.05 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0 0.5 0.7</ambient>
+            <diffuse>0.5 0 0.5 0.7</diffuse>
+            <specular>0.3 0 0.3 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Purple drop zone walls -->
+    <model name="purple_wall_front">
+      <pose>-0.85 0.6 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0 0.5 0.5</ambient>
+            <diffuse>0.5 0 0.5 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="purple_wall_back">
+      <pose>-1.15 0.6 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0 0.5 0.5</ambient>
+            <diffuse>0.5 0 0.5 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="purple_wall_left">
+      <pose>-1.0 0.45 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0 0.5 0.5</ambient>
+            <diffuse>0.5 0 0.5 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="purple_wall_right">
+      <pose>-1.0 0.75 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0 0.5 0.5</ambient>
+            <diffuse>0.5 0 0.5 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Brown drop zone -->
+    <model name="brown_drop_zone">
+      <pose>-1.0 0.0 0.05 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0 0.7</ambient>
+            <diffuse>0.6 0.3 0 0.7</diffuse>
+            <specular>0.3 0.15 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Brown drop zone walls -->
+    <model name="brown_wall_front">
+      <pose>-0.85 0.0 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0 0.5</ambient>
+            <diffuse>0.6 0.3 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="brown_wall_back">
+      <pose>-1.15 0.0 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.02 0.3 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0 0.5</ambient>
+            <diffuse>0.6 0.3 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="brown_wall_left">
+      <pose>-1.0 -0.15 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0 0.5</ambient>
+            <diffuse>0.6 0.3 0 0.5</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="brown_wall_right">
+      <pose>-1.0 0.15 0.125 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.02 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.3 0 0.5</ambient>
+            <diffuse>0.6 0.3 0 0.5</diffuse>
           </material>
         </visual>
       </link>
